@@ -148,7 +148,7 @@ session_start();
               <div class='px-4'>
                 <h3><a href='composant/commande.php'>".$product["libelleMenu"]."</a></h3>
                 <p class='mb-4'>".$product["descriptionMenu"]."</p>
-                <p class='mb-4' style='font-weight:bold; font-size:20px'>".$product["prix"]."</p>
+                <p class='mb-4' style='font-weight:bold; font-size:20px'>".$product["prix"]." <strong> FCFA</strong></p>
                 <div>
                   <a href='composant/commande.php' class='btn btn-black mr-1 rounded-0'>Commander</a>
                 </div>
