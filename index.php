@@ -114,7 +114,7 @@ session_start();
 
             <div class="row mb-4">
               <div class="col-md-7">
-                <h1>Bienvenue chez vous</h1>
+                <h1>Bienvenue à suz'sand</h1>
                 <p class="mb-5 lead">Découvrez votre nouvelle sandwicherie avec son goût esquis et raffinée à l'ivoirienne.</p>
                 <div>
                   <a href="#products-section" class="btn btn-white btn-outline-white py-3 px-5 rounded-0 mb-lg-0 mb-2 d-block d-sm-inline-block">Achetez maintenant</a>
