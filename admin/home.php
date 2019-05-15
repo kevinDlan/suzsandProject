@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="css/dropdown.css">
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-  
+
   <div class="site-wrap">
 
     <div class="site-mobile-menu site-navbar-target">
@@ -39,12 +39,12 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-   
+
     <div class="top-bar py-3 bg-light" id="home-section" style="height: 50px;">
       <div class="container">
         <div class="row align-items-center">
-         
-          <div class="col-6 text-left"> 
+
+          <div class="col-6 text-left">
             <ul class="social-media">
               <li><a target="_blank"  href="https://www.facebook.com/"><span class="icon-facebook"></span></a></li>
               <li><a  target="_blank" href="https://www.twitter.com/"><span class="icon-twitter"></span></a></li>
@@ -57,17 +57,17 @@
               <span class="mr-3"><a href="tel://#"> <span class="icon-phone mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">(+225)  08 59 91 89</span></a></span>
               <span><a href="#"><span class="icon-envelope mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">shop@yourdomain.com</span></a></span>
             </p>
-            
+
           </div>
         </div>
-      </div> 
+      </div>
     </div>
 
     <header class="site-navbar py-4 bg-white js-sticky-header site-navbar-target" role="banner">
-                
+
       <div class="container-fluid" style="height: 80px;">
         <div class="row align-items-center">
-          
+
           <div class="col-6 col-xl-2">
             <h1 class="mb-0 site-logo">
             <a href="/index.php" class="text-black mb-0">
@@ -88,7 +88,7 @@
 
                 <li><a href="commandeList.php" class="nav-link">
                       Commandes
-                      <?php 
+                      <?php
                         $var = 5;
                                 if ($var > 0){ echo"<sup style ='font-size:15px; font-weight:bold;'><span class='badge badge-pill badge-danger'>".$var."</span></sup>";
                                 }else{
@@ -98,7 +98,7 @@
                     </a></li>
                 <li><a href="contactusList.php" class="nav-link">
                   Messages client
-                  <?php 
+                  <?php
                         $var = 2;
                                 if ($var > 0){ echo"<sup style ='font-size:15px; font-weight:bold;'><span class='badge badge-pill badge-danger'>".$var."</span></sup>";
                                 }else{
@@ -116,7 +116,7 @@
                        <i class="fa fa-caret-down"></i>
                        </a>
                          <div class="dropdown-content">
-                            <a href="addItemMenu.php">Ajouter de produits</a>
+                            <a href="addItemMenu.php" class="dropdown-item">Ajouter de produits</a>
                             <a href="addItemMenu.php">Mise a jours des données du produit</a>
                             <a href="addItemMenu.php">Suppression d'un produit</a>
                           </div>
@@ -131,7 +131,7 @@
 
         </div>
       </div>
-      
+
     </header>
 
     <footer class="site-footer bg-white">
@@ -161,7 +161,7 @@
               </div>
             </div>
           </div>
-          
+
         </div>
         <div class="row pt-5 mt-5 text-center">
           <div class="col-md-12">
@@ -173,7 +173,7 @@
       </p>
             </div>
           </div>
-          
+
         </div>
       </div>
     </footer>
@@ -194,7 +194,7 @@
   <script src="js/jquery.fancybox.min.js"></script>
   <script src="js/jquery.sticky.js"></script>
 
-  
+
   <script src="js/main.js"></script>
   <script>
     $("#closeAlert").click(function(){

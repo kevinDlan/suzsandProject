@@ -97,7 +97,7 @@
                                 ?>
                     </a></li>
 
-                <li><a href="" class="nav-link">
+                <li><a href="contactusList.php" class="nav-link">
                   Messages client
                   <?php
                         $var = 2;
