@@ -1,4 +1,7 @@
-<?php  session_start(); ?>
+<?php
+include("../../controller/selectProductForUpDate.php");
+  session_start();
+   ?>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -7,25 +10,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="../images/n.jpg" rel="icon" type="image/jpg">
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="../fonts/icomoon/style.css">
+    <link rel="stylesheet" href="../../fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/jquery-ui.css">
-    <link rel="stylesheet" href="../css/owl.carousel.min.css">
-    <link rel="stylesheet" href="../css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/jquery-ui.css">
+    <link rel="stylesheet" href="../../css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/jquery.fancybox.min.css">
 
-    <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="../../css/bootstrap-datepicker.css">
 
-    <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="../../fonts/flaticon/font/flaticon.css">
 
-    <link rel="stylesheet" href="../css/aos.css">
-
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../css/aos.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/dropdown.css">
+    <link rel="stylesheet" href="../css/dropdown.css">
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
@@ -70,22 +72,20 @@
 
           <div class="col-6 col-xl-2">
             <h1 class="mb-0 site-logo">
-            <a href="/index.php" class="text-black mb-0">
-              <img src="../images/n.jpg" class="logo">
+            <a href="../home.php" class="text-black mb-0">
+              <img src="../../images/n.jpg" class="logo">
             </a></h1>
           </div>
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
 
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-               <li>
-                    <a href="/admin/home.php">
+              <li>
+                    <a href="/admin/home.php" class="nav-link">
                     <i class="fa fa-home"></i>
-                     Accueil
+                      Accueil
                       </a>
                </li>
-
-
                 <li><a href="commandeList.php" class="nav-link">
                       Commandes
                       <?php
@@ -96,6 +96,7 @@
                                      }
                                 ?>
                     </a></li>
+
                 <li><a href="contactusList.php" class="nav-link">
                   Messages client
                   <?php
@@ -107,18 +108,27 @@
                   ?>
                 </a></li>
                 <li>
-                    <a href="newletterlist.php" class="nav-link">Client New Letters</a>
+                    <a href="newletterlist.php" class="nav-link">
+                         Client New Letters
+                         <?php
+                        $var = 2;
+                                if ($var > 0){ echo"<sup style ='font-size:15px; font-weight:bold;'><span class='badge badge-pill badge-danger'>".$var."</span></sup>";
+                                }else{
+
+                                     }
+                  ?>
+                    </a>
                 </li>
                  <li>
                     <div class="dropdown">
-                       <a href="" class="nav-link dropdownlink">
+                       <a href=""  class="nav-link dropdownlink">
                        Traitement produits
                        <i class="fa fa-caret-down"></i>
                        </a>
-                         <div class="dropdown-content">
-                            <a href="addItemMenu.php" class="dropdown-item">Ajouter de produits</a>
-                            <a href="/admin/traitementproduit/updateproduct.php">Mise a jours des données du produit</a>
-                            <a href="addItemMenu.php">Suppression d'un produit</a>
+                          <div class="dropdown-content">
+                            <a href="addItemMenu.php" class="nav-link">Ajouter de produits</a>
+                            <a href="addItemMenu.php" class="nav-link">Mise a jours des données du produit</a>
+                            <a href="addItemMenu.php" class="nav-link">Suppression d'un produit</a>
                           </div>
                     </div>
                 </li>
@@ -133,7 +143,63 @@
       </div>
 
     </header>
+     <div class="container-fluid">
+       <div class="search-form">
+             <div class="container-fluid  col-md-6" style="margin-top:200px;">
+              <form class="" action="index.html" method="post">
+                <div class="input-group mb-3">
+                  <input type="search" class="form-control" placeholder="Veuillez entrer le code du produit a modifié" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                       <button type="submit" class="btn btn-outline-primary" id="button-addon2"><span style="font-size:25px;" class="icon-search"></span></button>
+                   </div>
+                </div>
+              </form>
+           </div>
+         </div>
+         <div class="product_table">
+           <table class="table-responsive">
+             <table class="table table-hover">
+              <thead class="thead-light">
+               <tr>
+                 <th scope="col">Code du repas</th>
+                 <th scope="col">Libelle du repas</th>
+                 <th scope="col">Description du repas</th>
+                 <th scope="col">Prix du repas</th>
+                 <th scope="col">Image du repas</th>
+                 <th scope="col"></th>
+               </tr>
+              </thead>
 
+
+              </form>
+            <?php
+       echo "<form class='updateForm' action='' method='post' enctype='multipart/form-data'>";
+          foreach ($data as $product){
+            echo "
+             <tbody>
+               <tr>
+                <th scope='row'>
+                       <input name='repas_code' type='text' value='".$product['codeMenu']."' readonly style='border:none;'/><i id='edit_code_pens' class='fa fa-pen'></i>
+                </th>
+                   <td><input name='libelle_repas' type='text' value='".$product['libelleMenu']."' readonly style='border:none;'/><i id='edit_descip_pens' class='fa fa-pen'></i></td>
+                   <td><input name='description_repas' type='textarea'  rows='3' value='".$product['descriptionMenu']."' readonly style='border:none;'/><i id='edit_libelle_pens' class='fa fa-pen'></i></td>
+                   <td><input name='prix_repas' class='display-none' type='text' value='".$product['prix']."' readonly style='border:none;'/><i id='edit_prix_pens' class='fa fa-pen'></i></td>
+                   <td>
+                      <img src='../../imageRepas/".$product['photoMenu']."' width='100px' height='100px' alt=''>
+                      <input name='img_repas' style='display:none' type='file'/><i id='edit_img_pens' class='fa fa-pen'></i>
+                   </td>
+                   <td>
+                      <button class='btn btn-primary sm-1' type='submit' name='button' >Enregister</button>
+                   </td>
+               </tr>
+             </tbody>";
+             }
+        echo "</form>";
+              ?>
+         </table>
+       </table>
+         </div>
+     </div>
     <footer class="site-footer bg-white">
       <div class="container">
         <div class="row">
@@ -180,22 +246,22 @@
 
   </div> <!-- .site-wrap -->
 
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/jquery-ui.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/jquery.countdown.min.js"></script>
-  <script src="js/bootstrap-datepicker.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.fancybox.min.js"></script>
-  <script src="js/jquery.sticky.js"></script>
+  <script src="../../js/jquery-3.3.1.min.js"></script>
+  <script src="../../js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="../../js/jquery-ui.js"></script>
+  <script src="../../js/popper.min.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/owl.carousel.min.js"></script>
+  <script src="../../js/jquery.stellar.min.js"></script>
+  <script src="../../js/jquery.countdown.min.js"></script>
+  <script src="../../js/bootstrap-datepicker.min.js"></script>
+  <script src="../../js/jquery.easing.1.3.js"></script>
+  <script src="../../js/aos.js"></script>
+  <script src="../../js/jquery.fancybox.min.js"></script>
+  <script src="../../js/jquery.sticky.js"></script>
 
 
-  <script src="js/main.js"></script>
+  <script src="../../js/main.js"></script>
   <script>
     $("#closeAlert").click(function(){
       $("#alertSpace").slideUp();

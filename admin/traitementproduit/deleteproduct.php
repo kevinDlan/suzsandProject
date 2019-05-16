@@ -1,4 +1,6 @@
-<?php  session_start(); ?>
+<?php
+  require_once('../controller/selectnewLetterController.php');
+  session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -78,14 +80,12 @@
             <nav class="site-navigation position-relative text-right" role="navigation">
 
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-               <li>
-                    <a href="/admin/home.php">
+              <li>
+                    <a href="/admin/home.php" class="nav-link">
                     <i class="fa fa-home"></i>
-                     Accueil
+                      Accueil
                       </a>
                </li>
-
-
                 <li><a href="commandeList.php" class="nav-link">
                       Commandes
                       <?php
@@ -96,6 +96,7 @@
                                      }
                                 ?>
                     </a></li>
+
                 <li><a href="contactusList.php" class="nav-link">
                   Messages client
                   <?php
@@ -107,18 +108,27 @@
                   ?>
                 </a></li>
                 <li>
-                    <a href="newletterlist.php" class="nav-link">Client New Letters</a>
+                    <a href="newletterlist.php" class="nav-link">
+                         Client New Letters
+                         <?php
+                        $var = 2;
+                                if ($var > 0){ echo"<sup style ='font-size:15px; font-weight:bold;'><span class='badge badge-pill badge-danger'>".$var."</span></sup>";
+                                }else{
+
+                                     }
+                  ?>
+                    </a>
                 </li>
                  <li>
                     <div class="dropdown">
-                       <a href="" class="nav-link dropdownlink">
+                       <a href=""  class="nav-link dropdownlink">
                        Traitement produits
                        <i class="fa fa-caret-down"></i>
                        </a>
-                         <div class="dropdown-content">
-                            <a href="addItemMenu.php" class="dropdown-item">Ajouter de produits</a>
-                            <a href="/admin/traitementproduit/updateproduct.php">Mise a jours des données du produit</a>
-                            <a href="addItemMenu.php">Suppression d'un produit</a>
+                          <div class="dropdown-content">
+                            <a href="addItemMenu.php" class="nav-link">Ajouter de produits</a>
+                            <a href="addItemMenu.php" class="nav-link">Mise a jours des données du produit</a>
+                            <a href="addItemMenu.php" class="nav-link">Suppression d'un produit</a>
                           </div>
                     </div>
                 </li>
@@ -133,7 +143,33 @@
       </div>
 
     </header>
-
+    <div class="newletterlist">
+        <h3 class="text-center"> Liste de Email des personnes souhaitant etre informé des nouvelle recettes</h3>
+          <div class="container-fluid  col-md-6" style="margin-top:100px;">
+          <table class="table-responsive">
+            <table class="table table-hover">
+             <thead class="thead-light">
+              <tr>
+                <th scope="col">Email</th>
+              </tr>
+             </thead>
+            <tbody>
+           <?php
+               foreach ($data as $emails) {
+                 echo "
+                 <tr>
+                     <td>
+                          ".$emails["email"]."
+                    </td>
+                 </tr>
+                      ";
+               }
+               ?>
+            </tbody>
+        </table>
+      </table>
+        </div>
+      </div>
     <footer class="site-footer bg-white">
       <div class="container">
         <div class="row">
