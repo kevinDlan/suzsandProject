@@ -1,6 +1,12 @@
 <?php
-include("../../controller/selectProductForUpDate.php");
   session_start();
+  if(isset($_SESSION['adminnom'])  AND isset($_SESSION['adminprenom']))
+  {
+      include("../../controller/selectProductForUpDate.php");
+  }
+  else{
+        header('Location:../index.php');
+      }
    ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -117,6 +123,17 @@ include("../../controller/selectProductForUpDate.php");
                           </div>
                     </div>
                 </li>
+                <li>
+                   <div class="dropdown">
+                      <a href="" class="nav-link dropdown-item">
+                      <?php echo $_SESSION['adminnom']; ?>
+                      <i class="fa fa-caret-down"></i>
+                      </a>
+                        <div class="dropdown-content">
+                           <a href="../logout.php" class="dropdown-item">Logout</a>
+                        </div>
+                   </div>
+               </li>
               </ul>
             </nav>
           </div>
@@ -158,13 +175,15 @@ include("../../controller/selectProductForUpDate.php");
 
               </form>
             <?php
-       echo "<form class='deleteForm' action='' method='post'>";
+       //echo "";
           foreach ($data as $product){
             echo "
+          <div class='productRow'>
+            <form id='deleteForm' class='deleteForm' action='' method='post'>
              <tbody>
-                   <input name='codeProduit' type='text' style='display:none' value'".$product['codeMenu']."'/>
-                   <input name='imgProduit' type='text' style='display:none' value'".$product['photoMenu']."'/>
-               <tr class='".$product['id']."'>
+                   <input name='codeProduit' type='text' style='display:none' value='".$product['codeMenu']."'/>
+                   <input name='imgProduit' type='text' style='display:none' value='".$product['photoMenu']."'/>
+               <tr class='".$product['codeMenu']."'>
                 <th scope='row'>
                        ".$product['codeMenu']."
                 </th>
@@ -181,12 +200,14 @@ include("../../controller/selectProductForUpDate.php");
                       <img src='../../imageRepas/".$product['photoMenu']."' width='100px' height='100px' alt=''>
                    </td>
                    <td>
-                      <button class='btn btn-primary sm-1' type='submit' name='button' >Supprimer</button>
+                      <button  class='btn btn-primary sm-1' type='submit' name='button' >Supprimer</button>
                    </td>
                </tr>
-             </tbody>";
+             </tbody>
+             </form>
+            </div>";
              }
-        echo "</form>";
+        //echo "";
               ?>
          </table>
        </table>
@@ -256,7 +277,28 @@ include("../../controller/selectProductForUpDate.php");
   <script src="../../js/main.js"></script>
   <script src="../js/notification.js"></script>
   <script>
-      
+      $('.deleteForm').on('submit',
+        function(event){
+          event.preventDefault();
+          var data_form = $(this).serialize();
+          $.ajax({
+            type:'POST',
+            url:'../../controller/deleteProduct.php',
+            data:data_form,
+            success:function(data){
+              if(data == 'delete_success'){
+                 $('.productRow').remove();
+                 alert('Suppression effectuer avec succès !');
+              }else {
+                     alert(data);
+                    }
+            },
+            error:function(data){
+              alert('Error');
+            }
+          });
+        }
+      );
   </script>
   </body>
 </html>

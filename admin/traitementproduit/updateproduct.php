@@ -1,6 +1,12 @@
 <?php
-include("../../controller/selectProductForUpDate.php");
   session_start();
+  if(isset($_SESSION['adminnom'])  AND isset($_SESSION['adminprenom']))
+  {
+      include("../../controller/selectProductForUpDate.php");
+  }
+  else{
+        header('Location:../index.php');
+      }
    ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -119,6 +125,17 @@ include("../../controller/selectProductForUpDate.php");
                           </div>
                     </div>
                 </li>
+                <li>
+                   <div class="dropdown">
+                      <a href="" class="nav-link dropdown-item">
+                      <?php echo $_SESSION['adminnom']; ?>
+                      <i class="fa fa-caret-down"></i>
+                      </a>
+                        <div class="dropdown-content">
+                           <a href="../logout.php" class="dropdown-item">Logout</a>
+                        </div>
+                   </div>
+               </li>
               </ul>
             </nav>
           </div>
@@ -160,9 +177,9 @@ include("../../controller/selectProductForUpDate.php");
 
               </form>
             <?php
-       echo "<form class='updateForm' action='' method='post' enctype='multipart/form-data'>";
-          foreach ($data as $product){
+      foreach ($data as $product){
             echo "
+          <form class='updateForm' action='' method='post' enctype='multipart/form-data'>
              <tbody>
                <tr class='updated'>
                 <th class='rowCode' scope='row'>
@@ -186,12 +203,12 @@ include("../../controller/selectProductForUpDate.php");
                       <input id='img' name='img_repas' style='display:none' type='file'/><i id='edit_img_pens' onclick='editImg(this);' class='fa fa-pen'></i>
                    </td>
                    <td>
-                      <button class='btn btn-primary sm-1' type='submit' disabled name='button' >Enregister</button>
+                      <button class='btn btn-primary sm-1' type='submit' name='button' >Enregister</button>
                    </td>
                </tr>
-             </tbody>";
+             </tbody>
+            </form>";
              }
-        echo "</form>";
               ?>
          </table>
        </table>
@@ -272,6 +289,31 @@ include("../../controller/selectProductForUpDate.php");
         function editPrix(x){
             $(x).parents('.rowPrix').children("#prix").removeAttr('readonly').focus();
           }
+
+          //send data with ajax methode
+          $('.updateForm').on('submit',
+            function(event){
+              event.preventDefault();
+              alert('POK');
+              var data_form = $(this).serialize();
+              $.ajax({
+                type:'POST',
+                url:'../../controller/updateProduct.php',
+                data:data_form,
+                success:function(data){
+                  if(data == 'delete_success'){
+                     //$('.productRow').remove();
+                     alert('Mise a jours des données effectuée avec succès !');
+                  }else {
+                         alert(data);
+                        }
+                },
+                error:function(data){
+                  alert('Error');
+                }
+              });
+            }
+          );
   </script>
   </body>
 </html>
