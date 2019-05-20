@@ -64,6 +64,10 @@
    
         }
 
+        if (isset($_POST['prix'])) 
+        {
+          $prixUnitaire = htmlspecialchars($_POST['prix']);
+        }
         
         if (isset($_POST['nombre_plats'])) 
         {
@@ -71,7 +75,7 @@
           {
             $nombre_plats = htmlspecialchars($_POST['nombre_plats']);
 
-            $prix = $nombre_plats * $_POST["prix"];
+            $prix = $nombre_plats * $prixUnitaire;
             
           }
           else
@@ -93,22 +97,15 @@
         if ($isSuccess) 
         {
           
-            session_start();
-            $_SESSION['valide'] = true;
+            
           
 
-          try
-          {
-            $bdd = new PDO('mysql:host=localhost;dbname=suzsand_db','root','dylan7729');
-          }
-          catch(Exception $e)
-          {
-            die('Erreur :'.$e->getMessage());
-          }
+          include('../bd/connexion.php');
 
-          /*
-          $req = $bdd->prepare('INSERT INTO commande(nom,contact,ville_livraison,quartier_livraison,articleCommande,nombre_plats,prixArticle,dateCommande)
-            VALUES(:nom,:contact,:ville_livraison,:quartier_livraison,:articleCommande,:nombre_plats,:prixArticle,NOW())
+          session_start();
+          $_SESSION['vaide'] = true;
+         /* $req = $bdd->prepare('INSERT INTO commande(nom,contact,ville_livraison,quartier_livraison,articleCommande,nombre_plats,prixUnitaire,prixTotal,dateCommande)
+            VALUES(:nom,:contact,:ville_livraison,:quartier_livraison,:articleCommande,:nombre_plats,:prixUnitaire,:prixTotal,NOW())
             ');
 
           $req->execute(array(
@@ -119,16 +116,17 @@
                 'quartier_livraison' => $quartier,
                 'articleCommande' => $libelleMenu,
                 'nombre_plats' => $nombre_plats,
-                'prixArticle' => $prix
+                'prixUnitaire' => $prixUnitaire,
+                'prixTotal' => $prix,
                 
             
 
 
           ));
+          
           */
-
-
-          header('Location: ../index.php?valide');
+          header('Location: ../index.php');
+          
           
           
           
@@ -293,11 +291,15 @@
                           <td><strong>Nombres de plats :</strong> </td><td><input type="text" style="text-align: center;" size="25" value="<?php echo $nombre_plats; ?>" readonly></td>
                         </tr>
                         <tr>
+                          <td><strong>Prix unitaire :</strong> </td><td><input type="text" style="text-align: center;" size="25" value="<?php echo $prixUnitaire;?>" readonly></td>
+                        </tr>
+                        <tr>
                           <td><strong>Prix Total :</strong> </td><td><input type="text" style="text-align: center;" size="25" value="<?php echo $prix;?>" readonly></td>
                         </tr>
                         <tr>
                           <td><strong>Repas :</strong> </td><td><input type="text" style="text-align: center;" size="25" value="<?php echo $libelleMenu;?>" readonly></td>
                         </tr>
+                        
                         <tr>
                           <td></td><td><a href="../index.php#products-section" style="font-size: 15px; margin-top: 15px;" class="btn btn-black mr-1 ">Retour</a><button type="submit" style="font-size: 15px; margin-top: 15px;" class="btn btn-black mr-1">Confirmer</button></td>
                         </tr>

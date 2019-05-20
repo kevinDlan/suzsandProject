@@ -23,44 +23,107 @@ session_start();
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
 
     <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 
     <link rel="stylesheet" href="css/aos.css">
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/commande.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <script  src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+    $(function() {  
+      $("#popModel").modal('show');
+    });
+
+    $(function() {  
+      $("#popModel2").modal('show');
+    });
+    </script>
 
   </head>
   
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
+    <?php if (isset($_SESSION['vaide'])) { ?>
+      
     
-
-   <div class="row" style="">
-     <div class="col-md-8 mx-auto">
-       <div class="alert alert-success alert-dismissible fade show text-center" role="alert" style=" display: <?php 
-        if ($_SESSION['valide']) 
-        {
-            echo "block"; 
-        }
-        else
-        {
-          echo "none";
-        }
-        ?>
-      ;">
-        <strong>Bien joué!</strong> Votre commande a bien été enregistré.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+    <div id="popModel" class="modal fade" role="dialog" style="color: #5AC868;">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        
       </div>
-     </div>
-   </div>
-     
+      <div class="modal-body" style="color: #5AC868;">
+        <p class="text-center">
+          <i class="far fa-check-circle fa-10x"></i>
+          
+        </p>
+        <h2 class="text-center">
+          Votre commande a bien été enregistrer !
+        </h2>
+        
+
+      </div>
+      <div class="modal-footer">
+        
+        <button type="submit" data-dismiss="modal" style="font-size: 15px; margin-top: 15px;" class="btn btn-black mr-1">Fermer</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+  <?php }; 
+
+  session_destroy();
+
+  ?>
 
 
 
+  <?php if (isset($_GET['valide'])) { ?>
+      
+    
+    <div id="popModel2" class="modal fade" role="dialog" style="color: #ff4949;">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        
+      </div>
+      <div class="modal-body" >
+        <p class="text-center">
+          <img src="images/prohibition.png" height="150px" width="150px">
+          
+        </p>
+        <h1 class="text-center">
+          Erreur de commande !
+        </h1>
+        
+
+      </div>
+      <div class="modal-footer">
+        
+        <button type="submit" data-dismiss="modal" style="font-size: 15px; margin-top: 15px;" class="btn btn-black mr-1">Fermer</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+  <?php }; 
+
+  
+
+  ?>
 
 
+
+ 
 
   <div class="site-wrap">
 
