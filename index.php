@@ -89,9 +89,6 @@ session_start();
                 <li><a href="#testimonials-section" class="nav-link">Temoignage</a></li>
 
                 <li><a href="#contact-section" class="nav-link">Contactez-nous</a></li>
-
-                <li><a href="authentification/login.php" class="nav-link">Se connecter</a></li>
-
               </ul>
             </nav>
           </div>
@@ -143,7 +140,7 @@ session_start();
           <div class='col-lg-4 col-md-6 mb-5'>
             <div class='product-item'>
               <figure>
-                <img src='/imageRepas/".$product["photoMenu"]."' alt='Image' class='img-fluid'>
+                <img src='imageRepas/".$product["photoMenu"]."' alt='Image' class='img-fluid'>
               </figure>
               <div class='px-4'>
                 <h3><a href='composant/commande.php'>".$product["libelleMenu"]."</a></h3>
