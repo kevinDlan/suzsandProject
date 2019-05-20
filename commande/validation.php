@@ -1,7 +1,6 @@
 <?php
 
-      $name = $tel = $ville = $quartier = $nombre_plats = $prix ="";
-      $nameError = $telError = $villeError = $quartierError = $nombre_platsError = $prixError ="";
+      
       $isSuccess = false;
 
 
@@ -17,7 +16,7 @@
           }
           else
           {
-            $nameError = "Nom et prénom incorect";
+            
             $isSuccess = false;
           }
    
@@ -31,7 +30,7 @@
           }
           else
           {
-            $telError = "Numéro incorect";
+            
             $isSuccess = false;
           }
    
@@ -45,7 +44,7 @@
           }
           else
           {
-            $villeError = "ville incorect";
+            
             $isSuccess = false;
           }
    
@@ -59,89 +58,82 @@
           }
           else
           {
-            $telError = "quartier incorect";
-            $isSuccess = false;
-          }
-   
-        }
-
-        if (isset($_GET['sandwichs1'])) 
-        { 
             
-            $prix_inutaire = 1000;
-          
-        }
-        if (isset($_GET['sandwichs2'])) 
-        { 
-            
-            $prix_inutaire = 2000;
-          
-        }
-        if (isset($_GET['sandwichs3'])) 
-        { 
-            
-            $prix_inutaire = 3000;
-          
-        }
-        if (isset($_GET['sandwichs4'])) 
-        { 
-            
-            $prix_inutaire = 4000;
-          
-        }
-        if (isset($_GET['sandwichs5'])) 
-        { 
-            
-            $prix_inutaire = 5000;
-          
-        }
-        if (isset($_GET['sandwichs6'])) 
-        { 
-            
-            $prix_inutaire = 6000;
-          
-        }
-        if (isset($_POST['nombre_plats'])) 
-        {
-          if (preg_match("#^[0-9]{1,}$#", $_POST['nombre_plats'])) 
-          {
-            $nombre_plats = htmlspecialchars($_POST['nombre_plats']);
-
-            $prix = $nombre_plats * $prix_inutaire;
-          }
-          else
-          {
-            $nombre_platsError = "Numéro incorect";
             $isSuccess = false;
           }
    
         }
 
         
+        if (isset($_POST['nombre_plats'])) 
+        {
+          if (preg_match("#^[0-9]{1,}$#", $_POST['nombre_plats'])) 
+          {
+            $nombre_plats = htmlspecialchars($_POST['nombre_plats']);
+
+            $prix = $nombre_plats * $_POST["prix"];
+            
+          }
+          else
+          {
+            
+            $isSuccess = false;
+          }
+   
+        }
+
+        if (isset($_POST['libelleMenu'])) 
+        {
+          $libelleMenu = htmlspecialchars($_POST['libelleMenu']);
+        }
+
+
+
 
         if ($isSuccess) 
         {
-          session_start();
+          
+            session_start();
+            $_SESSION['valide'] = true;
+          
 
-          $_SESSION['name'] = $name;
-          $_SESSION['tel'] = $tel;
-          $_SESSION['ville'] = $ville;
-          $_SESSION['quartier'] = $quartier;
-          $_SESSION['nombre_plats'] = $nombre_plats;
-          $_SESSION['prix'] = $prix;
+          try
+          {
+            $bdd = new PDO('mysql:host=localhost;dbname=suzsand_db','root','dylan7729');
+          }
+          catch(Exception $e)
+          {
+            die('Erreur :'.$e->getMessage());
+          }
+
+          /*
+          $req = $bdd->prepare('INSERT INTO commande(nom,contact,ville_livraison,quartier_livraison,articleCommande,nombre_plats,prixArticle,dateCommande)
+            VALUES(:nom,:contact,:ville_livraison,:quartier_livraison,:articleCommande,:nombre_plats,:prixArticle,NOW())
+            ');
+
+          $req->execute(array(
+
+                'nom' => $name,
+                'contact' => $tel,
+                'ville_livraison' => $ville,
+                'quartier_livraison' => $quartier,
+                'articleCommande' => $libelleMenu,
+                'nombre_plats' => $nombre_plats,
+                'prixArticle' => $prix
+                
+            
+
+
+          ));
+          */
+
+
+          header('Location: ../index.php?valide');
+          
+          
           
         }
-        else
-        {
-          $_SESSION['nameError'] = $nameError;
-          $_SESSION['telError'] = $telError;
-          $_SESSION['villeError'] = $villeError;
-          $_SESSION['quartierError'] = $quartierError;
-          $_SESSION['nombre_platsError'] = $nombre_platsError;
-          $_SESSION['prixError'] = $prixError;
-          header('Location: commande.php?invalide=true');
-
-        }
+        
       }
 
       
@@ -160,7 +152,7 @@
     
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="../fonts/icomoon/style.css">
-
+    <link href="../images/n.jpg" rel="icon" type="image/jpg">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/jquery-ui.css">
     <link rel="stylesheet" href="../css/owl.carousel.min.css">
@@ -176,6 +168,7 @@
     <link rel="stylesheet" href="../css/aos.css">
 
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="commande.css">
     
   </head>
@@ -229,7 +222,7 @@
           
           <div class="col-6 col-xl-2">
             <h1 class="mb-0 site-logo"><a href="index.html" class="text-black mb-0">
-              <img src="../images/suzsand/12.png" style="width: 100px; height: 100px;">
+              <img src="../images/n.jpg" class="logo">
             </a></h1>
           </div>
           <div class="col-12 col-md-10 d-none d-xl-block">
@@ -265,19 +258,20 @@
     
 
           <div class="container">
-            <div class="row" style="padding-bottom: 50px; border-right: 3px dashed #f16821; border-left: 3px dashed #f16821; border-bottom: 3px dashed #f16821; color: #212529; font-size: 20px;">
+            <div class="row" style="padding-bottom: 50px; border: 3px dashed #f16821; color: #212529;">
               <div class="col-md-12">
                 <div class="row">
               <div class="col-md-5 mx-auto">
-                <p id="thank-you"  style="text-align: center; text-transform: uppercase; font-weight: bold;">Confirmer les informations suivantes afin de valider la commande !
+                <p id="thank-you"  style="font-size: 20px; text-align: center; text-transform: uppercase; font-weight: bold;">Confirmer les informations suivantes afin de valider la commande !
                 </p>
               </div>
                
             </div>
             <div class="row">
               <div class="col-md-5 mx-auto">
-                <form method="post" class="mx-auto"  action="commande.php?valide=true" class=" mx-auto" style="font-size: 15px">
+                <form method="post" class="mx-auto"  action="../index.php" class=" mx-auto" style="font-size: 15px">
                     <p style="font-size: 22px">
+
                     <table>
                       
                         <tr>
@@ -299,10 +293,13 @@
                           <td><strong>Nombres de plats :</strong> </td><td><input type="text" style="text-align: center;" size="25" value="<?php echo $nombre_plats; ?>" readonly></td>
                         </tr>
                         <tr>
-                          <td><strong>Prix Total :</strong> </td><td><input type="text" style="text-align: center;" size="25" value="<?php echo $prix." FCFA"; ?>" readonly></td>
+                          <td><strong>Prix Total :</strong> </td><td><input type="text" style="text-align: center;" size="25" value="<?php echo $prix;?>" readonly></td>
                         </tr>
                         <tr>
-                          <td></td><td><a href="commande.php" style="font-size: 15px; margin-top: 15px;" class="btn btn-black mr-1 ">Retour</a><button type="submit" style="font-size: 15px; margin-top: 15px;" class="btn btn-black mr-1">Confirmer</button></td>
+                          <td><strong>Repas :</strong> </td><td><input type="text" style="text-align: center;" size="25" value="<?php echo $libelleMenu;?>" readonly></td>
+                        </tr>
+                        <tr>
+                          <td></td><td><a href="../index.php#products-section" style="font-size: 15px; margin-top: 15px;" class="btn btn-black mr-1 ">Retour</a><button type="submit" style="font-size: 15px; margin-top: 15px;" class="btn btn-black mr-1">Confirmer</button></td>
                         </tr>
                       
                     </table>
@@ -313,28 +310,7 @@
             </div>
           </div>
 
-            
-           
-            
-            
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-               
             </div>
 
               
@@ -420,6 +396,12 @@
     </footer>
 
   </div>
+
+
+
+  
+
+
 
   
 

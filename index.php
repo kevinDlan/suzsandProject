@@ -27,9 +27,40 @@ session_start();
     <link rel="stylesheet" href="css/aos.css">
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/commande.css">
 
   </head>
+  
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+    
+
+   <div class="row" style="">
+     <div class="col-md-8 mx-auto">
+       <div class="alert alert-success alert-dismissible fade show text-center" role="alert" style=" display: <?php 
+        if ($_SESSION['valide']) 
+        {
+            echo "block"; 
+        }
+        else
+        {
+          echo "none";
+        }
+        ?>
+      ;">
+        <strong>Bien joué!</strong> Votre commande a bien été enregistré.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+     </div>
+   </div>
+     
+
+
+
+
+
 
   <div class="site-wrap">
 
@@ -90,7 +121,7 @@ session_start();
 
                 <li><a href="#contact-section" class="nav-link">Contactez-nous</a></li>
 
-                <li><a href="authentification/login.php" class="nav-link">Se connecter</a></li>
+                
 
               </ul>
             </nav>
@@ -135,30 +166,42 @@ session_start();
         </div>
         <div class="row">
 
-      <?php
+        <?php
            foreach ($data as $product)
         {
+
+          
 
           echo"
           <div class='col-lg-4 col-md-6 mb-5'>
             <div class='product-item'>
               <figure>
-                <img src='/imageRepas/".$product["photoMenu"]."' alt='Image' class='img-fluid'>
+                <img src='imageRepas/".$product["photoMenu"]."' alt='Image' class='img-fluid'>
               </figure>
               <div class='px-4'>
-                <h3><a href='composant/commande.php'>".$product["libelleMenu"]."</a></h3>
+                <h3><a href=''>".$product["libelleMenu"]."</a></h3>
                 <p class='mb-4'>".$product["descriptionMenu"]."</p>
                 <p class='mb-4' style='font-weight:bold; font-size:20px'>".$product["prix"]." <strong> FCFA</strong></p>
                 <div>
-                  <a href='composant/commande.php' class='btn btn-black mr-1 rounded-0'>Commander</a>
+                  <form method='post' action='commande/commande.php'>
+                    <input type='hidden' name='photoMenu' value='".$product["photoMenu"]."'>
+                    <input type='hidden' name='libelleMenu' value='".$product["libelleMenu"]."'>
+                    <input type='hidden' name='prix' value='".$product["prix"]."'>
+                    <input type='hidden' name='descriptionMenu' value='".$product["descriptionMenu"]."'>
+                    <button type='submit' class='btn btn-black mr-1 rounded-0'>Commander</button>
+                  </form>
+
                 </div>
               </div>
             </div>
           </div>
+
             ";
+
         }
        ?>
       </div>
+    </div>
     <div class="site-blocks-cover inner-page-cover overlay get-notification"  style="background-image: url(images/suzsand/sand.jpg); background-attachment: fixed;" data-aos="fade">
       <div class="container">
 
@@ -175,7 +218,7 @@ session_start();
 
       </div>
     </div>
-
+  </div>
 
 
 
@@ -441,7 +484,7 @@ session_start();
     </div>
 
 
-    <footer class="site-footer bg-white">
+    <footer class="site-footer">
       <div class="container">
         <div class="row">
           <div class="col-md-8">
@@ -470,7 +513,7 @@ session_start();
           </div>
 
         </div>
-        <div class="row pt-5 mt-5 text-center">
+        <div class="row text-center">
           <div class="col-md-12">
             <div class="border-top pt-5">
             <p>
@@ -500,7 +543,7 @@ session_start();
   <script src="js/aos.js"></script>
   <script src="js/jquery.fancybox.min.js"></script>
   <script src="js/jquery.sticky.js"></script>
-
+  
 
   <script src="js/main.js"></script>
   <script>

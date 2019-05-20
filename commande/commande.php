@@ -1,10 +1,4 @@
-<?php       
-      if (isset($_GET['valide'])) 
-      {
-        session_start();
-        session_destroy(); 
-      }     
- ?>
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -15,10 +9,10 @@
     
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="../fonts/icomoon/style.css">
-
+    <link href="../images/n.jpg" rel="icon" type="image/jpg">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/jquery-ui.css">
-    <link rel="stylesheet" href="../css/owl.carousel.min.css">
+    <link rel="stylesheet" href="..css/owl.carousel.min.css">
     <link rel="stylesheet" href="../css/owl.theme.default.min.css">
     <link rel="stylesheet" href="../css/owl.theme.default.min.css">
 
@@ -31,62 +25,12 @@
     <link rel="stylesheet" href="../css/aos.css">
 
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="commande.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="commande1.css">
     
-    <style type="text/css">
-      .modal label
-      {
-
-      }
-    </style>
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
-
-
-  <div class="alert alert-success alert-dismissible fade show" role="alert" style="display: <?php 
-      if (isset($_GET['valide'])) 
-      {
-          echo "block"; 
-      }
-      else
-      {
-        echo "none";
-      }
-      ?>
-    ;">
-  <strong>Bien joué!</strong> Votre commande a bien été enregistré. <?php if (isset($_GET['valide']))echo  $_SESSION['name'];  ?>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-  </div>
-
-  <div class="alert alert-warning alert-dismissible fade show" role="alert" style="display: 
-
-  <?php 
-    if(isset($_GET['invalide']))
-    {
-      
-      
-        echo "block";
-     
-    }
-    else
-    {
-      echo "none";
-    }
-
-  ?>;
-
-  ">
-  <strong>Votre commande n'a pas été enregistré !</strong> Vous devriez bien renseigner  certains champs du formulaire de commande.
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-  </div>
-
-
-
+  
   <div class="site-wrap">
 
     <div class="site-mobile-menu site-navbar-target">
@@ -124,11 +68,11 @@
     <header class="site-navbar py-4 bg-white js-sticky-header site-navbar-target" role="banner">
 
       <div class="container-fluid" style="height: 80px;">
-        <div class="row align-items-center">
+        <div class="row align-items-center" style="position: relative;">
           
           <div class="col-6 col-xl-2">
             <h1 class="mb-0 site-logo"><a href="index.html" class="text-black mb-0">
-              <img src="../images/suzsand/12.png" style="width: 100px; height: 100px;">
+              <img src="../images/n.jpg" class="logo">
             </a></h1>
           </div>
           <div class="col-12 col-md-10 d-none d-xl-block">
@@ -156,634 +100,171 @@
 
   
      
-   
+    <div style="height: 150px;"></div>
 
-      <div style="height: 150px;"></div>
+    <div class="container">
     
-    <div class="site-section" id="products-section" >
-      <div class="container">
-        <div class="row mb-5 justify-content-center">
-          <div class="col-md-6 text-center">
-            <h3 class="section-sub-title">PRODUITS POPULAIRES</h3>
-            <h2 class="section-title mb-3">Nos Produits</h2>
-          </div>
-        </div>
-        <div class="row">
-          
-            <div class="col-xs-6 col-sm-6 col-lg-4 col-md-6 mb-5">
-              <div class="product-item">
-                <figure>
-                  <img src="../images/suzsand/1.jpg" alt="Image" class="img-fluid">
-                </figure>
-                <div class="px-4">
-                  <h3>sandwichs1</h3>
-                  <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                  <div class="row">
-                    <div class="col-md-3">  
-                    </div>
-                    <a href="" class="col-md-6 btn btn-black mr-1 rounded-0" data-toggle="modal" data-target="#mymodal">COMMANDER</a>
-                    <div class="col-md-3">  
-                    </div>
-                    <div class="col-md-12">
-                      <div class="modal fade" id="mymodal" style="text-align: left;">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                            <h4 class="modal-title" style="margin-left: 160px;">COMMANDE</h4>
-                            <button type="button" class="close" data-dismiss="modal">x</button>
-                          </div>
-                          <div class="modal-body">
-                          <form id="contact-form" method="post" action="validationCommande.php?sandwichs1=sand" role="form">
-                            <div class="row">
-                            <div class="col-md-12">
-                              <label for="name">Nom et prénom <span class="blue">*</span></label>
-                                <input type="text" required="" class="form-control" id="name" placeholder="Votre prénom" name="name" value="<?php if (isset($_GET['valide'])) echo  $_SESSION['name'];  ?>" partern="^[a-zA-Zàé]([a-zA-Zàé ]){1,}$" data-toggle="tooltip" title="Entrer seulement des lettres">
-                                
-                            </div>
-
-                            <div class="col-md-12">
-                              <label for="tel">Téléphone <span class="blue">*</span></label>
-                              <input type="tel" required="" class="form-control" id="tel" placeholder="Votre téléphone" name="tel" value="" partern="^[0-9]{2}([ ]?[0-9]{2}){3}$" data-toggle="tooltip" title="Entrer seulement des chiffres">
-                              <p class="comments"></p>
-                            </div>
-
-                            <div class="col-md-12">
-                              <div class="form-group">
-                                <label for="exampleFormControlSelectAbidjan">Lieu de livraison <span class="blue">*</span></label><br>
-                                <div class="row">
-                                  <div class="col-md-6">
-                                    <label>Ville</label>
-                                    <select class="form-control" name="ville" id="exampleFormControlSelectAbidjan" name="choixVille">
-                                      <option>Abidjan</option>
-                                    </select>
-                                  </div>
-                                  <div class="col-md-6">
-                                    <label>Quartier</label>
-                                    <select class="form-control is-large" name="quartier" id="exampleFormControlSelectAbidjan" name="choixVille">
-                                      <option>2 Plateaux - 7ème Tranche</option>
-                                      <option>2 Plateaux - Agban</option>
-                                      <option>2 Plateaux - Aghien</option>  
-                                    </select>
-                                  </div>
-                      
-                                </div>
-                              </div>
-                  
-                              <p class="comments"></p>
-                            </div>
-
-                            <div class="col-md-12">
-                              <label for="nombre_plats">Nombre de plats <span class="blue">*</span></label>
-                              <input type="text" required="" class="form-control" id="nombre_plats" placeholder="Ex: 5" name="nombre_plats" data-toggle="tooltip" partern="^[0-9]{1,}$" title="Entrer seulement des chiffres">
-                              <p class="comments"></p>
-                            </div>
-
-                            <div class="col-md-12">
-                              <p class="blue"><strong>* Ces informations sont requises</strong></p>
-                            </div>
+    
+      <form class="needs-validation" novalidate method="post" action="validation.php" role="form">
+    <div class="row">
 
 
-                            <div class="col-md-12">
-                                <input type="submit" class="button1" value="Valider la commande">
-                            </div> 
-                          </div>
-                        </form>
-                      </div>  
-                    </div>
-                  </div>
-                </div>
-              </div>
-                  </div>
+      <div class="col-md-6" style="border: 2px solid #DDD; border-radius: 5px;">
 
-
-
-                </div>
+        <div class="col-lg-12 col-md-6 mb-3">
+            <div class="product-item">
+              <figure>
+                <img src="../imageRepas/<?php echo $_POST['photoMenu'];?>" style="margin-top: 25px;" alt="Image" class="
+                " >
+              </figure>
+              <div class="px-4">
+                <h3 style="color: #f16821;"><?php echo $_POST['libelleMenu'];?></h3>
+                <p class='mb-4' style='font-weight:bold; font-size:20px'><?php echo $_POST['prix'];?> <strong> FCFA</strong></p>
+                <p class="mb-4"><?php echo $_POST['descriptionMenu'];?></p>
+                
+                
+                    
+                    
               </div>
             </div>
-    
+          </div>
         
-
-         
-          <div class="col-xs-6 col-sm-6 col-lg-4 col-md-6 mb-5">
-            <div class="product-item">
-              <figure>
-                <img src="../images/suzsand/2.jpg" alt="Image" class="img-fluid">
-              </figure>
-              <div class="px-4">
-                <h3>sandwichs2</h3>
-                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-
-                   
-                <div class="row">
-                    <div class="col-md-3">  
-                    </div>
-                    <a href="" class="col-md-6 btn btn-black mr-1 rounded-0" data-toggle="modal" data-target="#mymodal2">COMMANDER</a>
-                    <div class="col-md-3">  
-                    </div>
-                    <div class="col-md-12">
-                      <div class="modal fade" id="mymodal2" style="text-align: left;">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h4 class="modal-title" style="margin-left: 160px;">COMMANDE</h4>
-                          <button type="button" class="close" data-dismiss="modal">x</button>
-                       
-                        </div>
-                      <div class="modal-body">
-                      <form id="contact-form" method="post" action="validationCommande.php?sandwichs2=sand" role="form">
-                        <div class="row">
-                          <div class="col-md-12">
-                            <label for="name">Nom et prénom <span class="blue">*</span></label>
-                              <input type="text" required="" class="form-control" id="name" placeholder="Votre prénom" name="name" value="" partern="^[a-zA-Zàé]([a-zA-Zàé ]){1,}$" data-toggle="tooltip" title="Entrer seulement des lettres">
-                              <p class="comments"></p>
-                          </div>
-
-                          <div class="col-md-12">
-                            <label for="tel">Téléphone <span class="blue">*</span></label>
-                            <input type="tel" required="" class="form-control" id="tel" placeholder="Votre téléphone" name="tel" value="" partern="^[0-9]{2}([ ]?[0-9]{2}){3}$" data-toggle="tooltip" title="Entrer seulement des chiffres">
-                            <p class="comments"></p>
-                          </div>
-
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="exampleFormControlSelectAbidjan">Lieu de livraison <span class="blue">*</span></label><br>
-                              <div class="row">
-                                <div class="col-md-6">
-                                  <label>Ville</label>
-                                  <select class="form-control" name="ville" id="exampleFormControlSelectAbidjan" name="choixVille">
-                                    <option>Abidjan</option>
-                                  </select>
-                                </div>
-                                <div class="col-md-6">
-                                  <label>Quartier</label>
-                                  <select class="form-control is-large" name="quartier" id="exampleFormControlSelectAbidjan" name="choixVille">
-                                    <option>2 Plateaux - 7ème Tranche</option>
-                                    <option>2 Plateaux - Agban</option>
-                                    <option>2 Plateaux - Aghien</option>  
-                                  </select>
-                                </div>
-                    
-                              </div>
-                            </div>
-                
-                            <p class="comments"></p>
-                          </div>
-
-                          <div class="col-md-12">
-                            <label for="nombre_plats">Nombre de plats <span class="blue">*</span></label>
-                            <input type="text" required="" class="form-control" id="nombre_plats" placeholder="Ex: 5" name="nombre_plats" partern="^[0-9]{1,}$" data-toggle="tooltip" title="Entrer seulement des chiffres">
-                            <p class="comments"></p>
-                          </div>
-
-                          
-
-                          <div class="col-md-12">
-                          
-                            <p class="blue"><strong>* Ces informations sont requises</strong></p>
-                          </div>
-
-
-                          <div class="col-md-12">
-                              <input type="submit" class="button1" value="Valider la commande">
-                          </div> 
-                        </div>
-                      </form>
-                    </div>  
-                  </div>
-                </div>
-              </div>
-                    </div>
-                  </div>
-
-
-
-              </div>
-            </div>
-          </div>
-       
-
-          
-          <div class="col-xs-6 col-sm-6 col-lg-4 col-md-6 mb-5">
-            <div class="product-item">
-              <figure>
-                <img src="../images/suzsand/3.jpg" alt="Image" class="img-fluid">
-              </figure>
-              <div class="px-4">
-                <h3>sandwichs3</h3>
-                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-
-                <div class="row">
-                    <div class="col-md-3">  
-                    </div>
-                    <a href="" class="col-md-6 btn btn-black mr-1 rounded-0" data-toggle="modal" data-target="#mymodal3">COMMANDER</a>
-                    <div class="col-md-3">  
-                    </div>
-                    <div class="col-md-12">
-                      <div class="modal fade" id="mymodal3" style="text-align: left;">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h4 class="modal-title" style="margin-left: 160px;">COMMANDE</h4>
-                          <button type="button" class="close" data-dismiss="modal">x</button>
-                        </div>
-                      <div class="modal-body">
-                      <form id="contact-form" method="post" action="validationCommande.php?sandwichs3=sand" role="form">
-                        <div class="row">
-                          <div class="col-md-12">
-                            <label for="name">Nom et prénom <span class="blue">*</span></label>
-                              <input type="text" required="" class="form-control" id="name" placeholder="Votre prénom" name="name" value="" partern="^[a-zA-Zàé]([a-zA-Zàé ]){1,}$" data-toggle="tooltip" title="Entrer seulement des lettres">
-                              <p class="comments"></p>
-                          </div>
-
-                          <div class="col-md-12">
-                            <label for="tel">Téléphone <span class="blue">*</span></label>
-                            <input type="tel" required="" class="form-control" id="tel" placeholder="Votre téléphone" name="tel" value="" partern="^[0-9]{2}([ ]?[0-9]{2}){3}$" data-toggle="tooltip" title="Entrer seulement des chiffres">
-                            <p class="comments"></p>
-                          </div>
-
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="exampleFormControlSelectAbidjan">Lieu de livraison <span class="blue">*</span></label><br>
-                              <div class="row">
-                                <div class="col-md-6">
-                                  <label>Ville</label>
-                                  <select class="form-control" name="ville" id="exampleFormControlSelectAbidjan" name="choixVille">
-                                    <option>Abidjan</option>
-                                  </select>
-                                </div>
-                                <div class="col-md-6">
-                                  <label>Quartier</label>
-                                  <select class="form-control is-large" name="quartier" id="exampleFormControlSelectAbidjan" name="choixVille">
-                                    <option>2 Plateaux - 7ème Tranche</option>
-                                    <option>2 Plateaux - Agban</option>
-                                    <option>2 Plateaux - Aghien</option>  
-                                  </select>
-                                </div>
-                    
-                              </div>
-                            </div>
-                
-                            <p class="comments"></p>
-                          </div>
-
-                          <div class="col-md-12">
-                            <label for="nombre_plats">Nombre de plats <span class="blue">*</span></label>
-                            <input type="text" required="" class="form-control" id="nombre_plats" placeholder="Ex: 5" name="nombre_plats" partern="^[0-9]{1,}$" data-toggle="tooltip" title="Entrer seulement des chiffres">
-                            <p class="comments"></p>
-                          </div>
-
-                          
-
-                          <div class="col-md-12">
-                            <p class="blue"><strong>* Ces informations sont requises</strong></p>
-                          </div>
-
-
-                          <div class="col-md-12">
-                              <input type="submit" class="button1" value="Valider la commande">
-                          </div> 
-                        </div>
-                      </form>
-                    </div>  
-                  </div>
-                </div>
-              </div>
-                    </div>
-                  </div>
-
-
-
-              </div>
-            </div>
-          </div>
-          
-
-          
-            <div class="col-xs-6 col-sm-6 col-lg-4 col-md-6 mb-5">
-              <div class="product-item">
-                <figure>
-                  <img src="../images/suzsand/4.jpg" alt="Image" class="img-fluid">
-                </figure>
-                <div class="px-4">
-                  <h3>sandwichs4</h3>
-                  <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-
-                  <div class="row">
-                    <div class="col-md-3">  
-                    </div>
-                    <a href="" class="col-md-6 btn btn-black mr-1 rounded-0" data-toggle="modal" data-target="#mymodal4">COMMANDER</a>
-                    <div class="col-md-3">  
-                    </div>
-                    <div class="col-md-12">
-                      <div class="modal fade" id="mymodal4" style="text-align: left;">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h4 class="modal-title" style="margin-left: 160px;">COMMANDE</h4>
-                          <button type="button" class="close" data-dismiss="modal">x</button>
-                        </div>
-                      <div class="modal-body">
-                      <form id="contact-form" method="post" action="validationCommande.php?sandwichs4=sand" role="form">
-                        <div class="row">
-                          <div class="col-md-12">
-                            <label for="name">Nom et prénom <span class="blue">*</span></label>
-                              <input type="text" required="" class="form-control" id="name" placeholder="Votre prénom" name="name" value="" partern="^[a-zA-Zàé]([a-zA-Zàé ]){1,}$" data-toggle="tooltip" title="Entrer seulement des lettres">
-                              <p class="comments"></p>
-                          </div>
-
-                          <div class="col-md-12">
-                            <label for="tel">Téléphone <span class="blue">*</span></label>
-                            <input type="tel" required="" class="form-control" id="tel" placeholder="Votre téléphone" name="tel" value="" partern="^[0-9]{2}([ ]?[0-9]{2}){3}$" data-toggle="tooltip" title="Entrer seulement des chiffres">
-                            <p class="comments"></p>
-                          </div>
-
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="exampleFormControlSelectAbidjan">Lieu de livraison <span class="blue">*</span></label><br>
-                              <div class="row">
-                                <div class="col-md-6">
-                                  <label>Ville</label>
-                                  <select class="form-control" name="ville" id="exampleFormControlSelectAbidjan" name="choixVille">
-                                    <option>Abidjan</option>
-                                  </select>
-                                </div>
-                                <div class="col-md-6">
-                                  <label>Quartier</label>
-                                  <select class="form-control is-large" name="quartier" id="exampleFormControlSelectAbidjan" name="choixVille">
-                                    <option>2 Plateaux - 7ème Tranche</option>
-                                    <option>2 Plateaux - Agban</option>
-                                    <option>2 Plateaux - Aghien</option>  
-                                  </select>
-                                </div>
-                    
-                              </div>
-                            </div>
-                
-                            <p class="comments"></p>
-                          </div>
-
-                          <div class="col-md-12">
-                            <label for="nombre_plats">Nombre de plats <span class="blue">*</span></label>
-                            <input type="text" required="" class="form-control" id="nombre_plats" placeholder="Ex: 5" name="nombre_plats" partern="^[0-9]{1,}$" data-toggle="tooltip" title="Entrer seulement des chiffres">
-                            <p class="comments"></p>
-                          </div>
-
-                          
-
-                          <div class="col-md-12">
-                            <p class="blue"><strong>* Ces informations sont requises</strong></p>
-                          </div>
-
-
-                          <div class="col-md-12">
-                              <input type="submit" class="button1" value="Valider la commande">
-                          </div> 
-                        </div>
-                      </form>
-                    </div>  
-                  </div>
-                </div>
-              </div>
-                    </div>
-                  </div>
-
-
-
-
-                </div>
-              </div>
-            </div>
-          
-          
-          
-            <div class="col-xs-6 col-sm-6 col-lg-4 col-md-6 mb-5">
-              <div class="product-item">
-                <figure>
-                  <img src="../images/suzsand/5.jpg" alt="Image" class="img-fluid">
-                </figure>
-                <div class="px-4">
-                  <h3>sandwichs5</h3>
-                  <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-
-
-                  <div class="row">
-                    <div class="col-md-3">  
-                    </div>
-                    <a href="" class="col-md-6 btn btn-black mr-1 rounded-0" data-toggle="modal" data-target="#mymodal5">COMMANDER</a>
-                    <div class="col-md-3">  
-                    </div>
-                    <div class="col-md-12">
-                      <div class="modal fade" id="mymodal5" style="text-align: left;">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h4 class="modal-title" style="margin-left: 160px;">COMMANDE</h4>
-                          <button type="button" class="close" data-dismiss="modal">x</button>
-                        </div>
-                      <div class="modal-body">
-                      <form id="contact-form" method="post" action="validationCommande.php?sandwichs5=sand" role="form">
-                        <div class="row">
-                          <div class="col-md-12">
-                            <label for="name">Nom et prénom <span class="blue">*</span></label>
-                              <input type="text" required="" class="form-control" id="name" placeholder="Votre prénom" name="name" value="" partern="^[a-zA-Zàé]([a-zA-Zàé ]){1,}$" data-toggle="tooltip" title="Entrer seulement des lettres">
-                              <p class="comments"></p>
-                          </div>
-
-                          <div class="col-md-12">
-                            <label for="tel">Téléphone <span class="blue">*</span></label>
-                            <input type="tel" required="" class="form-control" id="tel" placeholder="Votre téléphone" name="tel" value="" partern="^[0-9]{2}([ ]?[0-9]{2}){3}$" data-toggle="tooltip" title="Entrer seulement des chiffres">
-                            <p class="comments"></p>
-                          </div>
-
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="exampleFormControlSelectAbidjan">Lieu de livraison <span class="blue">*</span></label><br>
-                              <div class="row">
-                                <div class="col-md-6">
-                                  <label>Ville</label>
-                                  <select class="form-control" name="ville" id="exampleFormControlSelectAbidjan" name="choixVille">
-                                    <option>Abidjan</option>
-                                  </select>
-                                </div>
-                                <div class="col-md-6">
-                                  <label>Quartier</label>
-                                  <select class="form-control is-large" name="quartier" id="exampleFormControlSelectAbidjan" name="choixVille">
-                                    <option>2 Plateaux - 7ème Tranche</option>
-                                    <option>2 Plateaux - Agban</option>
-                                    <option>2 Plateaux - Aghien</option>  
-                                  </select>
-                                </div>
-                    
-                              </div>
-                            </div>
-                
-                            <p class="comments"></p>
-                          </div>
-
-                          <div class="col-md-12">
-                            <label for="nombre_plats">Nombre de plats <span class="blue">*</span></label>
-                            <input type="text" required="" class="form-control" id="nombre_plats" placeholder="Ex: 5" name="nombre_plats" partern="^[0-9]{1,}$" data-toggle="tooltip" title="Entrer seulement des chiffres">
-                            <p class="comments"></p>
-                          </div>
-
-                          
-
-                          <div class="col-md-12">
-                            <p class="blue"><strong>* Ces informations sont requises</strong></p>
-                          </div>
-
-
-                          <div class="col-md-12">
-                              <input type="submit" class="button1" value="Valider la commande">
-                          </div> 
-                        </div>
-                      </form>
-                    </div>  
-                  </div>
-                </div>
-              </div>
-                    </div>
-                  </div>
-
-
-
-
-                </div>
-              </div>
-            </div>
-          
-
-          
-          <div class="col-xs-6 col-sm-6 col-lg-4 col-md-6 mb-5">
-            <div class="product-item">
-              <figure>
-                <img src="../images/suzsand/6.jpg" alt="Image" class="img-fluid">
-              </figure>
-              <div class="px-4">
-                <h3>sandwichs6</h3>
-                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                <div class="row">
-                    <div class="col-md-3"></div>
-                    <a href="" class="col-md-6 btn btn-black mr-1 rounded-0" data-toggle="modal" data-target="#mymodal6">COMMANDER</a>
-                    <div class="col-md-3"></div>
-                    <div class="col-md-12">
-                      <div class="modal fade" id="mymodal6" style="text-align: left;">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h4 class="modal-title" style="margin-left: 160px;">COMMANDE</h4>
-                          <button type="button" class="close" data-dismiss="modal">x</button>
-                        </div>
-                      <div class="modal-body">
-                      <form id="contact-form" method="post" action="validationCommande.php?sandwichs6=sand" role="form">
-                        <div class="row">
-                          <div class="col-md-12">
-                            <label for="name">Nom et prénom <span class="blue">*</span></label>
-                              <input type="text" required="" class="form-control" id="name" placeholder="Votre prénom" name="name" value="" partern="^[a-zA-Zàé]([a-zA-Zàé ]){1,}$" data-toggle="tooltip" title="Entrer seulement des lettres">
-                              <p class="comments"></p>
-                          </div>
-
-                          <div class="col-md-12">
-                            <label for="tel">Téléphone <span class="blue">*</span></label>
-                            <input type="tel" required="" class="form-control" id="tel" placeholder="Votre téléphone" name="tel" value="" partern="^[0-9]{2}([ ]?[0-9]{2}){3}$" data-toggle="tooltip" title="Entrer seulement des chiffres">
-                            <p class="comments"></p>
-                          </div>
-
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="exampleFormControlSelectAbidjan">Lieu de livraison <span class="blue">*</span></label><br>
-                              <div class="row">
-                                <div class="col-md-6">
-                                  <label>Ville</label>
-                                  <select class="form-control" name="ville" id="exampleFormControlSelectAbidjan" name="choixVille">
-                                    <option>Abidjan</option>
-                                  </select>
-                                </div>
-                                <div class="col-md-6">
-                                  <label>Quartier</label>
-                                  <select class="form-control is-large" name="quartier" id="exampleFormControlSelectAbidjan" name="choixVille">
-                                    <option>2 Plateaux - 7ème Tranche</option>
-                                    <option>2 Plateaux - Agban</option>
-                                    <option>2 Plateaux - Aghien</option>  
-                                  </select>
-                                </div>
-                    
-                              </div>
-                            </div>
-                
-                            <p class="comments"></p>
-                          </div>
-
-                          <div class="col-md-12">
-                            <label for="nombre_plats">Nombre de plats <span class="blue">*</span></label>
-                            <input type="text"  required="" class="form-control" id="nombre_plats" placeholder="Ex: 5" name="nombre_plats" partern="^[0-9]{1,}$" data-toggle="tooltip" title="Entrer seulement des chiffres">
-                            <p class="comments"></p>
-                          </div>
-
-                          
-
-                          <div class="col-md-12">
-                            <p class="blue"><strong>* Ces informations sont requises</strong></p>
-                          </div>
-
-
-                          <div class="col-md-12">
-                              <input type="submit" class="button1" value="Valider la commande">
-                          </div> 
-                        </div>
-                      </form>
-                    </div>  
-                  </div>
-                </div>
-              </div>
-                    </div>
-                  </div>
-
-
-
-
-              </div>
-            </div>
-          </div>
-         
-
-          
-        </div>
       </div>
-    </div>
-    
+
+      <div class="col-md-1"></div>
+
+      <div class="col-md-5">
+        <div class="heading">
+          <h2 style="text-align: center;">Passer la commande !</h2>
+        </div>
+
       
-    
+        
+          <div class="row">
+            
+            <div>
+              <div class="col-md-12 mb-3">
+                <label for="validationCustom01">Nom et prènom</label>
+                <input type="text" class="form-control" id="validationCustom01" pattern="^[a-zA-Zàé]([a-zA-Zàé ]){1,}$" placeholder="Votre prénom" name="name" required>
+                <div class="valid-feedback">
+                  Cela semble bon!
+                </div>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label for="validationCustom02">Téléphone</label>
+                <input type="text" class="form-control" id="validationCustom02"  pattern="^[0-9]{2}([ ]?[0-9]{2}){3}$" placeholder="Votre téléphone" name="tel" required>
+                <div class="valid-feedback">
+                  Cela semble bon!
+                </div>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label for="validationCustomUsername">Lieu de Livraison</label>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">ville</label>
+                      </div>
+                      <select class="custom-select" name="ville" id="inputGroupSelect01">
+                        <option selected>Abidjan</option>
+                        
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Quartier</label>
+                      </div>
+                      <select class="custom-select" name="quartier" id="inputGroupSelect01">
+                        <option>2 Plateaux - 7ème Tranche</option>
+                        <option>2 Plateaux - Agban</option>
+                        <option>2 Plateaux - Aghien</option>
+                        <option>Yopougon</option>
+                        
+                      </select>
+                    </div>
+                  </div>
+                  
+                            
+                </div>
 
-
-
-
-
-
-    <div class="site-blocks-cover inner-page-cover overlay get-notification"  style="background-image: url(../images/suzsand/sand.jpg); background-attachment: fixed;" data-aos="fade">
-      <div class="container">
-
-        <div class="row align-items-center justify-content-center">
-          <form class="col-md-7" method="post">
-            <h2>Être informé sur chaque nouvelle recette.</h2>
-            <div class="d-flex mb-4">
-              <input type="text" class="form-control rounded-0" placeholder="Entrer votre adreese email">
-              <input type="submit" class="btn btn-white btn-outline-white rounded-0" value="SOUSCRIRE">
+                 
+                
+              </div>
+            
+              <div>
+                <div class="col-md-12 mb-3">
+                  <label for="validationCustom03">Nombre de plats</label>
+                  <input type="text" class="form-control" id="validationCustom03" placeholder="Ex: 5" name="nombre_plats" pattern="^[0-9]{1,}$" required>
+                  <div class="invalid-feedback">
+                    Entrer seulemant des chiffres
+                  </div>
+                </div>
+                
+              </div>
+              <div class="form-group col-md-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                  <label class="form-check-label" for="invalidCheck">
+                    Accepter les termes et conditions
+                  </label>
+                  <div class="invalid-feedback">
+                    Vous devez accepter avant de soumettre.
+                  </div>
+                </div>
+              </div>
+              
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat commodi veniam doloremque ducimus tempora.</p>
+
+              <input type='hidden' name='libelleMenu' value='<?php echo $_POST["libelleMenu"];?>'>
+              <input type='hidden' name='prix' value='<?php echo $_POST["prix"];?>'>
+
+              
+            
+            <button class="btn btn-black mr-1 mx-auto col-md-6" style="height: 50px;" type="submit">Valider la commande</button>
           </form>
-        </div>
 
+        
+        
       </div>
+
+
+
     </div>
+  </div>
 
-    
 
 
-    
 
   
-    <footer class="site-footer bg-white">
+
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
+
+
+
+
+  
+    <footer class="site-footer bg-white" style="margin-top: 100px;">
       <div class="container">
         <div class="row">
           <div class="col-md-8">
@@ -817,7 +298,7 @@
             <div class="border-top pt-5">
             <p>
         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-        Copyright &copy;<script>document.write(new Date().getFullYear());</script> Tous droits réservés | Ce modèle est fait avec<i class="icon-heart" aria-hidden="true"></i> par <a href="" target="_blank" >SIC design</a>
+        Copyright &copy;<script>document.write(new Date().getFullYear());</script> Tous droits réservés | Ce modèle est fait avec<i class="icon-heart" aria-hidden="true"></i> par <a href="https://colorlib.com" target="_blank" >SIC design</a>
         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
       </p>
             </div>
@@ -842,17 +323,8 @@
   <script src="../js/aos.js"></script>
   <script src="../js/jquery.fancybox.min.js"></script>
   <script src="../js/jquery.sticky.js"></script>
-
-   <script type="text/javascript">
-     $(function () {
-      $('[data-toggle="tooltip"]').tooltip({
-        placement:'bottom',
-        trigger:'hover'
-    });
-      
-    })
-   </script>
- 
+  <script type="text/javascript"></script>
+  
   <script src="../js/main.js"></script>
     
   </body>
