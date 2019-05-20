@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <title>Suz'sand</title>
+    <title>Administration</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="../images/n.jpg" rel="icon" type="image/jpg">
@@ -24,12 +24,12 @@
     <link rel="stylesheet" href="../css/aos.css">
 
     <link rel="stylesheet" href="../css/style.css">
-    
+
     <link rel="stylesheet" href="css/loginform.css">
-    
+
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-  
+
   <div class="site-wrap">
 
     <div class="site-mobile-menu site-navbar-target">
@@ -40,12 +40,12 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-   
+
     <div class="top-bar py-3 bg-light" id="home-section" style="height: 50px;">
       <div class="container">
         <div class="row align-items-center">
-         
-          <div class="col-6 text-left"> 
+
+          <div class="col-6 text-left">
             <ul class="social-media">
               <li><a target="_blank"  href="https://www.facebook.com/"><span class="icon-facebook"></span></a></li>
               <li><a  target="_blank" href="https://www.twitter.com/"><span class="icon-twitter"></span></a></li>
@@ -58,17 +58,17 @@
               <span class="mr-3"><a href="tel://#"> <span class="icon-phone mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">(+225)  08 59 91 89</span></a></span>
               <span><a href="#"><span class="icon-envelope mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">shop@yourdomain.com</span></a></span>
             </p>
-            
+
           </div>
         </div>
-      </div> 
+      </div>
     </div>
 
-    <header class="site-navbar py-4 bg-white js-sticky-header site-navbar-target" role="banner">
-                
-      <div class="container-fluid" style="height: 80px;">
+    <header class="site-navbar py-1 bg-white js-sticky-header site-navbar-target" role="banner">
+
+      <div class="container-fluid" style="height: 60px;">
         <div class="row align-items-center">
-          
+
           <div class="col-6 col-xl-2">
             <h1 class="mb-0 site-logo">
             <a href="/index.php" class="text-black mb-0">
@@ -89,7 +89,7 @@
                  <?php
                     require_once('../errorAlert.php');
                  ?>
-       <div class="container" style="margin-top:75px;">
+  <div class="container" style="margin-top:74px;">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
 				<div class="d-flex justify-content-center">
@@ -111,7 +111,7 @@
 							</div>
 							<input type="password" required name="adminPassword" class="form-control input_pass" value="" placeholder="Mot de passe ">
                         </div>
-                        
+
                         <div class="d-flex justify-content-center mt-3 login_container">
 					         <button type="submit" name="button" class="btn login_btn">Se connecter</button>
 				         </div>
@@ -148,7 +148,7 @@
               </div>
             </div>
           </div>
-          
+
         </div>
         <div class="row pt-5 mt-5 text-center">
           <div class="col-md-12">
@@ -160,13 +160,13 @@
       </p>
             </div>
           </div>
-          
+
         </div>
       </div>
     </footer>
 
   </div> <!-- .site-wrap -->
-  
+
   <script src="../js/jquery-3.3.1.min.js"></script>
   <script src="../js/jquery-migrate-3.0.1.min.js"></script>
   <script src="../js/jquery-ui.js"></script>

@@ -88,7 +88,7 @@ session_start();
           <div class="col-6">
             <p class="mb-0 float-right">
               <span class="mr-3"><a href="tel://#"> <span class="icon-phone mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">(+225)  08 59 91 89</span></a></span>
-              <span><a href="#"><span class="icon-envelope mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">shop@yourdomain.com</span></a></span>
+              <span><a href="#"><span class="icon-envelope mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">jesussauve1995@gmail.com</span></a></span>
             </p>
 
           </div>
@@ -120,8 +120,6 @@ session_start();
                 <li><a href="#testimonials-section" class="nav-link">Temoignage</a></li>
 
                 <li><a href="#contact-section" class="nav-link">Contactez-nous</a></li>
-
-                
 
               </ul>
             </nav>

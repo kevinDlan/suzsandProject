@@ -5,10 +5,10 @@ include("../../controller/selectProductForUpDate.php");
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <title>Suz'sand</title>
+    <title>Administration</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="../images/n.jpg" rel="icon" type="image/jpg">
+    <link href="../../images/n.jpg" rel="icon" type="image/jpg">
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="../../fonts/icomoon/style.css">
 
@@ -86,39 +86,26 @@ include("../../controller/selectProductForUpDate.php");
                       Accueil
                       </a>
                </li>
-                <li><a href="commandeList.php" class="nav-link">
-                      Commandes
-                      <?php
-                        $var = 5;
-                                if ($var > 0){ echo"<sup style ='font-size:15px; font-weight:bold;'><span class='badge badge-pill badge-danger'>".$var."</span></sup>";
-                                }else{
-
-                                     }
-                                ?>
-                    </a></li>
-
-                <li><a href="contactusList.php" class="nav-link">
-                  Messages client
-                  <?php
-                        $var = 2;
-                                if ($var > 0){ echo"<sup style ='font-size:15px; font-weight:bold;'><span class='badge badge-pill badge-danger'>".$var."</span></sup>";
-                                }else{
-
-                                     }
-                  ?>
-                </a></li>
-                <li>
-                    <a href="newletterlist.php" class="nav-link">
-                         Client New Letters
-                         <?php
-                        $var = 2;
-                                if ($var > 0){ echo"<sup style ='font-size:15px; font-weight:bold;'><span class='badge badge-pill badge-danger'>".$var."</span></sup>";
-                                }else{
-
-                                     }
-                  ?>
-                    </a>
+               <li>
+                 <a href="../commandeList.php" class="nav-link">
+                    Commandes
+                    <sup style ='font-size:15px; font-weight:bold;'><span class='badge badge-pill badge-danger countCmdNotif'></span></sup>
+                  </a>
                 </li>
+
+
+                <li><a href="../contactusList.php" class="nav-link">
+                  Messages client
+                  <sup style ="font-size:15px; font-weight:bold;"><span class='badge badge-pill badge-danger count'></span></sup>
+
+                   </a>
+                 </li>
+                 <li>
+                   <a href="../newletterlist.php" class="nav-link">
+                        Client New Letters
+                           <sup style ='font-size:15px; font-weight:bold;'><span class='badge badge-pill badge-danger countNletterNotif'></span></sup>
+                   </a>
+                 </li>
                  <li>
                     <div class="dropdown">
                        <a href=""  class="nav-link dropdownlink">
@@ -126,9 +113,9 @@ include("../../controller/selectProductForUpDate.php");
                        <i class="fa fa-caret-down"></i>
                        </a>
                           <div class="dropdown-content">
-                            <a href="addItemMenu.php" class="nav-link">Ajouter de produits</a>
-                            <a href="addItemMenu.php" class="nav-link">Mise a jours des données du produit</a>
-                            <a href="addItemMenu.php" class="nav-link">Suppression d'un produit</a>
+                            <a href="../addItemMenu.php" class="nav-link">Ajouter de produits</a>
+                            <a href="updateproduct.php" class="nav-link">Mise a jours des données du produit</a>
+                            <a href="deleteproduct.php" class="nav-link">Suppression d'un produit</a>
                           </div>
                     </div>
                 </li>
@@ -177,19 +164,29 @@ include("../../controller/selectProductForUpDate.php");
           foreach ($data as $product){
             echo "
              <tbody>
-               <tr>
-                <th scope='row'>
-                       <input name='repas_code' type='text' value='".$product['codeMenu']."' readonly style='border:none;'/><i id='edit_code_pens' class='fa fa-pen'></i>
+               <tr class='updated'>
+                <th class='rowCode' scope='row'>
+                       <input id='repasCode' name='repas_code' type='text' value='".$product['codeMenu']."' readonly style='border:none;'/>
+                       <i id='edit_code_pens' onclick='editCode(this);' class='fa fa-pen'></i>
                 </th>
-                   <td><input name='libelle_repas' type='text' value='".$product['libelleMenu']."' readonly style='border:none;'/><i id='edit_descip_pens' class='fa fa-pen'></i></td>
-                   <td><input name='description_repas' type='textarea'  rows='3' value='".$product['descriptionMenu']."' readonly style='border:none;'/><i id='edit_libelle_pens' class='fa fa-pen'></i></td>
-                   <td><input name='prix_repas' class='display-none' type='text' value='".$product['prix']."' readonly style='border:none;'/><i id='edit_prix_pens' class='fa fa-pen'></i></td>
-                   <td>
+                   <td class='rowLibelle'>
+                     <input id='libelle' name='libelle_repas' type='text' value='".$product['libelleMenu']."' readonly style='border:none;'/>
+                     <i id='edit_descip_pens'onclick='editLibelle(this);' class='fa fa-pen'></i>
+                   </td>
+                   <td class='rowDescrip'>
+                      <textarea id='description' name='description_repas'  rows='3' readonly style='border:none;'/>".$product['descriptionMenu']."</textarea>
+                      <i id='edit_libelle_pens' onclick='editDescrip(this);' class='fa fa-pen'></i>
+                   </td>
+                   <td class='rowPrix'>
+                     <input id='prix' name='prix_repas' class='display-none' type='text' value='".$product['prix']."' readonly style='border:none;'/>
+                     <i id='edit_prix_pens' onclick='editPrix(this);' class='fa fa-pen'></i>
+                  </td>
+                   <td class='rowImg'>
                       <img src='../../imageRepas/".$product['photoMenu']."' width='100px' height='100px' alt=''>
-                      <input name='img_repas' style='display:none' type='file'/><i id='edit_img_pens' class='fa fa-pen'></i>
+                      <input id='img' name='img_repas' style='display:none' type='file'/><i id='edit_img_pens' onclick='editImg(this);' class='fa fa-pen'></i>
                    </td>
                    <td>
-                      <button class='btn btn-primary sm-1' type='submit' name='button' >Enregister</button>
+                      <button class='btn btn-primary sm-1' type='submit' disabled name='button' >Enregister</button>
                    </td>
                </tr>
              </tbody>";
@@ -260,14 +257,21 @@ include("../../controller/selectProductForUpDate.php");
   <script src="../../js/jquery.fancybox.min.js"></script>
   <script src="../../js/jquery.sticky.js"></script>
 
-
+  <script src="../js/notification.js"></script>
   <script src="../../js/main.js"></script>
   <script>
-    $("#closeAlert").click(function(){
-      $("#alertSpace").slideUp();
-      return "<?php session_destroy();?>";
-
-    });
-</script>
+  function editCode(x){
+      $(x).parents('.rowCode').children("#repasCode").removeAttr('readonly').focus();
+    }
+    function editLibelle(x){
+        $(x).parents('.rowLibelle').children("#libelle").removeAttr('readonly').focus();
+      }
+      function editDescrip(x){
+          $(x).parents('.rowDescrip').children("#description").removeAttr('readonly').focus();
+        }
+        function editPrix(x){
+            $(x).parents('.rowPrix').children("#prix").removeAttr('readonly').focus();
+          }
+  </script>
   </body>
 </html>

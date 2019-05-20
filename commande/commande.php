@@ -135,7 +135,7 @@
 
       <div class="col-md-5">
         <div class="heading">
-          <h2 style="text-align: center;">Passer la commande !</h2>
+          <h2 style="text-align: center;">Passer une commande !</h2>
         </div>
 
       

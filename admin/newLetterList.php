@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <title>Suz'sand</title>
+    <title>Administration</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="../images/n.jpg" rel="icon" type="image/jpg">
@@ -73,7 +73,7 @@
           <div class="col-6 col-xl-2">
             <h1 class="mb-0 site-logo">
             <a href="/index.php" class="text-black mb-0">
-              <img src="../images/n.jpg" class="logo">
+              <img src="../../images/n.jpg" class="logo">
             </a></h1>
           </div>
           <div class="col-12 col-md-10 d-none d-xl-block">
@@ -86,39 +86,24 @@
                       Accueil
                       </a>
                </li>
-                <li><a href="commandeList.php" class="nav-link">
-                      Commandes
-                      <?php
-                        $var = 5;
-                                if ($var > 0){ echo"<sup style ='font-size:15px; font-weight:bold;'><span class='badge badge-pill badge-danger'>".$var."</span></sup>";
-                                }else{
-
-                                     }
-                                ?>
-                    </a></li>
-
+               <li>
+                 <a href="commandeList.php" class="nav-link">
+                    Commandes
+                    <sup style ='font-size:15px; font-weight:bold;'><span class='badge badge-pill badge-danger countCmdNotif'></span></sup>
+                  </a>
+                </li>
                 <li><a href="contactusList.php" class="nav-link">
                   Messages client
-                  <?php
-                        $var = 2;
-                                if ($var > 0){ echo"<sup style ='font-size:15px; font-weight:bold;'><span class='badge badge-pill badge-danger'>".$var."</span></sup>";
-                                }else{
+                  <sup style ="font-size:15px; font-weight:bold;"><span class='badge badge-pill badge-danger count'></span></sup>
 
-                                     }
-                  ?>
-                </a></li>
-                <li>
-                    <a href="newletterlist.php" class="nav-link">
-                         Client New Letters
-                         <?php
-                        $var = 2;
-                                if ($var > 0){ echo"<sup style ='font-size:15px; font-weight:bold;'><span class='badge badge-pill badge-danger'>".$var."</span></sup>";
-                                }else{
-
-                                     }
-                  ?>
-                    </a>
-                </li>
+                   </a>
+                 </li>
+                 <li>
+                   <a href="newletterlist.php" class="nav-link">
+                        Client New Letters
+                           <sup style ='font-size:15px; font-weight:bold;'><span class='badge badge-pill badge-danger countNletterNotif'></span></sup>
+                   </a>
+                 </li>
                  <li>
                     <div class="dropdown">
                        <a href=""  class="nav-link dropdownlink">
@@ -126,9 +111,9 @@
                        <i class="fa fa-caret-down"></i>
                        </a>
                           <div class="dropdown-content">
-                            <a href="addItemMenu.php" class="nav-link">Ajouter de produits</a>
-                            <a href="addItemMenu.php" class="nav-link">Mise a jours des données du produit</a>
-                            <a href="addItemMenu.php" class="nav-link">Suppression d'un produit</a>
+                            <a href="addItemMenu.php" class="dropdown-item">Ajouter de produits</a>
+                            <a href="/admin/traitementproduit/updateproduct.php">Mise a jours des données du produit</a>
+                            <a href="/admin/traitementproduit/deleteproduct.php">Suppression d'un produit</a>
                           </div>
                     </div>
                 </li>
@@ -143,7 +128,7 @@
       </div>
 
     </header>
-    <div class="newletterlist">
+    <div class="newletterlist" style="margin-top:190px;">
         <h3 class="text-center"> Liste de Email des personnes souhaitant etre informé des nouvelle recettes</h3>
           <div class="container-fluid  col-md-6" style="margin-top:100px;">
           <table class="table-responsive">
@@ -151,16 +136,20 @@
              <thead class="thead-light">
               <tr>
                 <th scope="col">Email</th>
+                <th scope="col"></th>
               </tr>
              </thead>
             <tbody>
            <?php
                foreach ($data as $emails) {
                  echo "
-                 <tr>
+                 <tr class='changeStatus'>
                      <td>
                           ".$emails["email"]."
                     </td>
+                    <td>
+                         <a href='#' class='btn btn-primary'>Vue</a>
+                   </td>
                  </tr>
                       ";
                }
@@ -216,22 +205,21 @@
 
   </div> <!-- .site-wrap -->
 
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/jquery-ui.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/jquery.countdown.min.js"></script>
-  <script src="js/bootstrap-datepicker.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.fancybox.min.js"></script>
-  <script src="js/jquery.sticky.js"></script>
-
-
-  <script src="js/main.js"></script>
+  <script src="../js/jquery-3.3.1.min.js"></script>
+  <script src="../js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="../js/jquery-ui.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/owl.carousel.min.js"></script>
+  <script src="../js/jquery.stellar.min.js"></script>
+  <script src="../js/jquery.countdown.min.js"></script>
+  <script src="../js/bootstrap-datepicker.min.js"></script>
+  <script src="../js/jquery.easing.1.3.js"></script>
+  <script src="../js/aos.js"></script>
+  <script src="../js/jquery.fancybox.min.js"></script>
+  <script src="../js/jquery.sticky.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="js/notification.js"></script>
   <script>
     $("#closeAlert").click(function(){
       $("#alertSpace").slideUp();

@@ -101,7 +101,7 @@ function show_apercu(x){
           <div class="col-6 col-xl-2">
             <h1 class="mb-0 site-logo">
             <a href="/index.php" class="text-black mb-0">
-              <img src="../images/n.jpg" class="logo">
+              <img src="../../images/n.jpg" class="logo">
             </a></h1>
           </div>
           <div class="col-12 col-md-10 d-none d-xl-block">
@@ -114,39 +114,25 @@ function show_apercu(x){
                       Accueil
                       </a>
                </li>
-                <li><a href="commandeList.php" class="nav-link">
-                      Commandes
-                      <?php
-                        $var = 5;
-                                if ($var > 0){ echo"<sup style ='font-size:15px; font-weight:bold;'><span class='badge badge-pill badge-danger'>".$var."</span></sup>";
-                                }else{
-
-                                     }
-                                ?>
-                    </a></li>
+             </li>
+               <li>
+                 <a href="commandeList.php" class="nav-link">
+                    Commandes
+                    <sup style ='font-size:15px; font-weight:bold;'><span class='badge badge-pill badge-danger countCmdNotif'></span></sup>
+                  </a>
+                </li>
                 <li><a href="contactusList.php" class="nav-link">
                   Messages client
-                  <?php
-                        $var = 2;
-                                if ($var > 0){ echo"<sup style ='font-size:15px; font-weight:bold;'><span class='badge badge-pill badge-danger'>".$var."</span></sup>";
-                                }else{}
+                  <sup style ="font-size:15px; font-weight:bold;"><span class='badge badge-pill badge-danger count'></span></sup>
 
-
-                  ?>
-                </a></li>
+                   </a>
+                 </li>
                  <li>
-                     <a href='contactusList.php' class='nav-link'>
-                            Client New Letters
-                            <?php
-                        $var = 2;
-                                if ($var > 0){ echo"<sup style ='font-size:15px; font-weight:bold;'><span class='badge badge-pill badge-danger'>".$var."</span></sup>";
-                                }else{
-
-                                    }
-                  ?>
-
-                     </a>
-                </li>
+                   <a href="newletterlist.php" class="nav-link">
+                        Client New Letters
+                           <sup style ='font-size:15px; font-weight:bold;'><span class='badge badge-pill badge-danger countNletterNotif'></span></sup>
+                   </a>
+                 </li>
                 <li>
                 <div class="dropdown">
                        <a href=""  class="nav-link dropdownlink">
@@ -154,9 +140,9 @@ function show_apercu(x){
                        <i class="fa fa-caret-down"></i>
                        </a>
                           <div class="dropdown-content">
-                            <a href="addItemMenu.php" class="nav-link">Ajouter de produits</a>
-                            <a href="addItemMenu.php" class="nav-link">Mise a jours des données du produit</a>
-                            <a href="addItemMenu.php" class="nav-link">Suppression d'un produit</a>
+                            <a href="addItemMenu.php" class="dropdown-item">Ajouter de produits</a>
+                            <a href="traitementproduit/updateproduct.php">Mise a jours des données du produit</a>
+                            <a href="traitementproduit/deleteproduct.php">Suppression d'un produit</a>
                           </div>
                     </div>
                 </li>
@@ -270,7 +256,7 @@ function show_apercu(x){
   <script src="../js/jquery.fancybox.min.js"></script>
   <script src="../js/jquery.sticky.js"></script>
 
-
+  <script src="js/notification.js"></script>
   <script src="js/main.js"></script>
   <script type="text/javascript">
     $('').submit(
