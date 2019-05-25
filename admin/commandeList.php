@@ -163,9 +163,34 @@ require_once('../function/convertDateToFrench.php');
                 <td>5</td>
                 <td>25000</td>
                 <td>".$cmd['prixArticle']."</td>
-                <td><a href='#' class='btn btn-dark'>Traiter la commande</a></td>
+                <td><button data-toggle='modal' data-target='#modal' class='btn btn-dark'>Traiter la commande</button></td>
             </tr>
           </tbody>
+          <!-- Modal -->
+           <div class='modal fade' id='modal' tabindex='-1' role='dialog' aria-labelledby='modal' aria-hidden='true'>
+             <div class='modal-dialog modal-dialog-centered' role='document'>
+              <div class='modal-content'>
+               <div class='modal-header'>
+                 <h4 style='margin-left:100px;'>Traitement commande</h4>
+              </div>
+              <div class='modal-body'>
+                  <h5>Marquer la commande comme:</h5><br/>
+                <div class='row'>
+                <form  method='POST' action='../controller/treatmentCmd.php'>
+                 <input type='text'style='display:none' name='treatId' value='".$cmd['id']."'>
+                 <button name='cmdtreat' type='submit' class='btn btn-success ml-4'>commande traitée</button>
+                </form>
+                <form  method='POST' action='../controller/treatmentCmd.php'>
+                   <input style='display:none' type='text' name='cancelId' value='".$cmd['id']."'>
+                   <button name='cmdcancel' type='submit' class='btn btn-danger  ml-2'>commande annulée !</button>
+                </form>
+                </div>
+             </div>
+            <div class='modal-footer'>
+            </div>
+         </div>
+      </div>
+    </div>
           ";
         }
           ?>
@@ -173,7 +198,6 @@ require_once('../function/convertDateToFrench.php');
   </table>
     </div>
   </div>
-
   <footer class="site-footer bg-white">
       <div class="container">
         <div class="row">
@@ -201,7 +225,6 @@ require_once('../function/convertDateToFrench.php');
               </div>
             </div>
           </div>
-
         </div>
         <div class="row pt-5 mt-5 text-center">
           <div class="col-md-12">

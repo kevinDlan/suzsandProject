@@ -1,12 +1,12 @@
-
+<?php
+    require_once('../controller/selectDeliveryArea.php');
+ ?>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
     <title>Suz'sand</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="../fonts/icomoon/style.css">
     <link href="../images/n.jpg" rel="icon" type="image/jpg">
@@ -177,11 +177,12 @@
                         <label class="input-group-text" for="inputGroupSelect01">Quartier</label>
                       </div>
                       <select class="custom-select" name="quartier" id="inputGroupSelect01">
-                        <option>2 Plateaux - 7ème Tranche</option>
-                        <option>2 Plateaux - Agban</option>
-                        <option>2 Plateaux - Aghien</option>
-                        <option>Yopougon</option>
+                        <?php
+                             foreach ($area as $areas){
+                               echo "<option>".$areas['region']."</option>";
+                             }
 
+                         ?>
                       </select>
                     </div>
                   </div>
@@ -196,14 +197,14 @@
               <div class="row">
                 <div class="col-md-5 mb-3">
                   <label for="validationCustom03">Nombre de plats</label>
-                  <input  type="number" value="1" class="form-control" id="validationCustom03" placeholder="Ex: 5" name="nombre_plats" pattern="^[0-9]{1,}$" required>
+                  <input min="1" max="100"  type="number" value="1" class="form-control nbrePlat" id="validationCustom03" placeholder="Ex: 5" name="nombre_plats" pattern="^[0-9]{1,}$" required>
                   <div class="invalid-feedback">
                     Entrer seulemant des chiffres
                   </div>
                 </div>
                 <div class="col-md-5 mb-3">
-                   <label for="prixtotal">Prix Total</label>
-                   <input id="prix" class="form-control" readonly type='number' name='prix' value='<?php echo $_POST["prix"];?>'>
+                   <label for="prixtotal">Prix Unitaire</label>
+                   <input type='number'  id="prix"  readonly class="form-control prix"  name='prix' value='<?php echo $_POST["prix"];?>'>
                 </div>
               </div>
               <div class="form-group col-md-12">
@@ -327,18 +328,13 @@
   <script src="../js/jquery.fancybox.min.js"></script>
   <script src="../js/jquery.sticky.js"></script>
   <script type="text/javascript">
-
-  $('document').ready(function(){
-    var prix = parseInt($('#prix').val());
-    var nbrePlat = parseInt($(this).val());
-
-      $('#validationCustom03').on("keyup", function(){
-        // $('#prix').removeAttr('readonly');
-        $('#prix').val() = parseInt(prix*nbrePlat);
+    // var prix =$('#prix').val();
+    // var nbrePlat =$(this).val();
+    $('.nbrePlat').keyup(function(){
+        $('.prix').val() = prix*nbrePlat;
+        alert('ok');
       });
-  });
 
-  changeValue();
   </script>
 
   <script src="../js/main.js"></script>

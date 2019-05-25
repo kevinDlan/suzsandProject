@@ -1,5 +1,4 @@
-
-  //Selected User e*messages and notificate admin
+//Selected User e*messages and notificate admin
   function loadNotif(){
   setTimeout(function(){
             $.ajax({
@@ -28,8 +27,7 @@
                   type:'POST',
                   url:"../../controller/selectNewCmdNotif.php",
                   success:function(cmdNotif){
-                    if(cmdNotif>0){
-                      //alert(cmdNotif);
+                    if(cmdNotif > 0){
                       $('.countCmdNotif').html(cmdNotif);
                     }
                   },
@@ -54,7 +52,7 @@
                       success:function(notifnewLetter){
                         if(notifnewLetter>0){
                           $('.countNletterNotif').html(notifnewLetter);
-                          alert('OK');
+                          //alert('OK');
                         }
                       },
                       error:function(){

@@ -141,7 +141,6 @@ require_once('../function/convertDateToFrench.php');
                 <th scope="col">Nom et prenom du client</th>
                 <th scope="col">Email</th>
                 <th scope="col">Type du message</th>
-                <th scope="col">Messages</th>
                 <th scope="col"></th>
               </tr>
              </thead>
@@ -154,10 +153,28 @@ require_once('../function/convertDateToFrench.php');
                      <td>".$msgData['nom']." ".$msgData['prenom']."</td>
                      <td>".$msgData['email']."</td>
                      <td>".$msgData['sujet']."</td>
-                     <td>".$msgData['messages']."</td>
-                     <td><a href='#' class='btn btn-primary'>Lire ...</></td>
+                     <td><button data-toggle='modal' data-target='#".$msgData['nom']."' class='btn btn-primary'>lire...</button></td>
                  </tr>
                </tbody>
+               <!-- Modal -->
+                <div class='modal fade' id='".$msgData['nom']."' tabindex='-1' role='dialog' aria-labelledby='modal' aria-hidden='true'>
+                  <div class='modal-dialog modal-dialog-centered' role='document'>
+                   <div class='modal-content'>
+                    <div class='modal-header'>
+                      <h4 style='margin-left:100px;'>Lecture Message client</h4>
+                   </div>
+                   <div class='modal-body'>
+                       <p>".$msgData['messages']."</p><br/>
+                     <form  method='POST' action='../controller/treatmentCustomerMsg.php'>
+                        <input type='text'style='display:none' name='msgId' value='".$msgData['id']."'>
+                        <button name='mgsView' type='submit' class='btn btn-success ml-4'>Message Lu</button>
+                     </form>
+                  </div>
+                 <div class='modal-footer'>
+                 </div>
+              </div>
+           </div>
+         </div><!-- endModal -->
                 ";
              }
               ?>
