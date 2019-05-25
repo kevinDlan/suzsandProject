@@ -3,5 +3,5 @@
   $query = $bdd->prepare('SELECT * FROM clientnewsLetter ');
   $query->execute();
   $data = $query->fetchAll(\PDO::FETCH_ASSOC);
-  //var_dump($data);
-?>
+  $query->closeCursor();
+  //var_dump($data)

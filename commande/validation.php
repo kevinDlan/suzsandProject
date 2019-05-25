@@ -1,110 +1,97 @@
 <?php
-
-      
       $isSuccess = false;
-
-
-      if (isset($_POST['name'])) 
+      if (isset($_POST['name']))
       {
         $isSuccess = true;
 
-        if (isset($_POST['name'])) 
+        if (isset($_POST['name']))
         {
-          if (preg_match("#^[a-zA-Zàé]([a-zA-Zàé ]){1,}$#", $_POST['name'])) 
+          if (preg_match("#^[a-zA-Zàé]([a-zA-Zàé ]){1,}$#", $_POST['name']))
           {
             $name = htmlspecialchars($_POST['name']);
           }
           else
           {
-            
+
             $isSuccess = false;
           }
-   
+
         }
 
-        if (isset($_POST['tel'])) 
+        if (isset($_POST['tel']))
         {
-          if (preg_match("#^[0-9]{2}([ ]?[0-9]{2}){3}$#", $_POST['tel'])) 
+          if (preg_match("#^[0-9]{2}([ ]?[0-9]{2}){3}$#", $_POST['tel']))
           {
             $tel = htmlspecialchars($_POST['tel']);
           }
           else
           {
-            
+
             $isSuccess = false;
           }
-   
+
         }
 
-        if (isset($_POST['ville'])) 
+        if (isset($_POST['ville']))
         {
-          if (!empty($_POST['ville'])) 
+          if (!empty($_POST['ville']))
           {
             $ville = htmlspecialchars($_POST['ville']);
           }
           else
           {
-            
+
             $isSuccess = false;
           }
-   
+
         }
 
-        if (isset($_POST['quartier'])) 
+        if (isset($_POST['quartier']))
         {
-          if (!empty($_POST['quartier'])) 
+          if (!empty($_POST['quartier']))
           {
             $quartier = htmlspecialchars($_POST['quartier']);
           }
           else
           {
-            
+
             $isSuccess = false;
           }
-   
+
         }
 
-        if (isset($_POST['prix'])) 
+        if (isset($_POST['prix']))
         {
           $prixUnitaire = htmlspecialchars($_POST['prix']);
         }
-        
-        if (isset($_POST['nombre_plats'])) 
+
+        if (isset($_POST['nombre_plats']))
         {
-          if (preg_match("#^[0-9]{1,}$#", $_POST['nombre_plats'])) 
+          if (preg_match("#^[0-9]{1,}$#", $_POST['nombre_plats']))
           {
             $nombre_plats = htmlspecialchars($_POST['nombre_plats']);
 
             $prix = $nombre_plats * $prixUnitaire;
-            
+
           }
           else
           {
-            
+
             $isSuccess = false;
           }
-   
+
         }
 
-        if (isset($_POST['libelleMenu'])) 
+        if (isset($_POST['libelleMenu']))
         {
           $libelleMenu = htmlspecialchars($_POST['libelleMenu']);
         }
-
-
-
-
-        if ($isSuccess) 
+        if ($isSuccess)
         {
-          
-            
-          
-
           include('../bd/connexion.php');
-
           session_start();
           $_SESSION['vaide'] = true;
-         /* $req = $bdd->prepare('INSERT INTO commande(nom,contact,ville_livraison,quartier_livraison,articleCommande,nombre_plats,prixUnitaire,prixTotal,dateCommande)
+         $req = $bdd->prepare('INSERT INTO commande(nom,contact,ville_livraison,quartier_livraison,articleCommande,nombre_plats,prixUnitaire,prixTotal,dateCommande)
             VALUES(:nom,:contact,:ville_livraison,:quartier_livraison,:articleCommande,:nombre_plats,:prixUnitaire,:prixTotal,NOW())
             ');
 
@@ -118,26 +105,10 @@
                 'nombre_plats' => $nombre_plats,
                 'prixUnitaire' => $prixUnitaire,
                 'prixTotal' => $prix,
-                
-            
-
-
           ));
-          
-          */
           header('Location: ../index.php');
-          
-          
-          
-          
         }
-        
       }
-
-      
-      
-      
-      
  ?>
 
 <!DOCTYPE html>
@@ -146,8 +117,8 @@
     <title>Suz'sand</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    
+
+
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="../fonts/icomoon/style.css">
     <link href="../images/n.jpg" rel="icon" type="image/jpg">
@@ -168,14 +139,14 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="commande.css">
-    
+
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
 
 
-  
-  
+
+
 
     <div>
 
@@ -189,11 +160,11 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-   
+
     <div class="top-bar py-3 bg-light" id="home-section" style="height: 50px;">
       <div class="container">
         <div class="row align-items-center">
-         
+
           <div class="col-6 text-left">
             <ul class="social-media">
               <li><a href="#" class=""><span class="icon-facebook"></span></a></li>
@@ -207,17 +178,17 @@
               <span class="mr-3"><a href="tel://#"> <span class="icon-phone mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">(+225)  08 59 91 89</span></a></span>
               <span><a href="#"><span class="icon-envelope mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">shop@yourdomain.com</span></a></span>
             </p>
-            
+
           </div>
         </div>
-      </div> 
+      </div>
     </div>
 
     <header class="site-navbar py-4 bg-white js-sticky-header site-navbar-target" role="banner">
 
       <div class="container-fluid" style="height: 80px;">
         <div class="row align-items-center">
-          
+
           <div class="col-6 col-xl-2">
             <h1 class="mb-0 site-logo"><a href="index.html" class="text-black mb-0">
               <img src="../images/n.jpg" class="logo">
@@ -230,9 +201,9 @@
                 <li><a href="#home-section" class="nav-link">Accueil</a></li>
                 <li><a href="#products-section" class="nav-link">Nos produits</a></li>
                 <li><a href="#about-section" class="nav-link">A propos de nous</a></li>
-                
+
                 <li><a href="#testimonials-section" class="nav-link">Temoignage</a></li>
-                
+
                 <li><a href="#contact-section" class="nav-link">Contactez-nous</a></li>
               </ul>
             </nav>
@@ -243,17 +214,17 @@
 
         </div>
       </div>
-      
+
     </header>
 
-  
-     
-   
+
+
+
 
       <div style="height: 150px;"></div>
-    
-   
-    
+
+
+
 
           <div class="container">
             <div class="row" style="padding-bottom: 50px; border: 3px dashed #f16821; color: #212529;">
@@ -263,7 +234,7 @@
                 <p id="thank-you"  style="font-size: 20px; text-align: center; text-transform: uppercase; font-weight: bold;">Confirmer les informations suivantes afin de valider la commande !
                 </p>
               </div>
-               
+
             </div>
             <div class="row">
               <div class="col-md-5 mx-auto">
@@ -271,7 +242,7 @@
                     <p style="font-size: 22px">
 
                     <table>
-                      
+
                         <tr>
                           <td><strong>Nom et prenom :</strong> </td><td><input type="text" size="25" style="text-align: center;" value="<?php echo $name; ?>" readonly></td>
                         </tr>
@@ -299,13 +270,13 @@
                         <tr>
                           <td><strong>Repas :</strong> </td><td><input type="text" style="text-align: center;" size="25" value="<?php echo $libelleMenu;?>" readonly></td>
                         </tr>
-                        
+
                         <tr>
                           <td></td><td><a href="../index.php#products-section" style="font-size: 15px; margin-top: 15px;" class="btn btn-black mr-1 ">Retour</a><button type="submit" style="font-size: 15px; margin-top: 15px;" class="btn btn-black mr-1">Confirmer</button></td>
                         </tr>
-                      
+
                     </table>
-              
+
               </form>
               </div>
               </div>
@@ -315,13 +286,13 @@
 
             </div>
 
-              
+
             </p>
-              
+
             </div>
-            
-            
-            
+
+
+
 
     </div>
 
@@ -347,12 +318,12 @@
       </div>
     </div>
 
-    
 
 
-    
 
-  
+
+
+
     <footer class="site-footer bg-white">
       <div class="container">
         <div class="row">
@@ -380,7 +351,7 @@
               </div>
             </div>
           </div>
-          
+
         </div>
         <div class="row pt-5 mt-5 text-center">
           <div class="col-md-12">
@@ -392,7 +363,7 @@
       </p>
             </div>
           </div>
-          
+
         </div>
       </div>
     </footer>
@@ -401,11 +372,11 @@
 
 
 
-  
 
 
 
-  
+
+
 
   <script src="../js/jquery-3.3.1.min.js"></script>
   <script src="../js/jquery-migrate-3.0.1.min.js"></script>
@@ -421,8 +392,8 @@
   <script src="../js/jquery.fancybox.min.js"></script>
   <script src="../js/jquery.sticky.js"></script>
 
-  
+
   <script src="../js/main.js"></script>
-    
+
   </body>
 </html>

@@ -22,29 +22,30 @@
       loadNotif();
 
       //Selected User commande and notificate admin
-      // function loadcmdNotif(){
-      // setTimeout(function(){
-      //           $.ajax({
-      //             type:'POST',
-      //             url:"../../controller/selectNewCmdNotif.php",
-      //             success:function(cmdNotif){
-      //               if(cmdNotif>0){
-      //                 $('.countCmdNotif').html(cmdNotif);
-      //               }
-      //             },
-      //             error:function(){
-      //               //alert('Error');
-      //             }
-      //           });
-      //           loadcmdNotif();
-      //                },
-      //              5000
-      //            );
-      //     }
-      //     loadcmdNotif();
+      function loadcmdNotif(){
+      setTimeout(function(){
+                $.ajax({
+                  type:'POST',
+                  url:"../../controller/selectNewCmdNotif.php",
+                  success:function(cmdNotif){
+                    if(cmdNotif>0){
+                      //alert(cmdNotif);
+                      $('.countCmdNotif').html(cmdNotif);
+                    }
+                  },
+                  error:function(){
+                     alert('Error');
+                  }
+                });
+                loadcmdNotif();
+                     },
+                   5000
+                 );
+          }
+          loadcmdNotif();
 
 
-          //Selected that succribe to new letter and notificate admin
+          //Selected clients that succribe to new letter and notificate admin
           function loadnewLetterNotif(){
           setTimeout(function(){
                     $.ajax({
@@ -53,6 +54,7 @@
                       success:function(notifnewLetter){
                         if(notifnewLetter>0){
                           $('.countNletterNotif').html(notifnewLetter);
+                          alert('OK');
                         }
                       },
                       error:function(){

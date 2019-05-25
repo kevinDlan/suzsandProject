@@ -5,8 +5,8 @@
     <title>Suz'sand</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    
+
+
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="../fonts/icomoon/style.css">
     <link href="../images/n.jpg" rel="icon" type="image/jpg">
@@ -27,10 +27,10 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" type="text/css" href="commande1.css">
-    
+
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-  
+
   <div class="site-wrap">
 
     <div class="site-mobile-menu site-navbar-target">
@@ -41,11 +41,11 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-   
+
     <div class="top-bar py-3 bg-light" id="home-section" style="height: 50px;">
       <div class="container">
         <div class="row align-items-center">
-         
+
           <div class="col-6 text-left">
             <ul class="social-media">
               <li><a href="#" class=""><span class="icon-facebook"></span></a></li>
@@ -59,17 +59,17 @@
               <span class="mr-3"><a href="tel://#"> <span class="icon-phone mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">(+225)  08 59 91 89</span></a></span>
               <span><a href="#"><span class="icon-envelope mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">shop@yourdomain.com</span></a></span>
             </p>
-            
+
           </div>
         </div>
-      </div> 
+      </div>
     </div>
 
     <header class="site-navbar py-4 bg-white js-sticky-header site-navbar-target" role="banner">
 
       <div class="container-fluid" style="height: 80px;">
         <div class="row align-items-center" style="position: relative;">
-          
+
           <div class="col-6 col-xl-2">
             <h1 class="mb-0 site-logo"><a href="index.html" class="text-black mb-0">
               <img src="../images/n.jpg" class="logo">
@@ -82,9 +82,9 @@
                 <li><a href="#home-section" class="nav-link">Accueil</a></li>
                 <li><a href="#products-section" class="nav-link">Nos produits</a></li>
                 <li><a href="#about-section" class="nav-link">A propos de nous</a></li>
-                
+
                 <li><a href="#testimonials-section" class="nav-link">Temoignage</a></li>
-                
+
                 <li><a href="#contact-section" class="nav-link">Contactez-nous</a></li>
               </ul>
             </nav>
@@ -95,16 +95,16 @@
 
         </div>
       </div>
-      
+
     </header>
 
-  
-     
+
+
     <div style="height: 150px;"></div>
 
     <div class="container">
-    
-    
+
+
       <form class="needs-validation" novalidate method="post" action="validation.php" role="form">
     <div class="row">
 
@@ -121,14 +121,14 @@
                 <h3 style="color: #f16821;"><?php echo $_POST['libelleMenu'];?></h3>
                 <p class='mb-4' style='font-weight:bold; font-size:20px'><?php echo $_POST['prix'];?> <strong> FCFA</strong></p>
                 <p class="mb-4"><?php echo $_POST['descriptionMenu'];?></p>
-                
-                
-                    
-                    
+
+
+
+
               </div>
             </div>
           </div>
-        
+
       </div>
 
       <div class="col-md-1"></div>
@@ -138,10 +138,10 @@
           <h2 style="text-align: center;">Passer une commande !</h2>
         </div>
 
-      
-        
+
+
           <div class="row">
-            
+
             <div>
               <div class="col-md-12 mb-3">
                 <label for="validationCustom01">Nom et prènom</label>
@@ -167,7 +167,7 @@
                       </div>
                       <select class="custom-select" name="ville" id="inputGroupSelect01">
                         <option selected>Abidjan</option>
-                        
+
                       </select>
                     </div>
                   </div>
@@ -181,27 +181,30 @@
                         <option>2 Plateaux - Agban</option>
                         <option>2 Plateaux - Aghien</option>
                         <option>Yopougon</option>
-                        
+
                       </select>
                     </div>
                   </div>
-                  
-                            
+
+
                 </div>
 
-                 
-                
+
+
               </div>
-            
-              <div>
-                <div class="col-md-12 mb-3">
+
+              <div class="row">
+                <div class="col-md-5 mb-3">
                   <label for="validationCustom03">Nombre de plats</label>
-                  <input type="text" class="form-control" id="validationCustom03" placeholder="Ex: 5" name="nombre_plats" pattern="^[0-9]{1,}$" required>
+                  <input  type="number" value="1" class="form-control" id="validationCustom03" placeholder="Ex: 5" name="nombre_plats" pattern="^[0-9]{1,}$" required>
                   <div class="invalid-feedback">
                     Entrer seulemant des chiffres
                   </div>
                 </div>
-                
+                <div class="col-md-5 mb-3">
+                   <label for="prixtotal">Prix Total</label>
+                   <input id="prix" class="form-control" readonly type='number' name='prix' value='<?php echo $_POST["prix"];?>'>
+                </div>
               </div>
               <div class="form-group col-md-12">
                 <div class="form-check">
@@ -214,19 +217,19 @@
                   </div>
                 </div>
               </div>
-              
+
             </div>
 
               <input type='hidden' name='libelleMenu' value='<?php echo $_POST["libelleMenu"];?>'>
-              <input type='hidden' name='prix' value='<?php echo $_POST["prix"];?>'>
 
-              
-            
+
+
+
             <button class="btn btn-black mr-1 mx-auto col-md-6" style="height: 50px;" type="submit">Valider la commande</button>
           </form>
 
-        
-        
+
+
       </div>
 
 
@@ -237,7 +240,7 @@
 
 
 
-  
+
 
 <script>
 // Example starter JavaScript for disabling form submissions if there are invalid fields
@@ -263,7 +266,7 @@
 
 
 
-  
+
     <footer class="site-footer bg-white" style="margin-top: 100px;">
       <div class="container">
         <div class="row">
@@ -291,7 +294,7 @@
               </div>
             </div>
           </div>
-          
+
         </div>
         <div class="row pt-5 mt-5 text-center">
           <div class="col-md-12">
@@ -303,7 +306,7 @@
       </p>
             </div>
           </div>
-          
+
         </div>
       </div>
     </footer>
@@ -323,9 +326,22 @@
   <script src="../js/aos.js"></script>
   <script src="../js/jquery.fancybox.min.js"></script>
   <script src="../js/jquery.sticky.js"></script>
-  <script type="text/javascript"></script>
-  
+  <script type="text/javascript">
+
+  $('document').ready(function(){
+    var prix = parseInt($('#prix').val());
+    var nbrePlat = parseInt($(this).val());
+
+      $('#validationCustom03').on("keyup", function(){
+        // $('#prix').removeAttr('readonly');
+        $('#prix').val() = parseInt(prix*nbrePlat);
+      });
+  });
+
+  changeValue();
+  </script>
+
   <script src="../js/main.js"></script>
-    
+
   </body>
 </html>

@@ -1,14 +1,7 @@
 <?php
-    session_start();
-    if(isset($_SESSION['adminnom'])  AND isset($_SESSION['adminprenom']))
-    {
-      require_once('../controller/customerMsgController.php');
-      require_once('../function/convertDateToFrench.php');
-    }
-    else{
-          header('Location:index.php');
-        }
-  ?>
+require_once('../controller/customerMsgController.php');
+require_once('../function/convertDateToFrench.php');
+ ?>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -124,15 +117,7 @@
                     </div>
                 </li>
                 <li>
-                   <div class="dropdown">
-                      <a href="" class="nav-link dropdown-item">
-                      <?php echo $_SESSION['adminnom']; ?>
-                      <i class="fa fa-caret-down"></i>
-                      </a>
-                        <div class="dropdown-content">
-                           <a href="logout.php" class="dropdown-item">Logout</a>
-                        </div>
-                   </div>
+                    <a href="">Deconnexion</a>
                </li>
               </ul>
             </nav>

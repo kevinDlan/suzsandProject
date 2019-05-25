@@ -1,13 +1,7 @@
 <?php
-
-  session_start();
-  if(isset($_SESSION['adminnom'])  AND isset($_SESSION['adminprenom']))
-  {
-  }
-  else{
-        header('Location:index.php');
-      }
-?>
+require_once('../controller/selectCmd.php');
+require_once('../function/convertDateToFrench.php');
+ ?>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -124,15 +118,8 @@
                     </div>
                 </li>
                 <li>
-                   <div class="dropdown">
-                      <a href="" class="nav-link dropdown-item">
-                      <?php echo $_SESSION['adminnom']; ?>
-                      <i class="fa fa-caret-down"></i>
-                      </a>
-                        <div class="dropdown-content">
-                           <a href="logout.php" class="dropdown-item">Logout</a>
-                        </div>
-                   </div>
+                    <a href="">Deconnexion</a>
+               </li>
                </li>
               </ul>
             </nav>
@@ -160,29 +147,28 @@
             <th scope="col">Plat commandé</th>
             <th scope="col">Nombre de plat</th>
             <th scope="col">Montant Total de la commande</th>
+            <th scope="col">Prix unitaire du plat</th>
             <th scope="col">Traiter la commande</th>
           </tr>
          </thead>
-        <tbody>
-          <tr>
-           <th scope="row">Jeudi 09 mai 2019 à 13h10</th>
-              <td>Kone N'adtien kevin</td>
-              <td>77298466</td>
-              <td>Sandwich à la salade</td>
-              <td>1</td>
-              <td>15000 CFA</td>
-              <td><a href="#" class="btn btn-dark">Traiter la commande</a></td>
-          </tr>
-          <tr>
-           <th scope="row">Jeudi 09 mai 2019 à 13h10</th>
-              <td>Kone N'adtien kevin</td>
-              <td>77298466</td>
-              <td>Sandwich à la salade</td>
-              <td>1</td>
-              <td>15000 CFA</td>
-              <td><a href="#" class="btn btn-dark">Traiter la commande</a></td>
-          </tr>
-        </tbody>
+         <?php
+        foreach ($data as $cmd) {
+          echo "
+          <tbody>
+            <tr>
+             <th scope='row'>".dateToFrench($cmd['dateCommande'],'l j F Y')."  à ".extratHour($cmd['dateCommande'])."</th>
+                <td>".$cmd['nomPrenom']."</td>
+                <td>".$cmd['contact']."</td>
+                <td>".$cmd['articleCommande']."</td>
+                <td>5</td>
+                <td>25000</td>
+                <td>".$cmd['prixArticle']."</td>
+                <td><a href='#' class='btn btn-dark'>Traiter la commande</a></td>
+            </tr>
+          </tbody>
+          ";
+        }
+          ?>
     </table>
   </table>
     </div>
@@ -247,7 +233,6 @@
   <script src="../js/aos.js"></script>
   <script src="../js/jquery.fancybox.min.js"></script>
   <script src="../js/jquery.sticky.js"></script>
-
   <script src="js/notification.js"></script>
   <script src="../js/main.js"></script>
   <script>
