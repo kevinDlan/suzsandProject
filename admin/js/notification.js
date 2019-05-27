@@ -32,7 +32,7 @@
                     }
                   },
                   error:function(){
-                     alert('Error');
+                     //alert('Error');
                   }
                 });
                 loadcmdNotif();

@@ -1,5 +1,5 @@
 <?php
-  include("../../controller/selectProductForUpDate.php");
+  include("../../controller/selectProductForDelete.php");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -164,10 +164,10 @@
           foreach ($data as $product){
             echo "
           <div class='productRow'>
-            <form id='deleteForm' class='deleteForm' action='' method='post'>
+            <form action='../../controller/deleteProduct.php' id='deleteForm' class='deleteForm' method='post'>
              <tbody>
                    <input name='codeProduit' type='text' style='display:none' value='".$product['codeMenu']."'/>
-                   <input name='imgProduit' type='text' style='display:none' value='".$product['photoMenu']."'/>
+                   <input name='imgProduit' type='text' style='display:none' value='".$product['photoMenu']."'/>  
                <tr class='".$product['codeMenu']."'>
                 <th scope='row'>
                        ".$product['codeMenu']."
@@ -185,10 +185,35 @@
                       <img src='../../imageRepas/".$product['photoMenu']."' width='100px' height='100px' alt=''>
                    </td>
                    <td>
-                      <button  class='btn btn-primary sm-1' type='submit' name='button' >Supprimer</button>
+                      <button data-toggle='modal' data-target='#".$product['codeMenu']."'  class='btn btn-primary sm-1' type='button'>Supprimer</button>
                    </td>
                </tr>
              </tbody>
+
+             <!-- Modal -->
+              <div class='modal fade' id='".$product['codeMenu']."' tabindex='-1' role='dialog' aria-labelledby='modal' aria-hidden='true'>
+                <div class='modal-dialog modal-dialog-centered' role='document'>
+                 <div class='modal-content'>
+                  <div class='modal-header'>
+                    <button type='button' class='btn btn-danger' data-dismiss='modal' aria-label='Close'>
+                       <span aria-hidden='true'>&times;</span>
+                    </button>
+                 </div>
+                 <div class='modal-body'>
+                    <p class='text-center'>
+                       <i class='far fa-question-circle fa-7x' style='color:#f16821;' ></i>
+                    </p>
+                    <p class='text-center' style='text-size:30px;'> Voulez-Vous vraiment supprimé le produit </p>
+                    <p class='text-center'>
+                      <button type='button' class='btn btn-success ml-4' data-dismiss='modal' aria-label='Close'>Annuler</button>
+                      <button name='mgsView' type='submit' class='btn btn-danger ml-4'>Confirmer</button>
+                    </p>
+                </div>
+               <div class='modal-footer'>
+               </div>
+            </div>
+         </div>
+       </div><!-- endModal -->
              </form>
             </div>";
              }
@@ -261,29 +286,5 @@
 
   <script src="../../js/main.js"></script>
   <script src="../js/notification.js"></script>
-  <script>
-      $('.deleteForm').on('submit',
-        function(event){
-          event.preventDefault();
-          var data_form = $(this).serialize();
-          $.ajax({
-            type:'POST',
-            url:'../../controller/deleteProduct.php',
-            data:data_form,
-            success:function(data){
-              if(data == 'delete_success'){
-                 $('.productRow').remove();
-                 alert('Suppression effectuer avec succès !');
-              }else {
-                     alert(data);
-                    }
-            },
-            error:function(data){
-              alert('Error');
-            }
-          });
-        }
-      );
-  </script>
   </body>
 </html>

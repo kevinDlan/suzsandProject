@@ -44,13 +44,6 @@ function show_apercu(x){
            }
          }
        }
-
-       function removeFile(x){
-                           $(x).nextAll('input').val("");
-                           $(x).prevAll('.file-name').html("");
-                           $(x).prevAll('.img_apercu').hide();
-                           $(x).parent('.image_view').children('a').hide();
-                         }
 </script>
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -185,8 +178,6 @@ function show_apercu(x){
                         <span class="btn btn-primary btn-sm" onclick="chooseFile(this);">Choisir une image ...</span>
                         <button type="submit" class="btn btn-primary">Enregistrer</button>
                         <img class="image_apercu" style="width:300px;height:130px;display:none;">
-                        <!--<span class="file-name"></span>-->
-                        <!--<a  class="btn btn-danger remove-btn" style="display:none;" onclick="removeFile();">X</a>-->
                         <input name="productImg" type="file" class="form-control-file" id="productFile" style="display:none;"
                          name="productFile" onchange="show_apercu(this);" accept="image/*">
                   </div>

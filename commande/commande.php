@@ -179,9 +179,10 @@
                       <select class="custom-select" name="quartier" id="inputGroupSelect01">
                         <?php
                              foreach ($area as $areas){
-                               echo "<option>".$areas['region']."</option>";
+                               echo "
+                               <option>".$areas['region']."</option>";
                              }
-
+                            echo "<input style='display:none' type='number' name='".$areas['region']."' value='".$areas['montant_livraison']."'>";
                          ?>
                       </select>
                     </div>
@@ -202,9 +203,12 @@
                     Entrer seulemant des chiffres
                   </div>
                 </div>
-                <div class="col-md-5 mb-3">
+                <div class="input-group col-md-5 mb-3">
                    <label for="prixtotal">Prix Unitaire</label>
-                   <input type='number'  id="prix"  readonly class="form-control prix"  name='prix' value='<?php echo $_POST["prix"];?>'>
+                  <div class="row">
+                   <input type='number'  id="prix"  readonly class="form-control prix col-8"  name='prix' value='<?php echo $_POST["prix"];?>'>
+                   <label class="input-group-text col-4" for="prix">FCFA</label>
+                  </div>
                 </div>
               </div>
               <div class="form-group col-md-12">

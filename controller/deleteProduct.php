@@ -1,7 +1,4 @@
 <?php
-session_start();
-if($_SESSION['adminnom']){
-
   if(isset($_POST) && !empty($_POST))
        {
          require(dirname(__DIR__).'\bd\connexion.php');
@@ -11,15 +8,18 @@ if($_SESSION['adminnom']){
          $query->closeCursor();
          if($result)
          {
-        //Requette de suppression de l'image dans le dossier imageRepas
-           echo 'delete_success';
-          //"Le produit a été supprimé de la base de données avec succès !";
-        }else {
-          echo $result;
-        }
-       }
+           $file ="../imageRepas/".$_POST['imgProduit'];
+           if(file_exists($file))
+           {
+             unlink($file);
+             session_start();
+             $_SESSION['deleteProduct']=('Le produit a été Supprimer avec succès !');
+             header('Location:../admin/traitementproduit/deleteproduct.php');
+           }
+           }else {
+                  echo "Chemin non trouvé !";
+                  }
 
-}else {
-  echo "Veuiller vous connecter";
-}
- ?>
+           }else {
+                  echo "OK";
+                }

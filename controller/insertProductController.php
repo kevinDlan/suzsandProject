@@ -12,20 +12,21 @@ if(isset($_POST) && !empty($_POST)){
    $libelle=$_POST['nomProduit'];
    $description =  $_POST['descriptionProduit'];
    $prix = $_POST['prixProduit'];
-
+   $date = date('Y-m-d');
 
     $array = array(
              'codeproduct' => $code,
               'libelleproduct' =>$libelle,
               'descriptionproduct' =>$description,
               'productprice' => $prix,
-              'productimg' => $productImg
+              'productimg' => $productImg,
+              'updDate'=>$date
              );
 
     require_once('../bd/connexion.php');
     $req = $bdd->prepare(
-                         "INSERT INTO menu (codeMenu,libelleMenu,descriptionMenu,prix,photoMenu)
-                              VALUES(:codeproduct, :libelleproduct, :descriptionproduct, :productprice, :productimg)"
+                         "INSERT INTO menu (codeMenu,libelleMenu,descriptionMenu,prix,photoMenu,upDate_date)
+                          VALUES(:codeproduct, :libelleproduct, :descriptionproduct, :productprice, :productimg, :updDate)"
                         );
     $req->execute($array);
     if($req->rowCount()>0){
