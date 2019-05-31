@@ -225,7 +225,7 @@
                     </p>
                     <p class='text-center' style='text-size:30px;'> Voulez-Vous enregistré les modifications </p>
                     <p class='text-center'>
-                      <button type='button' class='btn btn-danger ml-4' data-dismiss='modal' aria-label='Close'>Annuler</button>
+                      <button type='button' class='btn btn-info ml-4' data-dismiss='modal' aria-label='Close'>Annuler</button>
                       <button name='mgsView' type='submit' class='btn btn-success ml-4'>Confirmer</button>
                     </p>
                 </div>

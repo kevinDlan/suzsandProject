@@ -167,7 +167,7 @@
             <form action='../../controller/deleteProduct.php' id='deleteForm' class='deleteForm' method='post'>
              <tbody>
                    <input name='codeProduit' type='text' style='display:none' value='".$product['codeMenu']."'/>
-                   <input name='imgProduit' type='text' style='display:none' value='".$product['photoMenu']."'/>  
+                   <input name='imgProduit' type='text' style='display:none' value='".$product['photoMenu']."'/>
                <tr class='".$product['codeMenu']."'>
                 <th scope='row'>
                        ".$product['codeMenu']."
@@ -205,7 +205,7 @@
                     </p>
                     <p class='text-center' style='text-size:30px;'> Voulez-Vous vraiment supprimé le produit </p>
                     <p class='text-center'>
-                      <button type='button' class='btn btn-success ml-4' data-dismiss='modal' aria-label='Close'>Annuler</button>
+                      <button type='button' class='btn btn-info ml-4' data-dismiss='modal' aria-label='Close'>Annuler</button>
                       <button name='mgsView' type='submit' class='btn btn-danger ml-4'>Confirmer</button>
                     </p>
                 </div>

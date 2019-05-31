@@ -160,23 +160,23 @@
               <div class="col-md-12 mb-3">
                 <label for="validationCustomUsername">Lieu de Livraison</label>
                 <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-md-5">
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
                         <label class="input-group-text" for="inputGroupSelect01">ville</label>
                       </div>
                       <select class="custom-select" name="ville" id="inputGroupSelect01">
                         <option selected>Abidjan</option>
-
                       </select>
                     </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-7">
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
                         <label class="input-group-text" for="inputGroupSelect01">Quartier</label>
                       </div>
                       <select class="custom-select" name="quartier" id="inputGroupSelect01">
+                        <option value="1"></option>
                         <?php
                              foreach ($area as $areas){
                                echo "
@@ -187,16 +187,11 @@
                       </select>
                     </div>
                   </div>
-
-
                 </div>
-
-
-
               </div>
 
               <div class="row">
-                <div class="col-md-5 mb-3">
+                <div class="col-md-4 mb-3">
                   <label for="validationCustom03">Nombre de plats</label>
                   <input min="1" max="100"  type="number" value="1" class="form-control nbrePlat" id="validationCustom03" placeholder="Ex: 5" name="nombre_plats" pattern="^[0-9]{1,}$" required>
                   <div class="invalid-feedback">
@@ -266,6 +261,10 @@
     });
   }, false);
 })();
+$(document).ready(function(){
+  //var val = $("#inputGroupSelect01").val();
+  alert("OK");
+});
 </script>
 
 
