@@ -48,7 +48,7 @@ session_start();
     <?php if (isset($_SESSION['vaide'])) { ?>
       
     
-    <div id="popModel" class="modal fade" role="dialog" style="color: #5AC868;">
+    <div id="popModel" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
@@ -61,9 +61,9 @@ session_start();
           <i class="far fa-check-circle fa-10x"></i>
           
         </p>
-        <h2 class="text-center">
-          Votre commande a bien été enregistrer !
-        </h2>
+        <h4 class="text-center" style="color: black;">
+          Félicitation votre commande a bien été enregistrer, vous serez contacté dans quelque instant !
+        </h4>
         
 
       </div>
@@ -168,7 +168,7 @@ session_start();
 
           <div class="col-6 col-xl-2">
             <h1 class="mb-0 site-logo">
-            <a href="/index.php" class="text-black mb-0">
+            <a href="index.php" class="text-black mb-0">
               <img src="images/n.jpg" class="logo">
             </a></h1>
           </div>

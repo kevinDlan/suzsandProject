@@ -141,23 +141,26 @@
 
 
           <div class="row">
-
-            <div>
-              <div class="col-md-12 mb-3">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-6 mb-3">
                 <label for="validationCustom01">Nom et prènom</label>
                 <input type="text" class="form-control" id="validationCustom01" pattern="^[a-zA-Zàé]([a-zA-Zàé ]){1,}$" placeholder="Votre prénom" name="name" required>
                 <div class="valid-feedback">
                   Cela semble bon!
                 </div>
               </div>
-              <div class="col-md-12 mb-3">
+              <div class="col-md-6 mb-3">
                 <label for="validationCustom02">Téléphone</label>
                 <input type="text" class="form-control" id="validationCustom02"  pattern="^[0-9]{2}([ ]?[0-9]{2}){3}$" placeholder="Votre téléphone" name="tel" required>
                 <div class="valid-feedback">
                   Cela semble bon!
                 </div>
               </div>
-              <div class="col-md-12 mb-3">
+              </div>
+            </div>
+
+              <div class="col-md-12 mb-3">               
                 <label for="validationCustomUsername">Lieu de Livraison</label>
                 <div class="row">
                   <div class="col-md-6">
@@ -167,16 +170,18 @@
                       </div>
                       <select class="custom-select" name="ville" id="inputGroupSelect01">
                         <option selected>Abidjan</option>
-
                       </select>
                     </div>
                   </div>
-                  <div class="col-md-6">
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
                         <label class="input-group-text" for="inputGroupSelect01">Quartier</label>
                       </div>
-                      <select class="custom-select" name="quartier" id="inputGroupSelect01">
+                      <select  class="custom-select" name="quartier" id="inputGroupSelect01">
+                        <option name="option1" value="1">Veuillez choisir un lieu de livraison </option>
                         <?php
                              foreach ($area as $areas){
                                echo "<option>".$areas['region']."</option>";
@@ -186,12 +191,17 @@
                       </select>
                     </div>
                   </div>
-
-
+                  <div class="col-md-12">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Montant de la livraison</label>
+                      </div>
+                      <input class="form-control" readonly id="inputGroupSelect01">
+                      <label class="input-group-text" for="inputGroupSelect01">FCFA</label>
+                        
+                    </div>
+                  </div>
                 </div>
-
-
-
               </div>
 
               <div class="row">
@@ -219,7 +229,7 @@
                 </div>
               </div>
 
-            </div>
+            
 
               <input type='hidden' name='libelleMenu' value='<?php echo $_POST["libelleMenu"];?>'>
 
