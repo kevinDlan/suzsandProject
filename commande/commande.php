@@ -142,25 +142,29 @@
 
           <div class="row">
 
-            <div>
-              <div class="col-md-12 mb-3">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-6 mb-3">
                 <label for="validationCustom01">Nom et prènom</label>
                 <input type="text" class="form-control" id="validationCustom01" pattern="^[a-zA-Zàé]([a-zA-Zàé ]){1,}$" placeholder="Votre prénom" name="name" required>
                 <div class="valid-feedback">
                   Cela semble bon!
                 </div>
               </div>
-              <div class="col-md-12 mb-3">
+              <div class="col-md-6 mb-3">
                 <label for="validationCustom02">Téléphone</label>
                 <input type="text" class="form-control" id="validationCustom02"  pattern="^[0-9]{2}([ ]?[0-9]{2}){3}$" placeholder="Votre téléphone" name="tel" required>
                 <div class="valid-feedback">
                   Cela semble bon!
                 </div>
               </div>
+              </div>
+            </div>
+
               <div class="col-md-12 mb-3">
-                <label for="validationCustomUsername">Lieu de Livraison</label>
+                <label for="validationCustomUsername">Ville de la Livraison</label>
                 <div class="row">
-                  <div class="col-md-5">
+                  <div class="col-md-6">
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
                         <label class="input-group-text" for="inputGroupSelect01">ville</label>
@@ -170,41 +174,55 @@
                       </select>
                     </div>
                   </div>
-                  <div class="col-md-7">
+                </div>
+              </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <label for="validationCustomUsername">Quartier de la  Livraison</label>
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
                         <label class="input-group-text" for="inputGroupSelect01">Quartier</label>
                       </div>
-                      <select class="custom-select" name="quartier" id="inputGroupSelect01">
-                        <option value="1"></option>
+                      <select onchange="selectDeliveryPrice(this);"  class="custom-select" name="quartier" id="inputGroupSelect01">
+                        <option>Veuillez choisir un lieu de livraison</option>
                         <?php
                              foreach ($area as $areas){
-                               echo "
-                               <option>".$areas['region']."</option>";
+                               echo "<option>".$areas['region']."</option>";
                              }
-                            echo "<input style='display:none' type='number' name='".$areas['region']."' value='".$areas['montant_livraison']."'>";
                          ?>
                       </select>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                     <label for="validationCustomUsername">Montant Livraison</label>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Montant de la livraison</label>
+                      </div>
+                      <input type="number" value="0" id="deleveryPrice" name="montant_livraison" class="form-control col-md-2" readonly id="inputGroupSelect01">
+                      <label class="input-group-text" for="inputGroupSelect01">FCFA</label>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div class="row">
-                <div class="col-md-4 mb-3">
+                <div class="col-md-5 mb-3">
                   <label for="validationCustom03">Nombre de plats</label>
                   <input min="1" max="100"  type="number" value="1" class="form-control nbrePlat" id="validationCustom03" placeholder="Ex: 5" name="nombre_plats" pattern="^[0-9]{1,}$" required>
                   <div class="invalid-feedback">
                     Entrer seulemant des chiffres
                   </div>
                 </div>
-                <div class="input-group col-md-5 mb-3">
+                <div class="col-md-5 mb-3">
                    <label for="prixtotal">Prix Unitaire</label>
-                  <div class="row">
-                   <input type='number'  id="prix"  readonly class="form-control prix col-8"  name='prix' value='<?php echo $_POST["prix"];?>'>
-                   <label class="input-group-text col-4" for="prix">FCFA</label>
-                  </div>
+                   <input type='number'  id="prixUnitaire"  readonly class="form-control prix"  name='prix' value='<?php echo $_POST["prix"];?>'>
                 </div>
+              </div>
+              <div id='montantTotal' class="col-md-10 mb-3"  style="display:none;">
+                <label for="prixtotal">Montant total de la commande</label>
+                <input style="background:#28a745;" type='number'  id="totalCommande"  readonly class="form-control"  name='totalCommande' value=''>
               </div>
               <div class="form-group col-md-12">
                 <div class="form-check">
@@ -218,7 +236,7 @@
                 </div>
               </div>
 
-            </div>
+
 
               <input type='hidden' name='libelleMenu' value='<?php echo $_POST["libelleMenu"];?>'>
 
@@ -261,10 +279,6 @@
     });
   }, false);
 })();
-$(document).ready(function(){
-  //var val = $("#inputGroupSelect01").val();
-  alert("OK");
-});
 </script>
 
 
@@ -331,13 +345,25 @@ $(document).ready(function(){
   <script src="../js/jquery.fancybox.min.js"></script>
   <script src="../js/jquery.sticky.js"></script>
   <script type="text/javascript">
-    // var prix =$('#prix').val();
-    // var nbrePlat =$(this).val();
-    $('.nbrePlat').keyup(function(){
-        $('.prix').val() = prix*nbrePlat;
-        alert('ok');
-      });
-
+     function selectDeliveryPrice(x){
+      var value = $(x).val();
+      if(value != 'Veuillez choisir un lieu de livraison')
+      {
+       $.ajax({
+         type: 'POST',
+         url: '../controller/selectDeliveryPrice.php',
+         data: 'query=' + encodeURIComponent(value),
+         success:function(data){
+           $('#deleveryPrice').val(data);
+           $('#montantTotal').show("slow")
+           $('#totalCommande').val(parseInt($('#prixUnitaire').val())+parseInt($('#deleveryPrice').val()));
+         },
+         error:function(){
+                          alert('Error');
+                          }
+             })
+       }
+      }
   </script>
 
   <script src="../js/main.js"></script>
