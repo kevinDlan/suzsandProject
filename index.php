@@ -77,9 +77,6 @@ session_start();
 </div>
 
   <?php }; 
-
-  session_destroy();
-
   ?>
 
 
@@ -244,11 +241,8 @@ session_start();
                 <p class='mb-4'>".$product["descriptionMenu"]."</p>
                 <p class='mb-4' style='font-weight:bold; font-size:20px'>".$product["prix"]." <strong> FCFA</strong></p>
                 <div>
-                  <form method='post' action='commande/commande.php'>
-                    <input type='hidden' name='photoMenu' value='".$product["photoMenu"]."'>
-                    <input type='hidden' name='libelleMenu' value='".$product["libelleMenu"]."'>
-                    <input type='hidden' name='prix' value='".$product["prix"]."'>
-                    <input type='hidden' name='descriptionMenu' value='".$product["descriptionMenu"]."'>
+                  <form method='post' action='controller/selectionProduit.php'>
+                    <input type='hidden' name='id' value='".$product["id"]."'>
                     <button type='submit' class='btn btn-black mr-1 rounded-0'>Commander</button>
                   </form>
 
