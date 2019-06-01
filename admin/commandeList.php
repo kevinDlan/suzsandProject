@@ -132,8 +132,6 @@ require_once('../function/convertDateToFrench.php');
       </div>
 
     </header>
-
-
 <div class="commandlist" style="margin-top:200px;">
     <h3 class="text-center"> Liste des commandes</h3>
       <div class="container-fluid">
@@ -146,9 +144,9 @@ require_once('../function/convertDateToFrench.php');
             <th scope="col">Contact du client</th>
             <th scope="col">Plat commandé</th>
             <th scope="col">Nombre de plat</th>
-            <th scope="col">Montant Total de la commande</th>
-            <th scope="col">Prix unitaire du plat</th>
-            <th scope="col">Traiter la commande</th>
+            <th scope="col">Lieu Livraison</th>
+            <th scope="col">Montant Total</th>
+            <th scope="col">Traitement</th>
           </tr>
          </thead>
          <?php
@@ -160,9 +158,9 @@ require_once('../function/convertDateToFrench.php');
                 <td>".$cmd['nomPrenom']."</td>
                 <td>".$cmd['contact']."</td>
                 <td>".$cmd['articleCommande']."</td>
-                <td>5</td>
-                <td>25000</td>
-                <td>".$cmd['prixArticle']."</td>
+                <td>".$cmd['nombrePlats']."</td>
+                <td>".$cmd['lieuLivraison']."</td>
+                <td>".$cmd['totalCommande']."</td>
                 <td><button data-toggle='modal' data-target='#modal' class='btn btn-dark'>Traiter la commande</button></td>
             </tr>
           </tbody>

@@ -200,7 +200,7 @@
                       <div class="input-group-prepend">
                         <label class="input-group-text" for="inputGroupSelect01">Montant de la livraison</label>
                       </div>
-                      <input type="number" value="0" id="deleveryPrice" name="montant_livraison" class="form-control col-md-2" readonly id="inputGroupSelect01">
+                      <input type="number" value="0" id="deleveryPrice" name="montant_livraison" class="form-control col-md-2" readonly>
                       <label class="input-group-text" for="inputGroupSelect01">FCFA</label>
                     </div>
                   </div>
@@ -212,7 +212,7 @@
                   <label for="validationCustom03">Nombre de plats</label>
                   <input min="1" max="100"  type="number" value="1" class="form-control nbrePlat" id="validationCustom03" placeholder="Ex: 5" name="nombre_plats" pattern="^[0-9]{1,}$" required>
                   <div class="invalid-feedback">
-                    Entrer seulemant des chiffres
+                    Entrer seulement des chiffres
                   </div>
                 </div>
                 <div class="col-md-5 mb-3">
@@ -220,10 +220,12 @@
                    <input type='number'  id="prixUnitaire"  readonly class="form-control prix"  name='prix' value='<?php echo $_POST["prix"];?>'>
                 </div>
               </div>
+
               <div id='montantTotal' class="col-md-10 mb-3"  style="display:none;">
                 <label for="prixtotal">Montant total de la commande</label>
                 <input style="background:#28a745;" type='number'  id="totalCommande"  readonly class="form-control"  name='totalCommande' value=''>
               </div>
+
               <div class="form-group col-md-12">
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>

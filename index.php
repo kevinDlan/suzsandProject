@@ -32,43 +32,43 @@ session_start();
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
     <script  src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script>
-    $(function() {  
+    $(function() {
       $("#popModel").modal('show');
     });
 
-    $(function() {  
+    $(function() {
       $("#popModel2").modal('show');
     });
     </script>
 
   </head>
-  
+
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
     <?php if (isset($_SESSION['vaide'])) { ?>
-      
-    
+
+
     <div id="popModel" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        
+
       </div>
       <div class="modal-body" style="color: #5AC868;">
         <p class="text-center">
           <i class="far fa-check-circle fa-10x"></i>
-          
+
         </p>
         <h4 class="text-center" style="color: black;">
           Félicitation votre commande a bien été enregistrer, vous serez contacté dans quelque instant !
         </h4>
-        
+
 
       </div>
       <div class="modal-footer">
-        
+
         <button type="submit" data-dismiss="modal" style="font-size: 15px; margin-top: 15px;" class="btn btn-black mr-1">Fermer</button>
       </div>
     </div>
@@ -76,7 +76,7 @@ session_start();
   </div>
 </div>
 
-  <?php }; 
+  <?php };
 
   session_destroy();
 
@@ -85,29 +85,29 @@ session_start();
 
 
   <?php if (isset($_GET['valide'])) { ?>
-      
-    
+
+
     <div id="popModel2" class="modal fade" role="dialog" style="color: #ff4949;">
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        
+
       </div>
       <div class="modal-body" >
         <p class="text-center">
           <img src="images/prohibition.png" height="150px" width="150px">
-          
+
         </p>
         <h1 class="text-center">
           Erreur de commande !
         </h1>
-        
+
 
       </div>
       <div class="modal-footer">
-        
+
         <button type="submit" data-dismiss="modal" style="font-size: 15px; margin-top: 15px;" class="btn btn-black mr-1">Fermer</button>
       </div>
     </div>
@@ -115,18 +115,12 @@ session_start();
   </div>
 </div>
 
-  <?php }; 
+  <?php };
 
-  
+
 
   ?>
-
-
-
- 
-
   <div class="site-wrap">
-
     <div class="site-mobile-menu site-navbar-target">
       <div class="site-mobile-menu-header">
         <div class="site-mobile-menu-close mt-3">
@@ -153,7 +147,6 @@ session_start();
               <span class="mr-3"><a href="tel://#"> <span class="icon-phone mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">(+225)  08 59 91 89</span></a></span>
               <span><a href="#"><span class="icon-envelope mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">jesussauve1995@gmail.com</span></a></span>
             </p>
-
           </div>
         </div>
       </div>
@@ -161,7 +154,7 @@ session_start();
 
     <header class="site-navbar py-4 bg-white js-sticky-header site-navbar-target" role="banner">
                  <?php
-                   require_once('errorAlert.php');
+                    require_once('errorAlert.php');
                   ?>
       <div class="container-fluid" style="height: 80px;">
         <div class="row align-items-center">
@@ -231,7 +224,7 @@ session_start();
            foreach ($data as $product)
         {
 
-          
+
 
           echo"
           <div class='col-lg-4 col-md-6 mb-5'>
@@ -604,7 +597,7 @@ session_start();
   <script src="js/aos.js"></script>
   <script src="js/jquery.fancybox.min.js"></script>
   <script src="js/jquery.sticky.js"></script>
-  
+
 
   <script src="js/main.js"></script>
   <script>

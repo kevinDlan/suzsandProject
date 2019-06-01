@@ -3,7 +3,7 @@ if(
   isset($_SESSION['valideMessage'])
   ){
  echo "<div id='alertSpace'  class='alert alert-success offset-3 col-6 col-md-6 mb-3 mb-md-0 text-center'>".$_SESSION['valideMessage']."
-   <button  id='closeAlert' type='button' class='close' aria-label='Close' onclick='closeAlert();'>
+   <button  id='closeAlert' type='button' class='close' data-dismiss='alert' aria-label='Close'>
           <span aria-hidden='true'>&times;</span>
    </button></div>";
 }else if(
