@@ -35,7 +35,6 @@ session_start();
     $(function() {
       $("#popModel").modal('show');
     });
-
     $(function() {
       $("#popModel2").modal('show');
     });
@@ -77,9 +76,6 @@ session_start();
 </div>
 
   <?php };
-
-  session_destroy();
-
   ?>
 
 
@@ -117,10 +113,14 @@ session_start();
 
   <?php };
 
-
-
   ?>
+
+
+
+
+
   <div class="site-wrap">
+
     <div class="site-mobile-menu site-navbar-target">
       <div class="site-mobile-menu-header">
         <div class="site-mobile-menu-close mt-3">
@@ -147,6 +147,7 @@ session_start();
               <span class="mr-3"><a href="tel://#"> <span class="icon-phone mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">(+225)  08 59 91 89</span></a></span>
               <span><a href="#"><span class="icon-envelope mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">jesussauve1995@gmail.com</span></a></span>
             </p>
+
           </div>
         </div>
       </div>
@@ -154,7 +155,7 @@ session_start();
 
     <header class="site-navbar py-4 bg-white js-sticky-header site-navbar-target" role="banner">
                  <?php
-                    require_once('errorAlert.php');
+                   require_once('errorAlert.php');
                   ?>
       <div class="container-fluid" style="height: 80px;">
         <div class="row align-items-center">
@@ -224,8 +225,6 @@ session_start();
            foreach ($data as $product)
         {
 
-
-
           echo"
           <div class='col-lg-4 col-md-6 mb-5'>
             <div class='product-item'>
@@ -237,21 +236,15 @@ session_start();
                 <p class='mb-4'>".$product["descriptionMenu"]."</p>
                 <p class='mb-4' style='font-weight:bold; font-size:20px'>".$product["prix"]." <strong> FCFA</strong></p>
                 <div>
-                  <form method='post' action='commande/commande.php'>
-                    <input type='hidden' name='photoMenu' value='".$product["photoMenu"]."'>
-                    <input type='hidden' name='libelleMenu' value='".$product["libelleMenu"]."'>
-                    <input type='hidden' name='prix' value='".$product["prix"]."'>
-                    <input type='hidden' name='descriptionMenu' value='".$product["descriptionMenu"]."'>
+                  <form method='post' action='controller/selectionProduit.php'>
+                    <input type='hidden' name='id' value='".$product["id"]."'>
                     <button type='submit' class='btn btn-black mr-1 rounded-0'>Commander</button>
                   </form>
-
                 </div>
               </div>
             </div>
           </div>
-
             ";
-
         }
        ?>
       </div>
@@ -604,8 +597,8 @@ session_start();
     $("#closeAlert").click(function(){
       $("#alertSpace").slideUp();
       return "<?php session_destroy();?>";
-
     });
 </script>
   </body>
 </html>
+ 
