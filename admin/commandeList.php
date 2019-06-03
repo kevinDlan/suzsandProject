@@ -137,7 +137,7 @@ require_once('../function/convertDateToFrench.php');
       <div class="container-fluid">
       <table class="table-responsive">
         <table class="table table-hover">
-         <thead class="thead-light">
+         <thead class="thead-light" style="font-size:75%;">
           <tr>
             <th scope="col">Date et heure de la commande</th>
             <th scope="col">Nom et prenom du client</th>
@@ -160,8 +160,8 @@ require_once('../function/convertDateToFrench.php');
                 <td>".$cmd['articleCommande']."</td>
                 <td>".$cmd['nombrePlats']."</td>
                 <td>".$cmd['lieuLivraison']."</td>
-                <td>".$cmd['totalCommande']."</td>
-                <td><button data-toggle='modal' data-target='#modal' class='btn btn-dark'>Traiter la commande</button></td>
+                <td>".$cmd['totalCommande']." FCFA</td>
+                <td><button data-toggle='modal' data-target='#modal' class='btn btn-dark' style='text-transform:uppercase;'>Traiter la commande</button></td>
             </tr>
           </tbody>
           <!-- Modal -->
@@ -174,14 +174,14 @@ require_once('../function/convertDateToFrench.php');
               <div class='modal-body'>
                   <h5>Marquer la commande comme:</h5><br/>
                 <div class='row'>
-                <form  method='POST' action='../controller/treatmentCmd.php'>
-                 <input type='text'style='display:none' name='treatId' value='".$cmd['id']."'>
-                 <button name='cmdtreat' type='submit' class='btn btn-success ml-4'>commande traitée</button>
-                </form>
-                <form  method='POST' action='../controller/treatmentCmd.php'>
-                   <input style='display:none' type='text' name='cancelId' value='".$cmd['id']."'>
-                   <button name='cmdcancel' type='submit' class='btn btn-danger  ml-2'>commande annulée !</button>
-                </form>
+                    <form  method='POST' action='../controller/treatmentCmd.php'>
+                      <input type='text'style='display:none' name='treatId' value='".$cmd['id']."'>
+                      <button name='cmdtreat' type='submit' class='btn btn-success ml-4'>commande traitée</button>
+                    </form>
+                   <form  method='POST' action='../controller/treatmentCmd.php'>
+                     <input style='display:none' type='text' name='cancelId' value='".$cmd['id']."'>
+                     <button name='cmdcancel' type='submit' class='btn btn-danger  ml-2'>commande annulée !</button>
+                  </form>
                 </div>
              </div>
             <div class='modal-footer'>

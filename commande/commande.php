@@ -93,19 +93,11 @@
 
 
           <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a></div>
-
         </div>
       </div>
-
     </header>
-
-
-
     <div style="height: 150px;"></div>
-
     <div class="container">
-
-
       <form class="needs-validation" novalidate method="post" action="validation.php" role="form">
         <div class="row">
           <div class="col-md-6" style="border: 2px solid #DDD; border-radius: 5px;">
@@ -119,40 +111,37 @@
                     <h3 style="color: #f16821;"><?php echo $_SESSION['libelleMenu'];?></h3>
                     <p class='mb-4' style='font-weight:bold; font-size:20px'><?php echo $_SESSION['prix'];?> <strong> FCFA</strong></p>
                     <p class="mb-4"><?php echo $_SESSION['descriptionMenu'];?></p>
-
-
-
-
                 </div>
               </div>
             </div>
-
           </div>
-
           <div class="col-md-1"></div>
-
           <div class="col-md-5">
             <div class="heading">
               <h2 style="text-align: center;">Passer une commande !</h2>
             </div>
-
-
-
             <div class="row">
               <div class="col-md-12">
                 <div class="row">
+
                   <div class="col-md-6 mb-3">
-                    <label for="validationCustom01">Nom et prènom</label>
-                    <input type="text" class="form-control" id="validationCustom01" pattern="^[a-zA-Zàé]([a-zA-Zàé ]){1,}$" placeholder="Votre prénom" name="name" required>
+                    <label for="validationCustom01">Nom et Prénom</label>
+                    <input name="nomPrenom" type="text" class="form-control" id="validationCustom01" pattern="^[a-zA-Zàé]([a-zA-Zàé ]){1,}$" placeholder="Votre prénom"  required>
                     <div class="valid-feedback">
-                      Cela semble bon!
+                     OK
+                    </div>
+                    <div class="invalid-feedback">
+                      Veuillez remplir ce champ
                     </div>
                   </div>
                   <div class="col-md-6 mb-3">
                     <label for="validationCustom02">Téléphone</label>
-                    <input type="text" class="form-control" id="validationCustom02"  pattern="^[0-9]{2}([ ]?[0-9]{2}){3}$" placeholder="Votre téléphone" name="tel" required>
+                    <input name="tel" type="text" class="form-control" id="validationCustom02"  pattern="^[0-9]{2}([ ]?[0-9]{2}){3}$" placeholder="Votre téléphone" required>
                     <div class="valid-feedback">
-                      Cela semble bon!
+                      OK
+                    </div>
+                    <div class="invalid-feedback">
+                      Entrez seulement des chiffres
                     </div>
                   </div>
                 </div>
@@ -178,14 +167,17 @@
                       <div class="input-group-prepend">
                         <label class="input-group-text" for="inputGroupSelect01">Quartier</label>
                       </div>
-                      <select onchange="selectDeliveryPrice(this);"  class="custom-select" name="quartier" id="quartier">
-                        <option name="option1" value="1">Veuillez choisir un lieu de livraison </option>
+                      <select name="quartierLivraison" onchange="selectDeliveryPrice(this);"  class="custom-select"  id="quartier" required>
+                        <option value="">---Veuillez choisir un lieu de livraison---</option>
                         <?php
                              foreach ($area as $areas){
                                echo "<option>".$areas['region']."</option>";
                              }
                          ?>
                       </select>
+                      <div class="invalid-feedback">
+                       Veuillez choisir le lieu de la livraison
+                      </div>
                     </div>
                   </div>
                   <div class="col-md-12">
@@ -193,32 +185,33 @@
                       <div class="input-group-prepend">
                         <label class="input-group-text" for="inputGroupSelect01">Montant de la livraison</label>
                       </div>
-                      <input class="form-control" type="number" readonly id="deleveryPrice" name="montant_livraison" value="0">
-                      <label class="input-group-text" for="inputGroupSelect01">FCFA</label>
-
+                      <input class="form-control col-md-3" type="number" readonly id="deleveryPrice" name="montant_livraison" value="0">
+                      <label class="input-group-text" for="devise">FCFA</label>
                     </div>
                   </div>
                 </div>
               </div>
-
               <div class="col-md-12">
                 <div class="row">
-                  <div class="col-md-6 mb-3">
+                  <div class="col-md-4 mb-3">
                     <label for="validationCustom03">Nombre de plats</label>
                     <input onchange="selectDeliveryPrice('#quartier');" min="1" max="100"  type="number" value="1" class="form-control nbrePlat" id="validationCustom03" placeholder="Ex: 5" name="nombre_plats" pattern="^[0-9]{1,}$" required>
-                    <div class="invalid-feedback">
-                      Entrer seulemant des chiffres
-                    </div>
                   </div>
-                  <div class="col-md-6 mb-3">
-                     <label for="prixtotal">Prix Unitaire</label>
-                     <input type='number'  id="prixUnitaire"  readonly class="form-control prix"  name='prix' value='<?php echo $_SESSION['prix'];?>'>
+                  <div class="input-group col-md-8 mb-3">
+                      <label for="prixtotal">Prix Unitaire</label>
+                       <div class="row">
+                         <input name='prixUnitaire' type='number'  id="prixUnitaire"  readonly class="form-control prix col-md-4"  value='<?php echo $_SESSION['prix'];?>'>
+                         <label class="input-group-text">FCFA</label>
+                       </div>
                   </div>
                 </div>
               </div>
-              <div id='montantTotal' class="col-md-10 mb-3"  style="display:none;">
+              <div id='montantTotal' class="col-md-12" style="display:none;">
                 <label for="prixtotal">Montant total de la commande</label>
-                <input style="background:#28a745;" type='number'  id="totalCommande"  readonly class="form-control"  name='totalCommande' value=''>
+                  <div class="row col-md-10">
+                    <input style="background:#28a745;" type='number'  id="totalCommande"  readonly class="form-control col-md-6"  name='totalCommande' value=''>
+                    <label class="input-group-text col-md-4">FCFA</label>
+                  </div>
               </div>
 
               <div class="form-group col-md-12">
@@ -232,14 +225,7 @@
                   </div>
                 </div>
               </div>
-
-
-
               <input type='hidden' name='libelleMenu' value='<?php echo $_SESSION['libelleMenu'];?>'>
-
-
-
-
               <button class="btn btn-black mr-1 mx-auto col-md-6" style="height: 50px;" type="submit">Valider la commande</button>
             </div>
           </div>
