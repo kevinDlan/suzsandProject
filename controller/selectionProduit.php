@@ -28,7 +28,7 @@
 
             $resultat = $req->fetch();
 
-            
+            $_SESSION['libelleMenu'] = $id;
 
             $_SESSION['libelleMenu'] = $resultat['libelleMenu'];
             $_SESSION['descriptionMenu'] = $resultat['descriptionMenu'];
