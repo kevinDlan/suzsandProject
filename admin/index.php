@@ -180,5 +180,6 @@
   <script src="../js/aos.js"></script>
   <script src="../js/jquery.fancybox.min.js"></script>
   <script src="../js/jquery.sticky.js"></script>
+  <script src="js/removeAlert.js"></script>
   </body>
 </html>

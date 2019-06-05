@@ -117,7 +117,7 @@
                     </div>
                 </li>
                 <li>
-                  <a href="../logout.php" class="dropdown-item">Deconnexion</a>
+                  <a href="../index.php">Deconnexion</a>
                </li>
               </ul>
             </nav>
@@ -283,7 +283,7 @@
   <script src="../../js/jquery.fancybox.min.js"></script>
   <script src="../../js/jquery.sticky.js"></script>
 
-
+ <script src="js/removeAlert.js"></script>
   <script src="../../js/main.js"></script>
   <script src="../js/notification.js"></script>
   </body>
