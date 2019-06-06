@@ -140,7 +140,7 @@ function show_apercu(x){
                     </div>
                 </li>
                 <li>
-                    <a href="">Deconnexion</a>
+                    <a href="index.php">Deconnexion</a>
                </li>
                </li>
               </ul>
@@ -287,5 +287,6 @@ function show_apercu(x){
       }
     );
 </script>
+<script src="js/removeAlert.js"></script>
   </body>
 </html>

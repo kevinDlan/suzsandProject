@@ -1,4 +1,5 @@
 <?php
+     session_start();
       include("../../controller/selectProductForUpDate.php");
    ?>
 <!DOCTYPE html>
@@ -84,7 +85,9 @@
     </div>
 
     <header class="site-navbar py-4 bg-white js-sticky-header site-navbar-target" role="banner">
-
+      <?php
+        require_once('../../errorAlert.php');
+       ?>
       <div class="container-fluid" style="height: 80px;">
         <div class="row align-items-center">
 
@@ -138,7 +141,7 @@
                     </div>
                 </li>
                 <li>
-                  <a href="../logout.php">Deconnexion</a>
+                  <a href="../index.php">Deconnexion</a>
                </li>
               </ul>
             </nav>
@@ -180,33 +183,33 @@
             <?php
       foreach ($data as $product){
             echo "
-          <form  action='' method='post' enctype='multipart/form-data'>
-            <input style='display:none;' type='text' name='id' value='".$product['id']."'>
+          <form  action='../../controller/updateProductData.php' method='post' enctype='multipart/form-data'>
+            <input style='display:none;' type='number' name='id' value='".$product['id']."'>
              <tbody>
                <tr class='updated'>
-                <th class='rowCode' scope='row'>
-                       <input id='repasCode' name='repas_code' type='text' value='".$product['codeMenu']."' readonly required style='border:none;'/>
+                <th class='rowCode activateBtn' scope='row'>
+                       <input onkeyup='remove_attr(this);' id='repasCode' name='repas_code' type='text' value='".$product['codeMenu']."' readonly required style='border:none;'/>
                        <i style='cursor:pointer;' id='edit_code_pens' onclick='editCode(this);' class='fa fa-pen'></i>
                 </th>
-                   <td class='rowLibelle'>
-                     <input id='libelle' name='libelle_repas' type='text' value='".$product['libelleMenu']."' readonly required style='border:none;'/>
+                   <td class='rowLibelle activateBtn'>
+                     <input onkeyup='remove_attr(this);' id='libelle' name='libelle_repas' type='text' value='".$product['libelleMenu']."' readonly required style='border:none;'/>
                      <i style='cursor:pointer;' id='edit_descip_pens'onclick='editLibelle(this);' class='fa fa-pen'></i>
                    </td>
-                   <td class='rowDescrip'>
-                      <textarea id='description' name='description_repas'  rows='3' readonly required style='border:none;'/>".$product['descriptionMenu']."</textarea>
+                   <td class='rowDescrip activateBtn'>
+                      <textarea onkeyup='remove_attr(this);' id='description' name='description_repas'  rows='3' readonly required style='border:none;'/>".$product['descriptionMenu']."</textarea>
                       <i style='cursor:pointer;' id='edit_libelle_pens' onclick='editDescrip(this);' class='fa fa-pen'></i>
                    </td>
-                   <td class='rowPrix'>
-                     <input id='prix' name='prix_repas' class='display-none' type='text' value='".$product['prix']."' readonly required style='border:none;'/>
+                   <td class='rowPrix activateBtn'>
+                     <input onchange='remove_attr(this);' id='prix' name='prix_repas' class='display-none' type='number' value='".$product['prix']."' readonly required style='border:none;'/>
                      <i style='cursor:pointer;' id='edit_prix_pens' onclick='editPrix(this);' class='fa fa-pen'></i>
                   </td>
-                   <td class='rowImg'>
+                   <td class='rowImg activateBtn'>
                       <img class='image_apercu' src='../../imageRepas/".$product['photoMenu']."' width='100px' height='100px' alt=''>
-                      <input id='img' name='img_repas' style='display:none' onchange='show_apercu(this);'     type='file' accept='image/*'/>
+                      <input id='img' name='img_repas' style='display:none' onchange='show_apercu(this);remove_attr(this);'     type='file' accept='image/*'/>
                       <i style='cursor:pointer;' id='edit_img_pens' onclick='chooseFile(this);' class='fa fa-pen'></i>
                    </td>
-                   <td>
-                      <button type='button' data-toggle='modal' data-target='#".$product['codeMenu']."' class='btn btn-primary sm-1'>Enregister</button>
+                   <td class='btn'>
+                      <button disabled id='button' type='button' data-toggle='modal' data-target='#".$product['codeMenu']."' class='btn btn-primary sm-1'>Enregister</button>
                    </td>
                </tr>
              </tbody>
@@ -317,6 +320,11 @@
         function editPrix(x){
             $(x).parents('.rowPrix').children("#prix").removeAttr('readonly').focus();
           }
+
+      function remove_attr(x){
+        $(x).parents('.activateBtn').parents('.updated').children('.btn').children('#button').removeAttr('disabled');
+      }
   </script>
+  <script src="js/removeAlert.js"></script>
   </body>
 </html>

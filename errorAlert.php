@@ -44,12 +44,17 @@ if(
                            <span aria-hidden='true'>&times;</span>
                       </button>
                   </div>";
-  }
+  }else if(isset($_SESSION['success_update']))
+           {
+             echo"<div id='alertSpace' class='alert alert-success alert-dismissible fade show offset-3 col-6 text-center' role='alert'>
+                      <strong>".$_SESSION['success_update']."!</strong>
+                      <button id='closeAlert' type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                           <span aria-hidden='true'>&times;</span>
+                      </button>
+                  </div>
 
+                 ";
+           }
+
+session_destroy();
 ?>
-<script type="text/javascript">
-$("#closeAlert").click(function(){
-  return "<?php session_destroy();?>";
-});
-$("#alertSpace").show(500).delay(1000).hide(500);
-</script>

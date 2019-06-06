@@ -596,12 +596,6 @@ session_start();
 
 
   <script src="js/main.js"></script>
-  <script>
-    $("#closeAlert").click(function(){
-      $("#alertSpace").slideUp();
-      return "<?php session_destroy();?>";
-    });
-</script>
+  <script src="admin/js/removeAlert.js"></script>
   </body>
 </html>
- 

@@ -118,7 +118,7 @@ require_once('../function/convertDateToFrench.php');
                     </div>
                 </li>
                 <li>
-                    <a href="">Deconnexion</a>
+                    <a href="index.php">Deconnexion</a>
                </li>
                </li>
               </ul>
