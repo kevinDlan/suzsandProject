@@ -1,3 +1,6 @@
+<?php
+  session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -82,7 +85,7 @@ function show_apercu(x){
       </div>
     </div>
          <?php
-               require_once('../errorAlert.php');
+              require_once('../errorAlert.php');
           ?>
     <header class="site-navbar py-4 bg-white js-sticky-header site-navbar-target" role="banner">
 

@@ -132,23 +132,21 @@ require_once('../function/convertDateToFrench.php');
       </div>
 
     </header>
-
-
 <div class="commandlist" style="margin-top:200px;">
     <h3 class="text-center"> Liste des commandes</h3>
       <div class="container-fluid">
       <table class="table-responsive">
         <table class="table table-hover">
-         <thead class="thead-light">
+         <thead class="thead-light" style="font-size:75%;">
           <tr>
             <th scope="col">Date et heure de la commande</th>
             <th scope="col">Nom et prenom du client</th>
             <th scope="col">Contact du client</th>
             <th scope="col">Plat commandé</th>
             <th scope="col">Nombre de plat</th>
-            <th scope="col">Montant Total de la commande</th>
-            <th scope="col">Prix unitaire du plat</th>
-            <th scope="col">Traiter la commande</th>
+            <th scope="col">Lieu Livraison</th>
+            <th scope="col">Montant Total</th>
+            <th scope="col">Traitement</th>
           </tr>
          </thead>
          <?php
@@ -160,10 +158,10 @@ require_once('../function/convertDateToFrench.php');
                 <td>".$cmd['nomPrenom']."</td>
                 <td>".$cmd['contact']."</td>
                 <td>".$cmd['articleCommande']."</td>
-                <td>5</td>
-                <td>25000</td>
-                <td>".$cmd['prixArticle']."</td>
-                <td><button data-toggle='modal' data-target='#modal' class='btn btn-dark'>Traiter la commande</button></td>
+                <td>".$cmd['nombrePlats']."</td>
+                <td>".$cmd['lieuLivraison']."</td>
+                <td>".$cmd['totalCommande']." FCFA</td>
+                <td><button data-toggle='modal' data-target='#modal' class='btn btn-dark' style='text-transform:uppercase;'>Traiter la commande</button></td>
             </tr>
           </tbody>
           <!-- Modal -->
@@ -176,14 +174,14 @@ require_once('../function/convertDateToFrench.php');
               <div class='modal-body'>
                   <h5>Marquer la commande comme:</h5><br/>
                 <div class='row'>
-                <form  method='POST' action='../controller/treatmentCmd.php'>
-                 <input type='text'style='display:none' name='treatId' value='".$cmd['id']."'>
-                 <button name='cmdtreat' type='submit' class='btn btn-success ml-4'>commande traitée</button>
-                </form>
-                <form  method='POST' action='../controller/treatmentCmd.php'>
-                   <input style='display:none' type='text' name='cancelId' value='".$cmd['id']."'>
-                   <button name='cmdcancel' type='submit' class='btn btn-danger  ml-2'>commande annulée !</button>
-                </form>
+                    <form  method='POST' action='../controller/treatmentCmd.php'>
+                      <input type='text'style='display:none' name='treatId' value='".$cmd['id']."'>
+                      <button name='cmdtreat' type='submit' class='btn btn-success ml-4'>commande traitée</button>
+                    </form>
+                   <form  method='POST' action='../controller/treatmentCmd.php'>
+                     <input style='display:none' type='text' name='cancelId' value='".$cmd['id']."'>
+                     <button name='cmdcancel' type='submit' class='btn btn-danger  ml-2'>commande annulée !</button>
+                  </form>
                 </div>
              </div>
             <div class='modal-footer'>

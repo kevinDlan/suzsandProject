@@ -32,43 +32,45 @@ session_start();
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
     <script  src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script>
-    $(function() {  
+    $(function() {
       $("#popModel").modal('show');
     });
-
-    $(function() {  
+    $(function() {
       $("#popModel2").modal('show');
     });
+
+    
     </script>
 
+
   </head>
-  
+
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
     <?php if (isset($_SESSION['vaide'])) { ?>
-      
-    
+
+
     <div id="popModel" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        
+
       </div>
       <div class="modal-body" style="color: #5AC868;">
         <p class="text-center">
           <i class="far fa-check-circle fa-10x"></i>
-          
+
         </p>
         <h4 class="text-center" style="color: black;">
           Félicitation votre commande a bien été enregistrer, vous serez contacté dans quelque instant !
         </h4>
-        
+
 
       </div>
       <div class="modal-footer">
-        
+
         <button type="submit" data-dismiss="modal" style="font-size: 15px; margin-top: 15px;" class="btn btn-black mr-1">Fermer</button>
       </div>
     </div>
@@ -76,35 +78,35 @@ session_start();
   </div>
 </div>
 
-  <?php }; 
+  <?php };
   ?>
 
 
 
   <?php if (isset($_GET['valide'])) { ?>
-      
-    
+
+
     <div id="popModel2" class="modal fade" role="dialog" style="color: #ff4949;">
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        
+
       </div>
       <div class="modal-body" >
         <p class="text-center">
           <img src="images/prohibition.png" height="150px" width="150px">
-          
+
         </p>
         <h1 class="text-center">
           Erreur de commande !
         </h1>
-        
+
 
       </div>
       <div class="modal-footer">
-        
+
         <button type="submit" data-dismiss="modal" style="font-size: 15px; margin-top: 15px;" class="btn btn-black mr-1">Fermer</button>
       </div>
     </div>
@@ -112,15 +114,13 @@ session_start();
   </div>
 </div>
 
-  <?php }; 
-
-  
+  <?php };
 
   ?>
 
 
 
- 
+
 
   <div class="site-wrap">
 
@@ -228,8 +228,6 @@ session_start();
            foreach ($data as $product)
         {
 
-          
-
           echo"
           <div class='col-lg-4 col-md-6 mb-5'>
             <div class='product-item'>
@@ -245,14 +243,11 @@ session_start();
                     <input type='hidden' name='id' value='".$product["id"]."'>
                     <button type='submit' class='btn btn-black mr-1 rounded-0'>Commander</button>
                   </form>
-
                 </div>
               </div>
             </div>
           </div>
-
             ";
-
         }
        ?>
       </div>
@@ -598,15 +593,15 @@ session_start();
   <script src="js/aos.js"></script>
   <script src="js/jquery.fancybox.min.js"></script>
   <script src="js/jquery.sticky.js"></script>
-  
+
 
   <script src="js/main.js"></script>
   <script>
     $("#closeAlert").click(function(){
       $("#alertSpace").slideUp();
       return "<?php session_destroy();?>";
-
     });
 </script>
   </body>
 </html>
+ 

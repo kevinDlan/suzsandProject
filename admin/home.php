@@ -125,11 +125,21 @@
         </div>
       </div>
     </header>
+        <div class="site-blocks-cover overlay" style="background-image: url(../images/suzsand.jpg);" data-aos="fade" data-stellar-background-ratio="1">
+          <div class="container">
+            <div class="row align-items-center justify-content-center">
 
-      <div id="container" class="container-fluid" style="margin-top:200px;">
+              <div class="col-md-12" data-aos="fade-up" data-aos-delay="400">
 
-      </div>
-
+                <div class="row mb-4">
+                  <div class="col-md-10">
+                    <h1>Bienvenue sur la page d'Administration de Suzsand</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
     <footer class="site-footer bg-white">
       <div class="container">
         <div class="row">
