@@ -1,0 +1,15 @@
+.searchbar{
+         list-style-type:none;
+         border:1px solid #f16d28;background:#fff;
+         display:none;
+         margin-top:-16px;
+         border-top:none;
+        }
+.searchbar li:hover{
+                   background:no-repeat #f16d28;
+                   }
+                   .searchbar li{
+                     padding: 0 15px;
+                     line-height:25px;
+                     margin-left: -40px;
+                   }

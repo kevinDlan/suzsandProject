@@ -1,6 +1,15 @@
 <?php
-     session_start();
-      include("../../controller/selectProductForUpDate.php");
+
+     if(isset($_GET) and !empty($_GET))
+       {
+          session_start();
+          $code = $_GET['productCode'];
+         include("../../controller/searchQuery.php");
+       }else {
+             session_start();
+             include("../../controller/selectProductForUpDate.php");
+             }
+
    ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -19,7 +28,7 @@
     <link rel="stylesheet" href="../../css/owl.theme.default.min.css">
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="../../css/jquery.fancybox.min.css">
-
+    <link rel="stylesheet" href="../css/searchbar.css">
     <link rel="stylesheet" href="../../css/bootstrap-datepicker.css">
 
     <link rel="stylesheet" href="../../fonts/flaticon/font/flaticon.css">
@@ -155,18 +164,23 @@
 
     </header>
      <div class="container-fluid">
+
        <div class="search-form">
-             <div class="container-fluid  col-md-6" style="margin-top:200px;">
-              <form class="" action="index.html" method="post">
-                <div class="input-group mb-3">
-                  <input type="search" class="form-control" placeholder="Veuillez entrer le code du produit a modifié" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                       <button type="submit" class="btn btn-outline-primary" id="button-addon2"><span style="font-size:25px;" class="icon-search"></span></button>
+             <div class="container-fluid  col-md-6" style="margin-top:200px; overflow: hidden;">
+              <form class="searchForm" action="updateproduct.php" method="GET">
+                <div id="searchDiv" class="input-group mb-3">
+                  <input name="productCode" onblur="searchbarLoseCursor();" autofocus  id="searchbar" type="search" class="form-control" value="" placeholder="Veuillez entrer le code du produit a modifié" autocomplete="off"required>
+                    <div id="btnDiv" class="input-group-append">
+                       <button id="submit" type="submit" class="btn btn-outline-primary" id="button-addon2"><span style="font-size:25px;" class="icon-search"></span></button>
                    </div>
                 </div>
+                <ul id="searchresult" class="searchbar" >
+                </ul>
               </form>
            </div>
          </div>
+
+
          <div class="product_table">
            <table class="table-responsive">
              <table class="table table-hover">
@@ -185,7 +199,7 @@
             echo "
           <form  action='../../controller/updateProductData.php' method='post' enctype='multipart/form-data'>
             <input style='display:none;' type='number' name='id' value='".$product['id']."'>
-             <tbody>
+             <tbody id='tbody'>
                <tr class='updated'>
                 <th class='rowCode activateBtn' scope='row'>
                        <input onkeyup='remove_attr(this);' id='repasCode' name='repas_code' type='text' value='".$product['codeMenu']."' readonly required style='border:none;'/>
@@ -325,6 +339,51 @@
         $(x).parents('.activateBtn').parents('.updated').children('.btn').children('#button').removeAttr('disabled');
       }
   </script>
-  <script src="js/removeAlert.js"></script>
+  <script type="text/javascript" src="js/removeAlert.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+         $('#searchbar').keyup(function(){
+            var userQuery = $(this).val();
+            var leng = userQuery.length;
+          if(leng>0){
+                      //$('.updated').fadeOut('slow');
+                      $.ajax({
+                        type:'POST',
+                        data:'query=' + encodeURIComponent(userQuery),
+                        url:"../../controller/ajaxQueryforselect.php",
+                        success:function(data){
+                          if(data != ""){
+                              $('#searchresult').show().html(data);
+                            }else {
+                                $('#searchresult').show().html('Aucun resultat trouvé !');
+                            } ;
+
+                        //var QueryData = data;
+                        //alert(QueryData.codeMenu);
+                        },
+                        error:function(){
+                          alert('Error');
+                        }
+                      });
+                    }
+                    else
+                    {
+                      $('#searchresult').fadeOut('fast');
+                      //location.reload();
+                    }
+       })
+    });
+
+     function choseItem(x)
+     {
+       var val = $(x).html();
+       $('#searchbar').val(val);
+       $('#searchresult').fadeOut('fast');
+       $('#searchDiv').children('#btnDiv').children('button[type="submit"]').click();
+     }
+     function searchbarLoseCursor(){
+          $('#searchresult').fadeOut('fast');
+     }
+  </script>
   </body>
 </html>

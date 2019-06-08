@@ -144,16 +144,19 @@
              </thead>
             <tbody>
            <?php
-               foreach ($data as $emails) {
+               foreach ($data as $emails){
                  echo "
+              <form method='POST' action='../controller/newletterview.php'>
+                <input style='display:none;' type='number' name='suscriberId' value='".$emails["id"]."'>
                  <tr class='changeStatus'>
                      <td>
                           ".$emails["email"]."
                     </td>
                     <td>
-                         <a href='#' class='btn btn-primary'>Vue</a>
+                         <button type='submit' class='btn btn-primary'>Vue</a>
                    </td>
                  </tr>
+              <form>
                       ";
                }
                ?>
