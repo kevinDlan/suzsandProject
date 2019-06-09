@@ -1,5 +1,13 @@
 <?php
-  include("../../controller/selectProductForDelete.php");
+if(isset($_GET) and !empty($_GET))
+  {
+     session_start();
+     $code = $_GET['productCode'];
+     include("../../controller/searchQuery.php");
+  }else {
+          session_start();
+          include("../../controller/selectProductForDelete.php");
+        }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -18,7 +26,7 @@
     <link rel="stylesheet" href="../../css/owl.theme.default.min.css">
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="../../css/jquery.fancybox.min.css">
-
+    <link rel="stylesheet" href="../css/searchbar.css">
     <link rel="stylesheet" href="../../css/bootstrap-datepicker.css">
 
     <link rel="stylesheet" href="../../fonts/flaticon/font/flaticon.css">
@@ -131,18 +139,23 @@
 
     </header>
      <div class="container-fluid">
+
        <div class="search-form">
-             <div class="container-fluid  col-md-6" style="margin-top:200px;">
-              <form class="" action="index.html" method="post">
-                <div class="input-group mb-3">
-                  <input type="search" class="form-control" placeholder="Veuillez entrer le code du produit a supprimé" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                       <button type="submit" class="btn btn-outline-primary" id="button-addon2"><span style="font-size:25px;" class="icon-search"></span></button>
+             <div class="container-fluid  col-md-6" style="margin-top:150px;">
+              <form class="" action="deleteproduct.php" method="GET">
+                <div id="deleteSearchbar" class="input-group mb-3">
+                  <input id="deleteProductCode" name="productCode" autofocus type="search" onblur="searchbarLoseCursor();" class="form-control" placeholder="Veuillez entrer le code du produit a supprimé" autocomplete="off">
+                    <div id="searchBtn" class="input-group-append">
+                       <button id="submit" type="submit" class="btn btn-outline-primary"><span style="font-size:25px;" class="icon-search"></span></button>
                    </div>
                 </div>
+                <ul id="searchresult" class="searchbar">
+                </ul>
               </form>
            </div>
          </div>
+
+
          <div class="product_table">
            <table class="table-responsive">
              <table class="table table-hover">
@@ -286,5 +299,50 @@
  <script src="js/removeAlert.js"></script>
   <script src="../../js/main.js"></script>
   <script src="../js/notification.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+         $('#deleteProductCode').keyup(function(){
+            var userQuery = $(this).val();
+            var leng = userQuery.length;
+          if(leng>0){
+                      //$('.updated').fadeOut('slow');
+                      $.ajax({
+                        type:'POST',
+                        data:'query=' + encodeURIComponent(userQuery),
+                        url:"../../controller/ajaxQueryforselect.php",
+                        success:function(data){
+                          if(data != ""){
+                              $('#searchresult').show().html(data);
+                            }else {
+                                $('#searchresult').show().html('Aucun resultat trouvé !');
+                            } ;
+
+                        //var QueryData = data;
+                        //alert(QueryData.codeMenu);
+                        },
+                        error:function(){
+                          alert('Error');
+                        }
+                      });
+                    }
+                    else
+                    {
+                      $('#searchresult').fadeOut('fast');
+                      //location.reload();
+                    }
+       })
+    });
+
+     function choseItem(x)
+     {
+       var val = $(x).html();
+       $('#deleteProductCode').val(val);
+       $('#searchresult').fadeOut('fast');
+       $('#deleteSearchbar').children('#searchBtn').children('button[type="submit"]').click();
+     }
+     function searchbarLoseCursor(){
+          $('#searchresult').fadeOut('fast');
+     }
+  </script>
   </body>
 </html>

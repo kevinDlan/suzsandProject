@@ -166,12 +166,12 @@
      <div class="container-fluid">
 
        <div class="search-form">
-             <div class="container-fluid  col-md-6" style="margin-top:200px; overflow: hidden;">
+             <div class="container-fluid  col-md-6" style="margin-top:150px;">
               <form class="searchForm" action="updateproduct.php" method="GET">
                 <div id="searchDiv" class="input-group mb-3">
                   <input name="productCode" onblur="searchbarLoseCursor();" autofocus  id="searchbar" type="search" class="form-control" value="" placeholder="Veuillez entrer le code du produit a modifié" autocomplete="off"required>
                     <div id="btnDiv" class="input-group-append">
-                       <button id="submit" type="submit" class="btn btn-outline-primary" id="button-addon2"><span style="font-size:25px;" class="icon-search"></span></button>
+                       <button id="submit" type="submit" class="btn btn-outline-primary"><span style="font-size:25px;" class="icon-search"></span></button>
                    </div>
                 </div>
                 <ul id="searchresult" class="searchbar" >
