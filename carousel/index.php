@@ -99,7 +99,7 @@
                           <div class='col-lg-4 col-md-6 mb-5'>
                             <div class='product-item '>
                               <figure onchange='click('#clic');' style='cursor:pointer;' id='img1'>
-                                <img   src='imageRepas/5.jpg' alt='Image' class='img-fluid'>
+                                <img   src='imageRepas/".$products["photoMenu"]."' alt='Image' class='img-fluid'>
                               </figure>
                               <div class='px-4'>
                                 <h3 class='libelleMenu' id='lb1' style='cursor:pointer;' onchange='click('#clic');'>".$products["libelleMenu"]."</h3>
