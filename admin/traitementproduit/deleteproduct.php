@@ -1,12 +1,21 @@
 <?php
-if(isset($_GET) and !empty($_GET))
+if(isset($_GET['productCode']) and !empty($_GET['productCode']))
   {
      session_start();
      $code = $_GET['productCode'];
      include("../../controller/searchQuery.php");
-  }else {
-          session_start();
-          include("../../controller/selectProductForDelete.php");
+  }else{
+       if(isset($_GET['page']) and !empty($_GET['page'])){
+         session_start();
+         $page = $_GET['page'];
+         require_once('../../controller/productPagination.php');
+           }
+           else
+           {
+             session_start();
+             include("../../controller/selectProductForDelete.php");
+           }
+          require_once('../../controller/productPaginate.php');
         }
 ?>
 <!DOCTYPE html>
@@ -236,6 +245,51 @@ if(isset($_GET) and !empty($_GET))
        </table>
          </div>
      </div>
+     <div class="horizontal_bar" style="margin-left:5%;margin-right:5%;">
+        <hr>
+     </div>
+     <div class="pagination offset-5" style="margin-top:5%;width:10%;margin:auto;">
+       <nav aria-label="Page navigation example">
+         <ul class="pagination">
+       <?php
+             if(isset($nbreOfPage))
+             {
+               echo "
+                     <form action='' methods='GET'>
+                      <input name='page' type='hidden' value='1'>
+                     <li class='page-item'>
+                       <button type='submit' class='page-link'  aria-label='Previous'>
+                         <span aria-hidden='true'>&laquo;</span>
+                       </button>
+                     </li>
+                     </form>
+               ";
+
+                 for($i=1;$i<=$nbreOfPage;$i++){
+                   echo "
+                          <form action='deleteproduct.php' method='GET'>
+                            <input name='page' type='hidden' value='".$i."'>
+                            <li id='activeItem' class='page-item'><button id='".$i."' onclick='activeFunction(this);' class='page-link' type='submit'>".$i."</button></li>
+                          </form>
+                        ";
+                 }
+
+             $last=$i-1;
+             echo "
+                   <form action='' method='GET'>
+                    <input name='page' type='hidden' value='".$last."'>
+                    <li class='page-item'>
+                     <button class='page-link' aria-label='Next'>
+                       <span aria-hidden='true'>&raquo;</span>
+                     </button>
+                  </li>
+                   </form>
+                 ";
+              }
+         ?>
+         </ul>
+       </nav>
+     </div>
     <footer class="site-footer bg-white">
       <div class="container">
         <div class="row">
@@ -299,6 +353,7 @@ if(isset($_GET) and !empty($_GET))
  <script src="js/removeAlert.js"></script>
   <script src="../../js/main.js"></script>
   <script src="../js/notification.js"></script>
+  <script src="../js/activeBtn.js"></script>
   <script type="text/javascript">
     $(document).ready(function(){
          $('#deleteProductCode').keyup(function(){

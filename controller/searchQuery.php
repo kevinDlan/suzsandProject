@@ -6,5 +6,4 @@
    $data = $query->fetchAll(\PDO::FETCH_ASSOC);
    //var_dump($query->errorInfo());
    $query->closeCursor();
-
 ?>
