@@ -10,35 +10,75 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="images/n.jpg" rel="icon" type="image/jpg">
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet"href="fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+    <link rel="stylesheet"href="css/bootstrap.min.css">
+    <link rel="stylesheet"href="css/jquery-ui.css">
+    <link rel="stylesheet"href="css/owl.carousel.min.css">
+    <link rel="stylesheet"href="css/owl.theme.default.min.css">
+    <link rel="stylesheet"href="css/owl.theme.default.min.css">
+    <link rel="stylesheet"href="css/styles.css">
+    <link rel="stylesheet"href="css/jquery.fancybox.min.css">
 
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet"href="css/bootstrap-datepicker.css">
 
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <link rel="stylesheet"href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet"href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 
-    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet"href="css/aos.css">
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/commande.css">
+    <link rel="stylesheet"href="css/style.css">
+    <link rel="stylesheet"href="css/commande.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
     <script  src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script>
+    <script type="text/javascript">
     $(function() {
       $("#popModel").modal('show');
     });
     $(function() {
       $("#popModel2").modal('show');
     });
+
+    $(function(){
+        $('#nos-produits').click(
+          function(){
+            $('.products-sect').click();
+          }
+          );
+      })
+
+    
+    
     </script>
+    <style type="text/css">
+      .libelleMenu
+      {
+        color: #000;
+      }
+      .libelleMenu:hover
+      {
+        color: #f16821;
+        transition: .3s all ease;
+      }
+      .btn-orange {
+      color: #fff !important;
+      background-color: #f16821;
+      border-color: #f16821;
+      border-width: 3px;
+      
+      
+    }
+      
+      .btn-orange:hover {
+      color: #000 !important;
+      background-color: transparent;
+      transition: .5s all ease;
+       }
+
+      
+    </style>
+    
+
 
   </head>
 
@@ -118,9 +158,9 @@ session_start();
 
 
 
+        
 
   <div class="site-wrap">
-
     <div class="site-mobile-menu site-navbar-target">
       <div class="site-mobile-menu-header">
         <div class="site-mobile-menu-close mt-3">
@@ -171,7 +211,7 @@ session_start();
 
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="#home-section" class="nav-link">Accueil</a></li>
-                <li><a href="#products-section" class="nav-link">Nos produits</a></li>
+                <li><a href="#products-section" class="products-sect" class="nav-link">Nos produits</a></li>
                 <li><a href="#about-section" class="nav-link">A propos de nous</a></li>
 
                 <li><a href="#testimonials-section" class="nav-link">Temoignage</a></li>
@@ -199,11 +239,11 @@ session_start();
           <div class="col-md-12" data-aos="fade-up" data-aos-delay="400">
 
             <div class="row mb-4">
-              <div class="col-md-7">
-                <h1>Bienvenue chez vous</h1>
+              <div class="col-md-12" style="text-align: center;">
+                <h1>Bienvenue à SUZSAND</h1>
                 <p class="mb-5 lead">Découvrez votre nouvelle sandwicherie avec son goût esquis et raffinée à l'ivoirienne.</p>
                 <div>
-                  <a href="#products-section" class="btn btn-white btn-outline-white py-3 px-5 rounded-0 mb-lg-0 mb-2 d-block d-sm-inline-block">Achetez maintenant</a>
+                  <a href="#products-section" id="nos-produits" class="btn btn-white btn-outline-white py-3 px-5 rounded-0 mb-lg-0 mb-2 d-block d-sm-inline-block">Achetez maintenant</a>
                 </div>
               </div>
             </div>
@@ -217,38 +257,12 @@ session_start();
           <div class="col-md-6 text-center">
             <h3 class="section-sub-title">PRODUITS POPULAIRES</h3>
             <h2 class="section-title mb-3">Nos Produits</h2>
+            <a href="totalProduit.php" class='btn btn-orange mr-1 rounded-0'>Cliquer ici pour decouvrir plus</a>
           </div>
         </div>
-        <div class="row">
-
-        <?php
-           foreach ($data as $product)
-        {
-
-          echo"
-          <div class='col-lg-4 col-md-6 mb-5'>
-            <div class='product-item'>
-              <figure>
-                <img src='imageRepas/".$product["photoMenu"]."' alt='Image' class='img-fluid'>
-              </figure>
-              <div class='px-4'>
-                <h3><a href=''>".$product["libelleMenu"]."</a></h3>
-                <p class='mb-4'>".$product["descriptionMenu"]."</p>
-                <p class='mb-4' style='font-weight:bold; font-size:20px'>".$product["prix"]." <strong> FCFA</strong></p>
-                <div>
-                  <form method='post' action='controller/selectionProduit.php'>
-                    <input type='hidden' name='id' value='".$product["id"]."'>
-                    <button type='submit' class='btn btn-black mr-1 rounded-0'>Commander</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-            ";
-        }
-       ?>
-      </div>
+        <div class="row"><?php include ('carousel/index.php'); ?></div>
     </div>
+    
     <div class="site-blocks-cover inner-page-cover overlay get-notification"  style="background-image: url(images/suzsand/sand.jpg); background-attachment: fixed;" data-aos="fade">
       <div class="container">
 
@@ -590,7 +604,7 @@ session_start();
   <script src="js/aos.js"></script>
   <script src="js/jquery.fancybox.min.js"></script>
   <script src="js/jquery.sticky.js"></script>
-
+  
 
   <script src="js/main.js"></script>
   <script src="admin/js/removeAlert.js"></script>

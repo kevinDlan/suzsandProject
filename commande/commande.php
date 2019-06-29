@@ -1,6 +1,8 @@
 <?php
     require_once('../controller/selectDeliveryArea.php');
     session_start();
+
+    include('../controller/selectionProduit.php');
  ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -28,11 +30,18 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" type="text/css" href="commande1.css">
+    <style type="text/css">
+      
+      
 
+      
+    </style>
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
-  <div class="site-wrap">
+  <div class="site-wrap" style="display: <?php if (!isset($_SESSION['libelleMenu'])) {
+    echo 'none';
+  } ?>">
 
     <div class="site-mobile-menu site-navbar-target">
       <div class="site-mobile-menu-header">
@@ -72,7 +81,7 @@
         <div class="row align-items-center" style="position: relative;">
 
           <div class="col-6 col-xl-2">
-            <h1 class="mb-0 site-logo"><a href="index.html" class="text-black mb-0">
+            <h1 class="mb-0 site-logo"><a href="../index.php" class="text-black mb-0">
               <img src="../images/n.jpg" class="logo">
             </a></h1>
           </div>
@@ -81,7 +90,7 @@
 
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="../index.php" class="nav-link">Accueil</a></li>
-                <li><a href="../index.php#products-section" class="nav-link">Nos produits</a></li>
+                <li><a href="../index.php#products-section">Nos produits</a></li>
                 <li><a href="../index.php#about-section" class="nav-link">A propos de nous</a></li>
 
                 <li><a href="../index.php#testimonials-section" class="nav-link">Temoignage</a></li>
@@ -92,7 +101,7 @@
           </div>
 
 
-          <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a></div>
+          <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="../index.php" class="site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a></div>
         </div>
       </div>
     </header>
@@ -100,11 +109,12 @@
     <div class="container">
       <form class="needs-validation" novalidate method="post" action="validation.php" role="form">
         <div class="row">
-          <div class="col-md-6" style="border: 2px solid #DDD; border-radius: 5px;">
-            <div class="col-lg-12 col-md-6 mb-3">
+          <div class="col-md-6 photoMenu" style="border: 2px solid #DDD; border-radius: 5px;">
+            <div class="mb-5">
               <div class="product-item">
                 <figure>
-                    <img src="../imageRepas/<?php echo $_SESSION['photoMenu'];?>" style="margin-top: 25px;" alt="Image" class="
+
+                    <img src="../imageRepas/<?php echo $_SESSION['photoMenu'];?>" style="margin-top: 25px;" alt="Image" class="img-thumbnail
                     " >
                 </figure>
                 <div class="px-4">
@@ -116,7 +126,7 @@
             </div>
           </div>
           <div class="col-md-1"></div>
-          <div class="col-md-5">
+          <div class="col-md-5 mx-auto">
             <div class="heading">
               <h2 style="text-align: center;">Passer une commande !</h2>
             </div>
@@ -150,7 +160,7 @@
               <div class="col-md-12 mb-3">
                 <label for="validationCustomUsername">Lieu de Livraison</label>
                 <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-xl-12 col-sm-12 col-md-12">
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
                         <label class="input-group-text" for="inputGroupSelect01">ville</label>
@@ -180,38 +190,67 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-12">
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <label class="input-group-text" for="inputGroupSelect01">Montant de la livraison</label>
+
+
+                  
+
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <label for="inputGroupSelect01">Montant de la livraison</label>
                       </div>
-                      <input class="form-control col-md-3" type="number" readonly id="deleveryPrice" name="montant_livraison" value="0">
+                      <div class="col-md-8">
+                        <div class="input-group mb-1">
+                          <input class="form-control" type="number" readonly id="deleveryPrice" name="montant_livraison" value="0">
                       <label class="input-group-text" for="devise">FCFA</label>
+                        </div>                            
+                      </div>
                     </div>
                   </div>
+
+
+
+
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="row">
-                  <div class="col-md-4 mb-3">
+                  <div class="col-md-12 col-lg-6 mb-3">
                     <label for="validationCustom03">Nombre de plats</label>
                     <input onchange="selectDeliveryPrice('#quartier');" min="1" max="100"  type="number" value="1" class="form-control nbrePlat" id="validationCustom03" placeholder="Ex: 5" name="nombre_plats" pattern="^[0-9]{1,}$" required>
                   </div>
-                  <div class="input-group col-md-8 mb-3">
-                      <label for="prixtotal">Prix Unitaire</label>
-                       <div class="row">
-                         <input name='prixUnitaire' type='number'  id="prixUnitaire"  readonly class="form-control prix col-md-4"  value='<?php echo $_SESSION['prix'];?>'>
-                         <label class="input-group-text">FCFA</label>
-                       </div>
-                  </div>
+                  <div class="col-md-12 col-lg-6 mb-3">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <label for="prixtotal">Prix Unitaire</label>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="input-group">
+                          <input name='prixUnitaire' type='number'  id="prixUnitaire"  readonly class="form-control prix"  value='<?php echo $_SESSION['prix'];?>'>
+                          <label class="input-group-text">FCFA</label>
+                        </div>                            
+                      </div>
+                    </div>
+                  </div>                  
                 </div>
               </div>
+
               <div id='montantTotal' class="col-md-12" style="display:none;">
-                <label for="prixtotal">Montant total de la commande</label>
-                  <div class="row col-md-10">
-                    <input style="background:#28a745;" type='number'  id="totalCommande"  readonly class="form-control col-md-6"  name='totalCommande' value=''>
-                    <label class="input-group-text col-md-4">FCFA</label>
+                <div class="row">
+                  <div class="col-md-12">
+                    <label for="prixtotal">Montant total de la commande</label>
                   </div>
+                  <div class="col-md-12">
+                    <div class="row">
+                      <div class="col-md-8">
+                        <div class="input-group mb-3">
+                          <input style="background:#28a745;" type='number'  id="totalCommande"  readonly class="form-control"  name='totalCommande' value=''>
+                          <label class="input-group-text">FCFA</label>
+                        </div>
+                      </div>
+                    </div>  
+                  </div>                
+                </div>
               </div>
 
               <div class="form-group col-md-12">
@@ -226,7 +265,7 @@
                 </div>
               </div>
               <input type='hidden' name='libelleMenu' value='<?php echo $_SESSION['libelleMenu'];?>'>
-              <button class="btn btn-black mr-1 mx-auto col-md-6" style="height: 50px;" type="submit">Valider la commande</button>
+              <button class="btn btn-black mr-1 mx-auto col-md-12 col-lg-8" style="height: 50px; font-size: 1.2em" type="submit">Valider la commande</button>
             </div>
           </div>
         </div>
@@ -235,7 +274,22 @@
 
 
     </div>
+    <div class="site-blocks-cover inner-page-cover overlay get-notification mt-5 mb-5"  style="background-image: url(../images/suzsand/sand.jpg); background-attachment: fixed;" data-aos="fade">
+      <div class="container">
 
+        <div class="row align-items-center justify-content-center">
+          <form action="../composant/newLetters.php" class="col-md-7" method="post">
+            <h2>Être informé sur chaque nouvelle recette.</h2>
+            <div class="d-flex mb-4">
+              <input type="email" name="email" class="form-control rounded-0" placeholder="Entrer votre adresse email">
+              <input type="submit" class="btn btn-white btn-outline-white rounded-0" value="SOUSCRIRE">
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat commodi veniam doloremque ducimus tempora.</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
 
     <script type="text/javascript">
       // Example starter JavaScript for disabling form submissions if there are invalid fields
@@ -258,7 +312,7 @@
       })();
 </script>
 
-    <footer class="site-footer bg-white" style="margin-top: 100px;">
+    <footer class="site-footer mt-5">
       <div class="container">
         <div class="row">
           <div class="col-md-8">
@@ -270,10 +324,10 @@
               <div class="col-md-3 ">
                 <h2 class="footer-heading mb-4">Quick Links</h2>
                 <ul class="list-unstyled">
-                  <li><a href="../index.php#about-section">A propos de nous</a></li>
+                  <li><a href="#">A propos de nous</a></li>
                   <li><a href="#">Nos services</a></li>
-                  <li><a href="../index.php#testimonials-section">Temoignage</a></li>
-                  <li><a href="../index.php#contact-section">Contactez-nous</a></li>
+                  <li><a href="#">Temoignage</a></li>
+                  <li><a href="#">Contactez-nous</a></li>
                 </ul>
               </div>
               <div class="col-md-4">
@@ -287,7 +341,7 @@
           </div>
 
         </div>
-        <div class="row pt-5 mt-5 text-center">
+        <div class="row text-center">
           <div class="col-md-12">
             <div class="border-top pt-5">
             <p>
