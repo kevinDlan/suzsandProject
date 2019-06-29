@@ -81,43 +81,9 @@
                             ";
                         }
                        ?>
-                       <div class='col-lg-4 col-md-6 mb-5'>
-            <div class='product-item dxsnone'>
-              <figure  style='cursor:pointer;' id='img'>
-                <img   src='imageRepas/1.jpg' alt='Image' class='img-fluid'>
-              </figure>
-              <div class='px-4'>
-                <h3 class='libelleMenu' id='lb' style='cursor:pointer;'>sandwich a la salade</h3>
-                <p class='mb-4'>Le sandwich est un mets, généralement composé de deux ou plusieurs tranches de pain, avec un ou plusieurs ingrédients entre elles. Par antonomase, le terme « sandwich »</p>
-                <p class='mb-4' style='font-weight:bold; font-size:20px'>2000 <strong> FCFA</strong></p>
-                <div>
-                  <form method='get' action='commande/commande.php'>
-                    <input type='hidden' name='id' value='13'>
-                    <button type='submit' class='btn btn-black mr-1 rounded-0' id='clic'>Commander</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
+                       
 
-          <div class='col-lg-4 col-md-6 mb-5'>
-            <div class='product-item dxsnone dsmnone'>
-              <figure  style='cursor:pointer;' id='img'>
-                <img   src='imageRepas/3.jpg' alt='Image' class='img-fluid'>
-              </figure>
-              <div class='px-4'>
-                <h3 class='libelleMenu' id='lb' style='cursor:pointer;'>sandwich a la salade</h3>
-                <p class='mb-4'>Le sandwich est un mets, généralement composé de deux ou plusieurs tranches de pain, avec un ou plusieurs ingrédients entre elles. Par antonomase, le terme « sandwich »</p>
-                <p class='mb-4' style='font-weight:bold; font-size:20px'>6000 <strong> FCFA</strong></p>
-                <div>
-                  <form method='get' action='commande/commande.php'>
-                    <input type='hidden' name='id' value='13'>
-                    <button type='submit' class='btn btn-black mr-1 rounded-0' id='clic'>Commander</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
+          
 
 
         
@@ -151,43 +117,9 @@
                             ";
                         }
                        ?>
-                       <div class='col-lg-4 col-md-6 mb-5'>
-            <div class='product-item dxsnone'>
-              <figure  style='cursor:pointer;' id='img'>
-                <img   src='imageRepas/2.jpg' alt='Image' class='img-fluid'>
-              </figure>
-              <div class='px-4'>
-                <h3 class='libelleMenu' id='lb' style='cursor:pointer;'>sandwich a la salade</h3>
-                <p class='mb-4'>Le sandwich est un mets, généralement composé de deux ou plusieurs tranches de pain, avec un ou plusieurs ingrédients entre elles. Par antonomase, le terme « sandwich »</p>
-                <p class='mb-4' style='font-weight:bold; font-size:20px'>6000 <strong> FCFA</strong></p>
-                <div>
-                  <form method='get' action='commande/commande.php'>
-                    <input type='hidden' name='id' value='13'>
-                    <button type='submit' class='btn btn-black mr-1 rounded-0' id='clic'>Commander</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
+                       
 
-          <div class='col-lg-4 col-md-6 mb-5'>
-            <div class='product-item dxsnone dsmnone'>
-              <figure  style='cursor:pointer;' id='img'>
-                <img   src='imageRepas/6.jpg' alt='Image' class='img-fluid'>
-              </figure>
-              <div class='px-4'>
-                <h3 class='libelleMenu' id='lb' style='cursor:pointer;'>sandwich a la salade</h3>
-                <p class='mb-4'>Le sandwich est un mets, généralement composé de deux ou plusieurs tranches de pain, avec un ou plusieurs ingrédients entre elles. Par antonomase, le terme « sandwich »</p>
-                <p class='mb-4' style='font-weight:bold; font-size:20px'>6000 <strong> FCFA</strong></p>
-                <div>
-                  <form method='get' action='commande/commande.php'>
-                    <input type='hidden' name='id' value='13'>
-                    <button type='submit' class='btn btn-black mr-1 rounded-0' id='clic'>Commander</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
+          
 
 
 
