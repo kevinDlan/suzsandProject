@@ -14,9 +14,13 @@ try{
 }
 
    //require_once('../bd/connexion.php');
-   $query=$bdd->prepare("SELECT * FROM menu");
+   $query=$bdd->prepare("SELECT * FROM menu ORDER BY id ASC LIMIT 3");
    $query->execute();
    $data = $query->fetchAll(\PDO::FETCH_ASSOC);
+
+   $query=$bdd->prepare("SELECT * FROM menu ORDER BY id DESC LIMIT 3");
+   $query->execute();
+   $datas = $query->fetchAll(\PDO::FETCH_ASSOC);
    //var_dump($data);
    //foreach ($data as $product) {
    //echo $product["photoMenu"];

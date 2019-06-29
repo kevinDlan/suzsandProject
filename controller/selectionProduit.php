@@ -1,11 +1,11 @@
 <?php
-      session_start();
+    
 
-      if (isset($_POST['id']))
+      if (isset($_GET['id']))
       {
-        if (isset($_POST['id']))
+        if (isset($_GET['id']))
         {
-          $id = $_POST['id'];
+          $id = $_GET['id'];
         }
             try
             {
@@ -20,7 +20,7 @@
             $resultat = $req->fetch();
 
 
-            $_SESSION['libelleMenu'] = $id;
+            
 
 
             $_SESSION['libelleMenu'] = $resultat['libelleMenu'];
@@ -29,7 +29,7 @@
             $_SESSION['prix'] = $resultat['prix'];
 
             $req->closeCursor();
-          header('Location: ../commande/commande.php');
+          
 
       }
  ?>

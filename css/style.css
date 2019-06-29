@@ -63,6 +63,24 @@ h1, h2, h3, h4, h5,
     opacity: 1;
     visibility: visible; }
 
+
+.btn.btn-orange {
+    border-width: 2px;
+    border-color: #f16821;
+    background: #f16821;
+    color: #fff; }
+.btn.btn-orange:hover {
+      color: #000;
+      background-color: transparent; }
+.btn.btn-orange.btn-outline-black {
+      color: #000;
+      background-color: transparent; }
+  .btn.btn-orange.btn-outline-black:hover {
+    border-color: #000;
+    background: #000;
+    color: #fff; }
+
+
 .btn {
   text-transform: uppercase;
   font-size: 12px;
