@@ -1,23 +1,18 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <link rel="stylesheet" type="text/css" href="carousel.css">
-
-
 <script type="text/javascript">
     $(document).ready(function(){
         $(".wish-icon i").click(function(){
             $(this).toggleClass("fa-heart fa-heart-o");
         });
-    }); 
-
+    });
     $(function() {
       $("#popModel").modal('show');
     });
     $(function() {
       $("#popModel2").modal('show');
     });
-
     $(function(){
         $('#img, #img1').click(
           function(){
@@ -25,7 +20,6 @@
           }
           )
       })
-
       $(function(){
         $('#lb, #lb1').click(
           function(){
@@ -33,27 +27,21 @@
           }
           )
       })
-
-    
 </script>
 </head>
 <body>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
             <!-- Carousel indicators -->
             <ol class="carousel-indicators">
-                <li style="background: orange;" data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li style="background: orange;" data-target="#myCarousel" data-slide-to="1"></li>
-                
-            </ol>   
+                <li data-target="#myCarousel" style="background: orange;"  data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" style="background:orange;"  data-slide-to="1"></li>
+            </ol>
             <!-- Wrapper for carousel items -->
-            <div class="carousel-inner">
-                
-
-
-                <div class="item carousel-item active">
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
                     <div class="row">
                         <?php
                            foreach ($data as $product)
@@ -61,6 +49,7 @@
 
                           echo"
                           <div class='col-lg-4 col-md-6 mb-5'>
+                          <a href='commande/commande.php?id=".$product["id"]."'>
                             <div class='product-item'>
                               <figure onchange='click('#clic');' style='cursor:pointer;' id='img'>
                                 <img   src='imageRepas/".$product["photoMenu"]."' alt='Image' class='img-fluid'>
@@ -77,17 +66,12 @@
                                 </div>
                               </div>
                             </div>
+                          </a>
                           </div>
                             ";
                         }
                        ?>
-                       
-
-          
-
-
-        
-                    </div> 
+                </div>
                 </div>
                 <div class="item carousel-item">
                     <div class="row">
@@ -99,7 +83,7 @@
                           <div class='col-lg-4 col-md-6 mb-5'>
                             <div class='product-item '>
                               <figure onchange='click('#clic');' style='cursor:pointer;' id='img1'>
-                                <img   src='imageRepas/5.jpg' alt='Image' class='img-fluid'>
+                                <img   src='imageRepas/".$products["photoMenu"]."' alt='Image' class='img-fluid'>
                               </figure>
                               <div class='px-4'>
                                 <h3 class='libelleMenu' id='lb1' style='cursor:pointer;' onchange='click('#clic');'>".$products["libelleMenu"]."</h3>
@@ -117,16 +101,8 @@
                             ";
                         }
                        ?>
-                       
-
-          
-
-
-
-        
-                    </div> 
+                    </div>
                 </div>
-                
             </div>
             <!-- Carousel controls -->
             <a style="height: 40px; width: 40px; background: #f16821; margin: auto 0; border-radius: 40px; opacity: 0.8;" class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
@@ -139,37 +115,22 @@
         </div>
     </div>
 </div>
-
 <style type="text/css">
-    
+
     .product-item
 {
     border: 2px solid #DDD;
     border-radius: 5px;
     padding: 5px;
 }
-
-
 @media (min-width: 10px) and (max-width: 767.98px) {
   .dxsnone {
     display: none;
   }
 }
-
 @media (min-width: 768px) and (max-width: 991.98px) {
   .dsmnone{
     display: none;
   }
 }
-
-
 </style>
-
-
-
-
-
-
-
-
-

@@ -90,8 +90,20 @@ require_once('../function/convertDateToFrench.php');
                     <sup style ='font-size:15px; font-weight:bold;'><span class='badge badge-pill badge-danger countCmdNotif'></span></sup>
                   </a>
                 </li>
+                <li>
+                   <div class="dropdown">
+                      <a href="" class="nav-link dropdown-item">
+                      Commande traitée
+                      <i class="fa fa-caret-down"></i>
+                      </a>
+                        <div class="dropdown-content">
+                           <a class="dropdown-item" href="/admin/traitementproduit/validateCmd.php">Commande validée</a>
+                           <a href="/admin/traitementproduit/cancelCmd.php">Commande annulée</a>
+                         </div>
+                   </div>
+                 </li>
                 <li><a href="contactusList.php" class="nav-link">
-                  Messages client
+                  Messages
                   <sup style ="font-size:15px; font-weight:bold;"><span class='badge badge-pill badge-danger count'></span></sup>
 
                    </a>
@@ -99,7 +111,7 @@ require_once('../function/convertDateToFrench.php');
 
                  <li>
                    <a href="newletterlist.php" class="nav-link">
-                        Client New Letters
+                    Letters
                            <sup style ='font-size:15px; font-weight:bold;'><span class='badge badge-pill badge-danger countNletterNotif'></span></sup>
                    </a>
                  </li>

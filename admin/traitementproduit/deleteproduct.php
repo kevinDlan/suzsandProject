@@ -108,6 +108,18 @@ if(isset($_GET['productCode']) and !empty($_GET['productCode']))
                     <sup style ='font-size:15px; font-weight:bold;'><span class='badge badge-pill badge-danger countCmdNotif'></span></sup>
                   </a>
                 </li>
+                <li>
+                   <div class="dropdown">
+                      <a href="" class="nav-link dropdown-item">
+                      Commande traitée
+                      <i class="fa fa-caret-down"></i>
+                      </a>
+                        <div class="dropdown-content">
+                           <a class="dropdown-item" href="/validateCmd.php">Commande validée</a>
+                           <a href="/cancelCmd.php">Commande annulée</a>
+                         </div>
+                   </div>
+                 </li>
                 <li><a href="../contactusList.php" class="nav-link">
                   Messages client
                   <sup style ="font-size:15px; font-weight:bold;"><span class='badge badge-pill badge-danger count'></span></sup>
@@ -198,10 +210,10 @@ if(isset($_GET['productCode']) and !empty($_GET['productCode']))
                      ".$product['libelleMenu']."
                    </td>
                    <td>
-                    ".$product['libelleMenu']."
+                    ".$product['descriptionMenu']."
                    </td>
                    <td>
-                    ".$product['libelleMenu']."
+                    ".$product['prix']." "."XOF
                   </td>
                    <td>
                       <img src='../../imageRepas/".$product['photoMenu']."' width='100px' height='100px' alt=''>

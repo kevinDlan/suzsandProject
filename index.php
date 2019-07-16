@@ -47,8 +47,8 @@ session_start();
           );
       })
 
-    
-    
+
+
     </script>
     <style type="text/css">
       .libelleMenu
@@ -65,19 +65,19 @@ session_start();
       background-color: #f16821;
       border-color: #f16821;
       border-width: 3px;
-      
-      
+
+
     }
-      
+
       .btn-orange:hover {
       color: #000 !important;
       background-color: transparent;
       transition: .5s all ease;
        }
 
-      
+
     </style>
-    
+
 
 
   </head>
@@ -158,7 +158,7 @@ session_start();
 
 
 
-        
+
 
   <div class="site-wrap">
     <div class="site-mobile-menu site-navbar-target">
@@ -211,7 +211,7 @@ session_start();
 
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="#home-section" class="nav-link">Accueil</a></li>
-                <li><a href="#products-section" class="products-sect" class="nav-link">Nos produits</a></li>
+                <li><a href="#menu-suzsand" class="nav-link products-sect">Menu Suzsand</a></li>
                 <li><a href="#about-section" class="nav-link">A propos de nous</a></li>
 
                 <li><a href="#testimonials-section" class="nav-link">Temoignage</a></li>
@@ -251,18 +251,18 @@ session_start();
         </div>
       </div>
     </div>
-    <div class="site-section" id="products-section">
+    <div class="site-section" id="menu-suzsand">
       <div class="container">
         <div class="row mb-5 justify-content-center">
           <div class="col-md-6 text-center">
             <h3 class="section-sub-title">PRODUITS POPULAIRES</h3>
             <h2 class="section-title mb-3">Nos Produits</h2>
-            <a href="totalProduit.php" class='btn btn-orange mr-1 rounded-0'>Cliquer ici pour decouvrir plus</a>
+            <a href="menu.php#menu-suzsand" class='btn btn-orange mr-1 rounded-0'>Decouvrez le menu de Suzsand...</a>
           </div>
         </div>
         <div class="row"><?php include ('carousel/index.php'); ?></div>
     </div>
-    
+
     <div class="site-blocks-cover inner-page-cover overlay get-notification"  style="background-image: url(images/suzsand/sand.jpg); background-attachment: fixed;" data-aos="fade">
       <div class="container">
 
@@ -604,7 +604,7 @@ session_start();
   <script src="js/aos.js"></script>
   <script src="js/jquery.fancybox.min.js"></script>
   <script src="js/jquery.sticky.js"></script>
-  
+
 
   <script src="js/main.js"></script>
   <script src="admin/js/removeAlert.js"></script>

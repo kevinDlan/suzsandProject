@@ -2,13 +2,13 @@
 if(isset($_GET['page']) and !empty($_GET['page']))
     {
       $page = $_GET['page'];
-       require_once('../controller/paginationCmd.php');
+       require_once('../../controller/paginationCmd.php');
     }else
     {
-      require_once('../controller/selectCmd.php');
+      require_once('../../controller/selectCancelCmd.php');
     }
-    require_once('../controller/paginateCmd.php');
-    require_once('../function/convertDateToFrench.php');
+    require_once('../../controller/paginateCmd.php');
+    require_once('../../function/convertDateToFrench.php');
  ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -16,25 +16,25 @@ if(isset($_GET['page']) and !empty($_GET['page']))
     <title>Administration</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="../images/n.jpg" rel="icon" type="image/jpg">
+    <link href="../../images/n.jpg" rel="icon" type="image/jpg">
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="../fonts/icomoon/style.css">
+    <link rel="stylesheet" href="../../fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/jquery-ui.css">
-    <link rel="stylesheet" href="../css/owl.carousel.min.css">
-    <link rel="stylesheet" href="../css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="css/dropdown.css">
-    <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/jquery-ui.css">
+    <link rel="stylesheet" href="../../css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="../css/dropdown.css">
+    <link rel="stylesheet" href="../../css/bootstrap-datepicker.css">
 
-    <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="../../fonts/flaticon/font/flaticon.css">
 
-    <link rel="stylesheet" href="../css/aos.css">
+    <link rel="stylesheet" href="../../css/aos.css">
 
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 
   </head>
@@ -80,7 +80,7 @@ if(isset($_GET['page']) and !empty($_GET['page']))
         <div class="row align-items-center">
           <div class="col-6 col-xl-2">
             <h1 class="mb-0 site-logo">
-            <a href="/index.php" class="text-black mb-0">
+            <a href="../index.php" class="text-black mb-0">
               <img src="../../images/n.jpg" class="logo">
             </a></h1>
           </div>
@@ -120,7 +120,7 @@ if(isset($_GET['page']) and !empty($_GET['page']))
                 </a></li>
                 <li>
                   <a href="newletterlist.php" class="nav-link">
-                  Letters
+                      Letters
                           <sup style ='font-size:15px; font-weight:bold;'><span class='badge badge-pill badge-danger countNletterNotif'></span></sup>
                   </a>
                 </li>
@@ -131,9 +131,9 @@ if(isset($_GET['page']) and !empty($_GET['page']))
                        <i class="fa fa-caret-down"></i>
                        </a>
                           <div class="dropdown-content">
-                            <a href="addItemMenu.php" class="dropdown-item">Ajouter de produits</a>
-                            <a href="/admin/traitementproduit/updateproduct.php">Mise a jours des données du produit</a>
-                            <a href="/admin/traitementproduit/deleteproduct.php">Suppression d'un produit</a>
+                            <a href="../addItemMenu.php" class="dropdown-item">Ajouter de produits</a>
+                            <a href="updateproduct.php">Mise a jours des données du produit</a>
+                            <a href="deleteproduct.php">Suppression d'un produit</a>
                           </div>
                     </div>
                 </li>
@@ -153,7 +153,7 @@ if(isset($_GET['page']) and !empty($_GET['page']))
 
     </header>
 <div class="commandlist" style="margin-top:200px;">
-    <h3 class="text-center"> Liste des commandes</h3>
+    <h3 class="text-center"> Liste des commandes livrées</h3>
       <div class="container-fluid">
       <table class="table-responsive">
         <table class="table table-hover">
@@ -166,7 +166,7 @@ if(isset($_GET['page']) and !empty($_GET['page']))
             <th scope="col">Nombre de plat</th>
             <th scope="col">Lieu Livraison</th>
             <th scope="col">Montant Total</th>
-            <th scope="col">Traitement</th>
+            <th scope="col">Etat commande</th>
           </tr>
          </thead>
          <?php
@@ -181,34 +181,9 @@ if(isset($_GET['page']) and !empty($_GET['page']))
                 <td>".$cmd['nombrePlats']."</td>
                 <td>".$cmd['lieuLivraison']."</td>
                 <td>".$cmd['totalCommande']." FCFA</td>
-                <td><button data-toggle='modal' data-target='#modal' class='btn btn-dark' style='text-transform:uppercase;'>Traiter la commande</button></td>
+                <td><span class='badge badge-danger'>Annulée</span></td>
             </tr>
           </tbody>
-          <!-- Modal -->
-           <div class='modal fade' id='modal' tabindex='-1' role='dialog' aria-labelledby='modal' aria-hidden='true'>
-             <div class='modal-dialog modal-dialog-centered' role='document'>
-              <div class='modal-content'>
-               <div class='modal-header'>
-                 <h4 style='margin-left:100px;'>Traitement commande</h4>
-              </div>
-              <div class='modal-body'>
-                  <h5>Marquer la commande comme:</h5><br/>
-                <div class='row'>
-                    <form  method='POST' action='../controller/treatmentCmd.php'>
-                      <input type='text'style='display:none' name='treatId' value='".$cmd['id']."'>
-                      <button name='cmdtreat' type='submit' class='btn btn-success ml-4'>commande traitée</button>
-                    </form>
-                   <form  method='POST' action='../controller/treatmentCmd.php'>
-                     <input style='display:none' type='text' name='cancelId' value='".$cmd['id']."'>
-                     <button name='cmdcancel' type='submit' class='btn btn-danger  ml-2'>commande annulée !</button>
-                  </form>
-                </div>
-             </div>
-            <div class='modal-footer'>
-            </div>
-         </div>
-      </div>
-    </div>
           ";
         }
           ?>
@@ -303,21 +278,21 @@ if(isset($_GET['page']) and !empty($_GET['page']))
 
   </div> <!-- .site-wrap -->
 
-  <script src="../js/jquery-3.3.1.min.js"></script>
-  <script src="../js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="../js/jquery-ui.js"></script>
-  <script src="../js/popper.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/owl.carousel.min.js"></script>
-  <script src="../js/jquery.stellar.min.js"></script>
-  <script src="../js/jquery.countdown.min.js"></script>
-  <script src="../js/bootstrap-datepicker.min.js"></script>
-  <script src="../js/jquery.easing.1.3.js"></script>
-  <script src="../js/aos.js"></script>
-  <script src="../js/jquery.fancybox.min.js"></script>
-  <script src="../js/jquery.sticky.js"></script>
-  <script src="js/notification.js"></script>
-  <script src="../js/main.js"></script>
-  <script src="js/activeBtn.js"></script>
+  <script src="../../js/jquery-3.3.1.min.js"></script>
+  <script src="../../js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="../../js/jquery-ui.js"></script>
+  <script src="../../js/popper.min.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/owl.carousel.min.js"></script>
+  <script src="../../js/jquery.stellar.min.js"></script>
+  <script src="../../js/jquery.countdown.min.js"></script>
+  <script src="../../js/bootstrap-datepicker.min.js"></script>
+  <script src="../../js/jquery.easing.1.3.js"></script>
+  <script src="../../js/aos.js"></script>
+  <script src="../../js/jquery.fancybox.min.js"></script>
+  <script src="../../js/jquery.sticky.js"></script>
+  <script src="../js/notification.js"></script>
+  <script src="../../js/main.js"></script>
+  <script src="../js/activeBtn.js"></script>
   </body>
 </html>
