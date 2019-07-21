@@ -55,6 +55,6 @@ if(
 
                  ";
            }
-
-session_destroy();
+//session_destroy();
+unset($_SESSION['valideMessage']['newletterMessage']['newLetterError']['adminloginError']['insertProductSuccesMsg']['insertProductFailMsg']['success_update']);
 ?>

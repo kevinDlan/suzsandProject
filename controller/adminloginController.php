@@ -12,6 +12,7 @@ if( isset($_POST) AND !empty($_POST))
            session_start();
            $_SESSION['adminnom'] = $data['nom'];
            $_SESSION['adminprenom'] = $data['prenom'];
+           $_SESSION['login']="yes";
           header('Location:../admin/home.php');
        }else{
               session_start();

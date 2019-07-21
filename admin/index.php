@@ -89,7 +89,7 @@
                  <?php
                     require_once('../errorAlert.php');
                  ?>
-  <div class="container" style="margin-top:74px;">
+  <div class="container" style="margin-top:200px;">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
 				<div class="d-flex justify-content-center">

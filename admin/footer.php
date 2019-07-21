@@ -1,4 +1,4 @@
-<footer class="site-footer">
+<footer class="site-footer bg-white">
   <div class="container">
     <div class="row">
       <div class="col-md-8">
@@ -27,7 +27,7 @@
       </div>
 
     </div>
-    <div class="row text-center">
+    <div class="row pt-5 mt-5 text-center">
       <div class="col-md-12">
         <div class="border-top pt-5">
         <p>
@@ -43,23 +43,22 @@
 </footer>
 
 </div> <!-- .site-wrap -->
-<script src="https://use.fontawesome.com/c560c025cf.js"></script>
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/jquery-migrate-3.0.1.min.js"></script>
-<script src="js/jquery-ui.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.stellar.min.js"></script>
-<script src="js/jquery.countdown.min.js"></script>
-<script src="js/bootstrap-datepicker.min.js"></script>
-<script src="js/jquery.easing.1.3.js"></script>
-<script src="js/aos.js"></script>
-<script src="js/jquery.fancybox.min.js"></script>
-<script src="js/jquery.sticky.js"></script>
 
-
-<script src="js/main.js"></script>
-<script src="admin/js/removeAlert.js"></script>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/jquery-migrate-3.0.1.min.js"></script>
+<script src="../js/jquery-ui.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/owl.carousel.min.js"></script>
+<script src="../js/jquery.stellar.min.js"></script>
+<script src="../js/jquery.countdown.min.js"></script>
+<script src="../js/bootstrap-datepicker.min.js"></script>
+<script src="../js/jquery.easing.1.3.js"></script>
+<script src="../js/aos.js"></script>
+<script src="../js/jquery.fancybox.min.js"></script>
+<script src="../js/jquery.sticky.js"></script>
+<script src="../js/main.js"></script>
+<script src="js/notification.js"></script>
+<script src="js/removeAlert.js"></script>
 </body>
 </html>

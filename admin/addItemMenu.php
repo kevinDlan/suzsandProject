@@ -27,11 +27,10 @@
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-
   <script type="text/javascript">
   function chooseFile(x){
      $(x).parents('.img_viewer').children('input[type="file"]').click();
-                         }
+               }
 function show_apercu(x){
   var files = jQuery(x)[0].files;
   if(files.length > 0){

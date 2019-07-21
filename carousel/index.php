@@ -43,64 +43,54 @@
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
                     <div class="row">
-                        <?php
-                           foreach ($data as $product)
-                        {
-
-                          echo"
+                        <?php foreach($data as $product):?>
                           <div class='col-lg-4 col-md-6 mb-5'>
-                          <a href='commande/commande.php?id=".$product["id"]."'>
+                          <a class="" href="../panier/addpanier.php?productId=<?= $product->id;?>">
                             <div class='product-item'>
                               <figure onchange='click('#clic');' style='cursor:pointer;' id='img'>
-                                <img   src='imageRepas/".$product["photoMenu"]."' alt='Image' class='img-fluid'>
+                                <img   src="imageRepas/<?= $product->photoMenu;?>" alt='Image' class='img-fluid'>
                               </figure>
                               <div class='px-4'>
-                                <h3 class='libelleMenu' id='lb' style='cursor:pointer;' onchange='click('#clic');'>".$product["libelleMenu"]."</h3>
-                                <p class='mb-4'>".$product["descriptionMenu"]."</p>
-                                <p class='mb-4' style='font-weight:bold; font-size:20px'>".$product["prix"]." <strong> FCFA</strong></p>
+                                <h3 class='libelleMenu' id='lb' style='cursor:pointer;' onchange='click('#clic');'><?= $product->libelleMenu?></h3>
+                                <p class='mb-4'><?= $product->descriptionMenu;?></p>
+                                <p class='mb-4' style="font-weight:bold; font-size:20px"><?= $product->prix;?><strong> FCFA</strong></p>
                                 <div>
-                                  <form method='get' action='commande/commande.php'>
-                                    <input type='hidden' name='id' value='".$product["id"]."'>
-                                    <button type='submit' class='btn btn-black mr-1 rounded-0' id='clic'>Commander</button>
-                                  </form>
+                                  <!-- <form method='get' action='commande/commande.php'>
+                                    <input type='hidden' name='id' value='<?//= $product->id;?>'> -->
+                                    <a href="../panier/addpanier.php?productId=<?= $product->id;?>" class='btn btn-black mr-1 rounded-0'>Ajouter au panier</a>
+                                  <!-- </form> -->
                                 </div>
                               </div>
                             </div>
                           </a>
                           </div>
-                            ";
-                        }
-                       ?>
+                     <?php endforeach ?>
                 </div>
                 </div>
                 <div class="item carousel-item">
                     <div class="row">
-                        <?php
-                           foreach ($datas as $products)
-                        {
-
-                          echo"
-                          <div class='col-lg-4 col-md-6 mb-5'>
-                            <div class='product-item '>
-                              <figure onchange='click('#clic');' style='cursor:pointer;' id='img1'>
-                                <img   src='imageRepas/".$products["photoMenu"]."' alt='Image' class='img-fluid'>
-                              </figure>
-                              <div class='px-4'>
-                                <h3 class='libelleMenu' id='lb1' style='cursor:pointer;' onchange='click('#clic');'>".$products["libelleMenu"]."</h3>
-                                <p class='mb-4'>".$products["descriptionMenu"]."</p>
-                                <p class='mb-4' style='font-weight:bold; font-size:20px'>".$products["prix"]." <strong> FCFA</strong></p>
-                                <div>
-                                  <form method='get' action='commande/commande.php'>
-                                    <input type='hidden' name='id' value='".$products["id"]."'>
-                                    <button type='submit' class='btn btn-black mr-1 rounded-0' id='clic'>Commander</button>
-                                  </form>
-                                </div>
+                      <?php foreach($datas as $products):?>
+                        <div class='col-lg-4 col-md-6 mb-5'>
+                        <a class="" href="../panier/addpanier.php?productId=<?= $product->id;?>">
+                          <div class='product-item'>
+                            <figure onchange='click('#clic');' style='cursor:pointer;' id='img'>
+                              <img   src="imageRepas/<?= $products->photoMenu;?>" alt='Image' class='img-fluid'>
+                            </figure>
+                            <div class='px-4'>
+                              <h3 class='libelleMenu' id='lb' style='cursor:pointer;' onchange='click('#clic');'><?= $products->libelleMenu?></h3>
+                              <p class='mb-4'><?= $products->descriptionMenu;?></p>
+                              <p class='mb-4' style="font-weight:bold; font-size:20px"><?= $products->prix;?><strong> FCFA</strong></p>
+                              <div>
+                                <!-- <form method='get' action='commande/commande.php'>
+                                  <input type='hidden' name='id' value='<?//= $products->id;?>'> -->
+                                  <a href='../panier/addpanier.php?productId=<?= $product->id;?>' class='btn btn-black mr-1 rounded-0'>Ajouter au panier</a>
+                                <!-- </form> -->
                               </div>
                             </div>
                           </div>
-                            ";
-                        }
-                       ?>
+                        </a>
+                        </div>
+                   <?php endforeach ?>
                     </div>
                 </div>
             </div>
