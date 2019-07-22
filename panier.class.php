@@ -1,23 +1,35 @@
 <?php
 class panier
 {
-  public function __construct()
+  private $db;
+  public function __construct($db)
   {
     if(!isset($_SESSION)){
     session_start();
     }
-    if(!isset($_SESSION['panier'])){
+    if(!isset($_SESSION['panier']))
+    {
       $_SESSION['panier'] = array();
     }
+
+    if(isset($_GET['delPanier']))
+    {
+      $this->del($_GET['delPanier']);
+    }
+    $this->db = $db;
   }
 
+
+public function count()
+{
+  return array_sum($_SESSION['panier']);
+}
 public function add($product_id){
   if(isset($_SESSION['panier'][$product_id]))
   {
-          $_SESSION['panier'][$product_id]=$_SESSION['panier'][$product_id]+1;
-          die(1+1);
+          $_SESSION['panier'][$product_id]++;
   }else {
-           $_SESSION['panier'][$product_id]=0;
+           $_SESSION['panier'][$product_id]=1;
         }
 
 }
@@ -29,5 +41,21 @@ public function del($product_id){
   //                  </div>";
   unset($_SESSION['panier'][$product_id]);
     // return $deleteMessage;
+ }
+
+ public function total(){
+   $total = 0;
+   $ids = array_keys($_SESSION['panier']);
+   if(empty($ids)){
+     $products = array();
+   }else
+   {
+     $products = $this->db->query('SELECT id,prix FROM menu WHERE id IN('.implode(',',$ids).')');
+   }
+   foreach ($products as $produit)
+   {
+      $total+=$produit->prix*$_SESSION['panier'][$produit->id];
+   }
+   return $total;
  }
 }

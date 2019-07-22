@@ -1,16 +1,9 @@
 <?php require('header.php'); ?>
-<?php
-if(isset($_GET['del']))
-{
-  $panier->del($_GET['del']);
-}
-?>
 <div class="container">
    <div class="card shopping-cart">
             <div class="card-header bg-dark text-light">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 Panier Client
-                <a href="" class="btn btn-outline-info btn-sm pull-right">Continiu shopping</a>
                 <div class="clearfix"></div>
             </div>
             <div class="card-body">
@@ -43,7 +36,7 @@ if(isset($_GET['del']))
                                 <span class="quantity"><?=$_SESSION['panier'][$customerProduct ->id]?></span>
                             </div>
                             <div class="col-2 col-sm-2 col-md-2 text-right">
-                                <a href="panier.php?del=<?=$customerProduct->id?>" class="btn btn-outline-danger btn-xs del">
+                                <a href="panier.php?delPanier=<?=$customerProduct->id?>" class="btn btn-outline-danger btn-xs del">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                 </a>
                             </div>
@@ -52,27 +45,12 @@ if(isset($_GET['del']))
                     <hr>
                     <?php endforeach; ?>
                     <!-- END PRODUCT -->
-                <div class="pull-right">
-                    <a href="" class="btn btn-outline-secondary pull-right">
-                        Update shopping cart
-                    </a>
-                </div>
             </div>
             <div class="card-footer">
-                <div class="coupon col-md-5 col-sm-5 no-padding-left pull-left">
-                    <div class="row">
-                        <div class="col-6">
-                            <input type="text" class="form-control" placeholder="cupone code">
-                        </div>
-                        <div class="col-6">
-                            <input type="submit" class="btn btn-default" value="Use cupone">
-                        </div>
-                    </div>
-                </div>
                 <div class="pull-right" style="margin: 10px">
-                    <a href="" class="btn btn-success pull-right">Checkout</a>
+                    <a href="" class="btn btn-success pull-right">Valider la commande</a>
                     <div class="pull-right" style="margin: 5px">
-                        Total price: <b>50.00€</b>
+                        Total price: <b><?=$panier->total() ?></b>
                     </div>
                 </div>
             </div>

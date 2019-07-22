@@ -29,7 +29,7 @@ require_once('controller/selectProductForMenu.php');
       <div class="row">
         <?php foreach($data as $product):?>
           <div class='col-lg-4 col-md-6 mb-5'>
-          <a class="" href="/panier/addpanier.php?productId=<?= $product->id;?>">
+          <a class="addPanier" href="/addpanier.php?productId=<?= $product->id;?>">
             <div class='product-item'>
               <figure onchange='click('#clic');' style='cursor:pointer;' id='img'>
                 <img   src="imageRepas/<?= $product->photoMenu;?>" alt='Image' class='img-fluid'>
@@ -41,7 +41,7 @@ require_once('controller/selectProductForMenu.php');
                 <div>
                   <!-- <form method='get' action='commande/commande.php'>
                     <input type='hidden' name='id' value='<?//= $product->id;?>'> -->
-                    <a href="/panier/addpanier.php?productId=<?= $product->id;?>" class='btn btn-black mr-1 rounded-0'>Ajouter au panier</a>
+                    <a href="/addpanier.php?productId=<?= $product->id;?>" class='btn btn-black mr-1 rounded-0 addPanier'>Ajouter au panier</a>
                   <!-- </form> -->
                 </div>
               </div>

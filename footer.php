@@ -57,8 +57,9 @@
 <script src="js/aos.js"></script>
 <script src="js/jquery.fancybox.min.js"></script>
 <script src="js/jquery.sticky.js"></script>
-
-
+<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   -->
+<script type="text/javascript" src="js/app.js"></script>
 <script src="js/main.js"></script>
 <script src="admin/js/removeAlert.js"></script>
 </body>

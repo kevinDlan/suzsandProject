@@ -208,7 +208,18 @@ require('_header.php');
                 <li><a href="#about-section" class="nav-link">A propos de nous</a></li>
                 <li><a href="#testimonials-section" class="nav-link">Temoignage</a></li>
                 <li><a href="#contact-section" class="nav-link">Contactez-nous</a></li>
-                <li><a href="panier.php"><i style="font-size:40px;color:#f16821;" class="fas fa-shopping-cart"></i><sup style ='font-size:15px; font-weight:bold;'><span class='badge badge-pill badge-danger'>1</span></sup></a></li>
+                <li>
+                  <a href="panier.php">
+                    <i style="font-size:40px;color:#f16821;" class="fas fa-shopping-cart">
+                    </i>
+                    <?php if($panier->count()>0): ?>
+                    <sup style ='font-size:15px; font-weight:bold;'>
+                      <span id="count" class='badge badge-pill badge-danger'>
+                        <?=$panier->count(); ?>
+                      </span></sup>
+                    <?php endif; ?>
+                    </a>
+                </li>
               </ul>
             </nav>
           </div>
