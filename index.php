@@ -1,10 +1,8 @@
-<?php require_once('header.php')?>
+<?php require('header.php')?>
     <div class="site-blocks-cover overlay" style="background-image: url(images/suzsand.jpg);" data-aos="fade" data-stellar-background-ratio="1">
       <div class="container">
         <div class="row align-items-center justify-content-center">
-
           <div class="col-md-12" data-aos="fade-up" data-aos-delay="400">
-
             <div class="row mb-4">
               <div class="col-md-12" style="text-align: center;">
                 <h1>Bienvenue à SUZSAND</h1>
@@ -27,12 +25,10 @@
             <a href="menu.php#menu-suzsand" class='btn btn-orange mr-1 rounded-0'>Decouvrez le menu de Suzsand...</a>
           </div>
         </div>
-        <div class="row"><?php include ('carousel/index.php'); ?></div>
+        <div class="row"><?php include('carousel/index.php'); ?></div>
     </div>
-
     <div class="site-blocks-cover inner-page-cover overlay get-notification"  style="background-image: url(images/suzsand/sand.jpg); background-attachment: fixed;" data-aos="fade">
       <div class="container">
-
         <div class="row align-items-center justify-content-center">
           <form action="/composant/newLetters.php" class="col-md-7" method="post">
             <h2>Être informé sur chaque nouvelle recette.</h2>
@@ -43,7 +39,6 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat commodi veniam doloremque ducimus tempora.</p>
           </form>
         </div>
-
       </div>
     </div>
   </div>
@@ -138,7 +133,6 @@
               <div>
                 <h3>Livraison à domicile</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-
               </div>
             </div>
           </div>
@@ -148,7 +142,6 @@
               <div>
                 <h3>Commande en ligne</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-
               </div>
             </div>
           </div>
@@ -164,7 +157,6 @@
         </div>
       </div>
     </div>
-
     <div class="site-section testimonial-wrap" id="testimonials-section">
       <div class="container">
         <div class="row mb-5">
@@ -184,27 +176,19 @@
                 <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
               </blockquote>
               <p class="text-black"><strong>John Smith</strong></p>
-
-
             </div>
           </div>
           <div>
             <div class="testimonial">
-
               <figure class="mb-4 d-block align-items-center justify-content-center">
                 <div><img src="images/n.jpg" alt="Image" class="w-100 img-fluid mb-3"></div>
               </figure>
-
               <blockquote class="mb-3">
                 <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
               </blockquote>
-
               <p class="text-black"><strong>Robert Aguilar</strong></p>
-
-
             </div>
           </div>
-
           <div>
             <div class="testimonial">
               <figure class="mb-4 d-block align-items-center justify-content-center">
@@ -214,12 +198,8 @@
                 <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
               </blockquote>
               <p class="text-black"><strong>Roger Spears</strong></p>
-
-
             </div>
-
           </div>
-
           <div>
             <div class="testimonial">
               <figure class="mb-4 d-block align-items-center justify-content-center">
@@ -229,22 +209,10 @@
                 <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
               </blockquote>
               <p class="text-black"><strong>Kyle McDonald</strong></p>
-
-
             </div>
-
           </div>
-
         </div>
     </div>
-
-
-
-
-
-
-
-
     <div class="site-section bg-light" id="contact-section">
       <div class="container">
         <div class="row mb-5">
@@ -255,13 +223,8 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-md-7 mb-5">
-
-
-
             <form method="POST" action="/contactus/contacter.php" class="p-5 bg-white">
-
               <h2 class="h4 text-black mb-5">Formulaire de contact</h2>
-
               <div class="row form-group">
                 <div class="col-md-6 mb-3 mb-md-0">
                   <label class="text-black" for="fname">Prénom</label>
@@ -272,9 +235,7 @@
                   <input type="text" id="lname" name="nom" class="form-control rounded-0"  required>
                 </div>
               </div>
-
               <div class="row form-group">
-
                 <div class="col-md-12">
                   <label class="text-black" for="email">Email</label>
                   <input type="email" id="email" name="email" class="form-control rounded-0" required>
@@ -302,4 +263,4 @@
         </div>
       </div>
     </div>
-    <?php require_once('footer.php')?>
+    <?php require('footer.php')?>

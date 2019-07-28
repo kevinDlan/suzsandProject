@@ -9,13 +9,15 @@
                   alert(data.message);
                  }else
                  {
-                  if(
-                      confirm(data.message+' Voulez vous Consulter votre panier ?')
-                    ){
-                      location.href = 'panier.php';
-                     }else{
-                       $('#count').append(data.count);
-                    }
+                   $('.count').empty().append(data.count);
+                   $('.visited-cart').click();
+                    // if(
+                    //       confirm(data.message+' Voulez vous Consulter votre panier ?')
+                    //  ){
+                    //       location.href = 'panier.php';
+                    //   }else
+                    //        {
+                    //        }
         }
      },'json');
      return false;

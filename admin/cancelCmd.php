@@ -5,14 +5,14 @@ if(isset($_GET['page']) and !empty($_GET['page']))
        require_once('../controller/paginationCmd.php');
     }else
     {
-      require_once('../controller/selectCmd.php');
+      require_once('../controller/selectCancelCmd.php');
     }
     require_once('../controller/paginateCmd.php');
     require_once('../function/convertDateToFrench.php');
  ?>
-<?php require_once('header.php'); ?>
+<?php require 'header.php'; ?>
 <div class="commandlist" style="margin-top:200px;">
-    <h3 class="text-center"> Liste des commandes</h3>
+    <h3 class="text-center"> Liste des commandes livrées</h3>
       <div class="container-fluid">
       <table class="table-responsive">
         <table class="table table-hover">
@@ -25,7 +25,7 @@ if(isset($_GET['page']) and !empty($_GET['page']))
             <th scope="col">Nombre de plat</th>
             <th scope="col">Lieu Livraison</th>
             <th scope="col">Montant Total</th>
-            <th scope="col">Traitement</th>
+            <th scope="col">Etat commande</th>
           </tr>
          </thead>
          <?php
@@ -40,34 +40,9 @@ if(isset($_GET['page']) and !empty($_GET['page']))
                 <td>".$cmd['nombrePlats']."</td>
                 <td>".$cmd['lieuLivraison']."</td>
                 <td>".$cmd['totalCommande']." FCFA</td>
-                <td><button data-toggle='modal' data-target='#modal' class='btn btn-dark' style='text-transform:uppercase;'>Traiter la commande</button></td>
+                <td><span class='badge badge-danger'>Annulée</span></td>
             </tr>
           </tbody>
-          <!-- Modal -->
-           <div class='modal fade' id='modal' tabindex='-1' role='dialog' aria-labelledby='modal' aria-hidden='true'>
-             <div class='modal-dialog modal-dialog-centered' role='document'>
-              <div class='modal-content'>
-               <div class='modal-header'>
-                 <h4 style='margin-left:100px;'>Traitement commande</h4>
-              </div>
-              <div class='modal-body'>
-                  <h5>Marquer la commande comme:</h5><br/>
-                <div class='row'>
-                    <form  method='POST' action='../controller/treatmentCmd.php'>
-                      <input type='text'style='display:none' name='treatId' value='".$cmd['id']."'>
-                      <button name='cmdtreat' type='submit' class='btn btn-success ml-4'>commande traitée</button>
-                    </form>
-                   <form  method='POST' action='../controller/treatmentCmd.php'>
-                     <input style='display:none' type='text' name='cancelId' value='".$cmd['id']."'>
-                     <button name='cmdcancel' type='submit' class='btn btn-danger  ml-2'>commande annulée !</button>
-                  </form>
-                </div>
-             </div>
-            <div class='modal-footer'>
-            </div>
-         </div>
-      </div>
-    </div>
           ";
         }
           ?>

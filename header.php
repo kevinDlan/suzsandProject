@@ -18,7 +18,6 @@ require('_header.php');
     <link rel="stylesheet"href="css/owl.theme.default.min.css">
     <link rel="stylesheet"href="css/styles.css">
     <link rel="stylesheet"href="css/jquery.fancybox.min.css">
-
     <link rel="stylesheet"href="css/bootstrap-datepicker.css">
 
     <link rel="stylesheet"href="fonts/flaticon/font/flaticon.css">
@@ -179,7 +178,7 @@ require('_header.php');
           <div class="col-6">
             <p class="mb-0 float-right">
               <span class="mr-3"><a href="tel://#"><span class="icon-phone mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">(+225)  08 59 91 89</span></a></span>
-              <span><a href="#"><span class="icon-envelope mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">jesussauve1995@gmail.com</span></a></span>
+              <span><a href="#"><span class="icon-envelope mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">info.suz@sand.gmail.com</span></a></span>
             </p>
 
           </div>
@@ -200,24 +199,21 @@ require('_header.php');
               <img src="images/n.jpg" class="logo">
             </a></h1>
           </div>
-          <div class="col-12 col-md-10 d-none d-xl-block">
-            <nav class="site-navigation position-relative text-right" role="navigation">
-              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+          <div  class="col-12 col-md-10 d-none d-xl-block">
+            <nav  class="site-navigation position-relative text-right" role="navigation">
+              <ul  class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="#home-section" class="nav-link">Accueil</a></li>
                 <li><a href="#menu-suzsand" class="nav-link products-sect">Menu Suzsand</a></li>
                 <li><a href="#about-section" class="nav-link">A propos de nous</a></li>
                 <li><a href="#testimonials-section" class="nav-link">Temoignage</a></li>
                 <li><a href="#contact-section" class="nav-link">Contactez-nous</a></li>
                 <li>
-                  <a href="panier.php">
-                    <i style="font-size:40px;color:#f16821;" class="fas fa-shopping-cart">
+                  <a  class="cart-link" href="panier.php">
+                    <i style="font-size:40px;color:#f16821;" class="fas fa-shopping-cart cart">
                     </i>
-                    <?php if($panier->count()>0): ?>
-                    <sup style ='font-size:15px; font-weight:bold;'>
-                      <span id="count" class='badge badge-pill badge-danger'>
+                      <span class=" badge badge-pill badge-danger count">
                         <?=$panier->count(); ?>
-                      </span></sup>
-                    <?php endif; ?>
+                      </span>
                     </a>
                 </li>
               </ul>

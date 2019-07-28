@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="carousel.css">
 <script type="text/javascript">
     $(document).ready(function(){
         $(".wish-icon i").click(function(){
@@ -70,7 +69,7 @@
                     <div class="row">
                       <?php foreach($datas as $products):?>
                         <div class='col-lg-4 col-md-6 mb-5'>
-                        <a class="addPanier" href="/addpanier.php?productId=<?= $product->id;?>">
+                        <a class="addPanier" href="/addpanier.php?productId=<?=$products->id;?>">
                           <div class='product-item'>
                             <figure onchange='click('#clic');' style='cursor:pointer;' id='img'>
                               <img   src="imageRepas/<?= $products->photoMenu;?>" alt='Image' class='img-fluid'>
@@ -82,7 +81,8 @@
                               <div>
                                 <!-- <form method='get' action='commande/commande.php'>
                                   <input type='hidden' name='id' value='<?//= $products->id;?>'> -->
-                                  <a class='btn btn-black mr-1 rounded-0 addPanier' href='/addpanier.php?productId=<?= $product->id;?>'>Ajouter au panier</a>
+                                  <a  class='btn btn-black mr-1 rounded-0 addPanier' href='/addpanier.php?productId=<?= $products->id;?>'>Ajouter au panier</a>
+                                  <button style="display:none;" class="visited-cart" data-toggle="modal" data-target="#visited-cart" type="button"></button>
                                 <!-- </form> -->
                               </div>
                             </div>
@@ -104,6 +104,7 @@
         </div>
     </div>
 </div>
+<?php require('modalAfterAddcart.php'); ?>
 <style type="text/css">
 
     .product-item

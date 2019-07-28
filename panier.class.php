@@ -31,7 +31,6 @@ public function add($product_id){
   }else {
            $_SESSION['panier'][$product_id]=1;
         }
-
 }
 public function del($product_id){
   // $deleteMessage ="<div id='alertSpace'  class='alert alert-success offset-3 col-6 col-md-6 mb-3 mb-md-0 text-center'>Produit supprimé avec succès !
@@ -56,6 +55,16 @@ public function del($product_id){
    {
       $total+=$produit->prix*$_SESSION['panier'][$produit->id];
    }
-   return $total;
+     return $total;
  }
+
+ public function sous_total($id,$quantity)
+ {
+     $products=$this->db->query('SELECT *  FROM menu WHERE id=:id',array('id'=>$id));
+     foreach ($products as $produit) {
+       $sous_total=$produit->prix*$quantity;
+     }
+      return $sous_total;
+ }
+
 }

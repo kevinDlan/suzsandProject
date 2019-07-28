@@ -1,4 +1,5 @@
 <?php session_start();?>
+<?php if(isset($_SESSION['login'])):?>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -16,7 +17,7 @@
     <link rel="stylesheet" href="../css/owl.theme.default.min.css">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/jquery.fancybox.min.css">
-
+    <link rel="stylesheet" href="css/searchbar.css">
     <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
 
     <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
@@ -55,7 +56,7 @@
           <div class="col-6">
             <p class="mb-0 float-right">
               <span class="mr-3"><a href="tel://#"> <span class="icon-phone mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">(+225)  08 59 91 89</span></a></span>
-              <span><a href="#"><span class="icon-envelope mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">shop@yourdomain.com</span></a></span>
+              <span><a href="#"><span class="icon-envelope mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">info.suz@sand.gmail.com</span></a></span>
             </p>
 
           </div>
@@ -97,8 +98,8 @@
                         <i class="fa fa-caret-down"></i>
                         </a>
                           <div class="dropdown-content">
-                             <a class="dropdown-item" href="/admin/traitementproduit/validateCmd.php">Commande validée</a>
-                             <a href="/admin/traitementproduit/cancelCmd.php">Commande annulée</a>
+                             <a class="dropdown-item" href="validateCmd.php">Commande validée</a>
+                             <a href="cancelCmd.php">Commande annulée</a>
                            </div>
                      </div>
                    </li>
@@ -122,13 +123,13 @@
                        </a>
                          <div class="dropdown-content">
                             <a href="addItemMenu.php" class="dropdown-item">Ajouter de produits</a>
-                            <a href="/admin/traitementproduit/updateproduct.php">Mise a jours des données du produit</a>
-                            <a href="/admin/traitementproduit/deleteproduct.php">Suppression d'un produit</a>
+                            <a href="updateproduct.php">Mise a jours des données du produit</a>
+                            <a href="deleteproduct.php">Suppression d'un produit</a>
                           </div>
                     </div>
                 </li>
                 <li>
-                    <a href="index.php">Déconnexion</a>
+                    <a href="index.php?logout">Déconnexion</a>
                </li>
               </ul>
             </nav>
@@ -137,3 +138,9 @@
         </div>
       </div>
     </header>
+  <?php
+        unset($_SESSION['adminloginError']);
+        else:
+              header('Location:index.php');
+        endif;
+  ?>

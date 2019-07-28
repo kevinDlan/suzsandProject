@@ -1,8 +1,9 @@
-.logo{
+.logo
+{
     width:100px ;
     height: 100px;
     -webkit-border-radius:50px;
     -moz-boder-radius:50px;
     border-radius:50px;
     overflow:hidden;
-    }
+  }

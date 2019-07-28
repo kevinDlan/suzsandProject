@@ -1,4 +1,9 @@
 <?php  session_start();?>
+<?php if(isset($_GET['logout']) && empty($_GET['logout']))
+ {
+   session_destroy();
+ }
+  ?>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -8,7 +13,6 @@
     <link href="../images/n.jpg" rel="icon" type="image/jpg">
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="../fonts/icomoon/style.css">
-
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/jquery-ui.css">
     <link rel="stylesheet" href="../css/owl.carousel.min.css">
@@ -18,20 +22,13 @@
     <link rel="stylesheet" href="../css/jquery.fancybox.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
-
     <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
-
     <link rel="stylesheet" href="../css/aos.css">
-
     <link rel="stylesheet" href="../css/style.css">
-
     <link rel="stylesheet" href="css/loginform.css">
-
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
   <div class="site-wrap">
-
     <div class="site-mobile-menu site-navbar-target">
       <div class="site-mobile-menu-header">
         <div class="site-mobile-menu-close mt-3">
@@ -40,7 +37,6 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-
     <div class="top-bar py-3 bg-light" id="home-section" style="height: 50px;">
       <div class="container">
         <div class="row align-items-center">
@@ -58,17 +54,13 @@
               <span class="mr-3"><a href="tel://#"> <span class="icon-phone mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">(+225)  08 59 91 89</span></a></span>
               <span><a href="#"><span class="icon-envelope mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">shop@yourdomain.com</span></a></span>
             </p>
-
           </div>
         </div>
       </div>
     </div>
-
     <header class="site-navbar py-1 bg-white js-sticky-header site-navbar-target" role="banner">
-
       <div class="container-fluid" style="height: 60px;">
         <div class="row align-items-center">
-
           <div class="col-6 col-xl-2">
             <h1 class="mb-0 site-logo">
             <a href="/index.php" class="text-black mb-0">
@@ -79,17 +71,14 @@
             <nav class="site-navigation position-relative text-right" role="navigation">
             </nav>
           </div>
-
-
           <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a></div>
-
         </div>
       </div>
     </header>
                  <?php
                     require_once('../errorAlert.php');
                  ?>
-  <div class="container" style="margin-top:200px;">
+  <div class="container" style="margin-top:75px;">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
 				<div class="d-flex justify-content-center">

@@ -10,11 +10,11 @@ if( isset($_POST) AND !empty($_POST))
        if( $data['passwords'] == md5($_POST['adminPassword'] ) && $data['email'] == $_POST['adminEmail'])
        {
            session_start();
-           $_SESSION['adminnom'] = $data['nom'];
-           $_SESSION['adminprenom'] = $data['prenom'];
+           // $_SESSION['adminnom'] = $data['nom'];
+           // $_SESSION['adminprenom'] = $data['prenom'];
            $_SESSION['login']="yes";
-          header('Location:../admin/home.php');
-       }else{
+           header('Location:../admin/home.php');
+          }else{
               session_start();
               $_SESSION['adminloginError']="Le mot de passe ou l'adresse email est incorrect !";
               header("Location:/admin/index.php?");

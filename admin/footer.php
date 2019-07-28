@@ -60,5 +60,7 @@
 <script src="../js/main.js"></script>
 <script src="js/notification.js"></script>
 <script src="js/removeAlert.js"></script>
+<script src="js/chooseFileForInsertProduct.js"></script>
+<script src="js/activeBtn.js"></script>
 </body>
 </html>
