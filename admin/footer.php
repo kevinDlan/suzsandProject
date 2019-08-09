@@ -37,13 +37,10 @@
   </p>
         </div>
       </div>
-
     </div>
   </div>
 </footer>
-
 </div> <!-- .site-wrap -->
-
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src="../js/jquery-migrate-3.0.1.min.js"></script>
 <script src="../js/jquery-ui.js"></script>
@@ -60,7 +57,8 @@
 <script src="../js/main.js"></script>
 <script src="js/notification.js"></script>
 <script src="js/removeAlert.js"></script>
-<script src="js/chooseFileForInsertProduct.js"></script>
+<script src="js/chooseFileForInsertProduct.js">
+</script>
 <script src="js/activeBtn.js"></script>
 </body>
 </html>

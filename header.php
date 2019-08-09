@@ -1,5 +1,6 @@
 <?php
 require('_header.php');
+require 'moneyformatfunction.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -33,10 +34,9 @@ require('_header.php');
     $(function() {
       $("#popModel").modal('show');
     });
-    $(function() {
+    $(function(){
       $("#popModel2").modal('show');
     });
-
     $(function(){
         $('#nos-produits').click(
           function(){
@@ -44,9 +44,6 @@ require('_header.php');
           }
           );
       })
-
-
-
     </script>
     <style type="text/css">
       .libelleMenu
@@ -63,96 +60,60 @@ require('_header.php');
       background-color: #f16821;
       border-color: #f16821;
       border-width: 3px;
-
-
     }
-
       .btn-orange:hover {
       color: #000 !important;
       background-color: transparent;
       transition: .5s all ease;
        }
-
-
     </style>
-
-
-
   </head>
-
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
-    <?php if (isset($_SESSION['vaide'])) { ?>
-
-
+    <?php if(isset($_SESSION['valide'])):?>
     <div id="popModel" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-
       </div>
       <div class="modal-body" style="color: #5AC868;">
         <p class="text-center">
           <i class="far fa-check-circle fa-10x"></i>
-
         </p>
         <h4 class="text-center" style="color: black;">
-          Félicitation votre commande a bien été enregistrer, vous serez contacté dans quelque instant !
+          <?=$_SESSION['valide']?>
         </h4>
-
-
       </div>
       <div class="modal-footer">
-
-        <button type="submit" data-dismiss="modal" style="font-size: 15px; margin-top: 15px;" class="btn btn-black mr-1">Fermer</button>
+        <button onclick="destroyOrderValideSession();" type="button" data-dismiss="modal" style="font-size: 15px; margin-top: 15px;" class="btn btn-black mr-1">Fermer</button>
       </div>
     </div>
-
   </div>
 </div>
-
-  <?php };
-  ?>
-
-
-
-  <?php if (isset($_GET['valide'])) { ?>
-
-
+<?php elseif(isset($_SESSION['invalide'])):?>
     <div id="popModel2" class="modal fade" role="dialog" style="color: #ff4949;">
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-
       </div>
       <div class="modal-body" >
         <p class="text-center">
           <img src="images/prohibition.png" height="150px" width="150px">
-
         </p>
         <h1 class="text-center">
-          Erreur de commande !
+          <?=$_SESSION['invalide'] ?>
         </h1>
-
-
       </div>
       <div class="modal-footer">
-
         <button type="submit" data-dismiss="modal" style="font-size: 15px; margin-top: 15px;" class="btn btn-black mr-1">Fermer</button>
       </div>
     </div>
-
   </div>
 </div>
-
-  <?php };
-
-  ?>
-
+<?php endif;?>
   <div class="site-wrap">
     <div class="site-mobile-menu site-navbar-target">
       <div class="site-mobile-menu-header">
@@ -162,11 +123,9 @@ require('_header.php');
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-
     <div class="top-bar py-3 bg-light" id="home-section" style="height: 50px;">
       <div class="container">
         <div class="row align-items-center">
-
           <div class="col-6 text-left">
             <ul class="social-media">
               <li><a target="_blank"  href="https://www.facebook.com/"><span class="icon-facebook"></span></a></li>
@@ -180,12 +139,10 @@ require('_header.php');
               <span class="mr-3"><a href="tel://#"><span class="icon-phone mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">(+225)  08 59 91 89</span></a></span>
               <span><a href="#"><span class="icon-envelope mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">info.suz@sand.gmail.com</span></a></span>
             </p>
-
           </div>
         </div>
       </div>
     </div>
-
     <header class="site-navbar py-4 bg-white js-sticky-header site-navbar-target" role="banner">
                  <?php
                    require_once('errorAlert.php');

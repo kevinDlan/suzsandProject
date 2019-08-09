@@ -16,10 +16,23 @@ class panier
     {
       $this->del($_GET['delPanier']);
     }
+
+    if(isset($_POST['panier']['quantity']))
+    {
+      $this->refreshcart();
+    }
     $this->db = $db;
   }
 
-
+public function refreshcart(){
+  foreach ($_SESSION['panier'] as $product_id => $quantity)
+  {
+    if(isset($_POST['panier']['quantity'][$product_id]))
+    {
+      $_SESSION['panier'][$product_id] = $_POST['panier']['quantity'][$product_id];
+    }
+  }
+}
 public function count()
 {
   return array_sum($_SESSION['panier']);
@@ -61,7 +74,8 @@ public function del($product_id){
  public function sous_total($id,$quantity)
  {
      $products=$this->db->query('SELECT *  FROM menu WHERE id=:id',array('id'=>$id));
-     foreach ($products as $produit) {
+     foreach ($products as $produit)
+     {
        $sous_total=$produit->prix*$quantity;
      }
       return $sous_total;

@@ -16,9 +16,7 @@ if(files.length > 0){
          }
        }
      }
-
      //JS for Renitialised all field after insert product
-
      $('').submit(
        function(e){
          e.preventDefault();
@@ -86,7 +84,7 @@ $(document).ready(function(){
                     success:function(data){
                       if(data != ""){
                           $('#searchresult').show().html(data);
-                        }else {
+                        }else{
                             $('#searchresult').show().html('Aucun resultat trouvé !');
                         } ;
 
@@ -133,7 +131,7 @@ $(document).ready(function(){
      function remove_attr(x){
        $(x).parents('.activateBtn').parents('.updated').children('.btn').children('#button').removeAttr('disabled');
      }
-     
+
    // JavaScript for delete product Page searbar
    $(document).ready(function(){
         $('#deleteProductCode').keyup(function(){

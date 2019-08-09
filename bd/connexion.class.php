@@ -27,5 +27,30 @@ private $db;
      $req = $this->db->prepare($sql);
      $req->execute($data);
      return $req->fetchAll(PDO::FETCH_OBJ);
+     $req->closeCursor();
+    }
+
+    public function insertQuery($sql,$data=array()){
+      $req = $this->db->prepare($sql);
+      $req->execute($data);
+      $req->closeCursor();
+      if($req->rowCount()>0)
+      {
+        return true;
+      }else
+      {
+        return false;
+      }
+    }
+
+    public function updateQuery($sql,$data=array()){
+      $req = $this->db->prepare($sql);
+      $req->execute($data);
+      $req->closeCursor();
+      if($req){
+                return true;
+              }else{
+                return false;
+              }
     }
 }

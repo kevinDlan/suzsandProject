@@ -43,24 +43,26 @@
                     <div class="row">
                         <?php foreach($data as $product):?>
                           <div class='col-lg-4 col-md-6 mb-5'>
-                          <a class="addPanier" href="/addpanier.php?productId=<?= $product->id;?>">
                             <div class='product-item'>
+                            <a class="product_detail" href="/product_detail.php?product=<?= $product->codeMenu;?>">
                               <figure onchange='click('#clic');' style='cursor:pointer;' id='img'>
                                 <img   src="imageRepas/<?= $product->photoMenu;?>" alt='Image' class='img-fluid'>
                               </figure>
+                            </a>
                               <div class='px-4'>
+                               <a class="product_detail" href="/product_detail.php?product=<?= $product->codeMenu;?>">
                                 <h3 class='libelleMenu' id='lb' style='cursor:pointer;' onchange='click('#clic');'><?= $product->libelleMenu?></h3>
                                 <p class='mb-4'><?= $product->descriptionMenu;?></p>
-                                <p class='mb-4' style="font-weight:bold; font-size:20px"><?= $product->prix;?><strong> FCFA</strong></p>
+                                <p class='mb-4' style="font-weight:bold; font-size:20px"><?=money_format($product->prix)?></p>
+                              </a>
                                 <div>
                                   <!-- <form method='get' action='commande/commande.php'>
                                     <input type='hidden' name='id' value='<?//= $product->id;?>'> -->
-                                    <a class='btn btn-black mr-1 rounded-0 addPanier' href="/addpanier.php?productId=<?= $product->id;?>">Ajouter au panier</a>
+                                    <a class='btn btn-black mr-1 rounded-0 addPanier' href="/addpanier.php?productId=<?= $product->id;?>">Ajouter au panier<i class="fas fa-shopping-cart offset-1"></i></a>
                                   <!-- </form> -->
                                 </div>
                               </div>
                             </div>
-                          </a>
                           </div>
                      <?php endforeach ?>
                 </div>
@@ -69,19 +71,22 @@
                     <div class="row">
                       <?php foreach($datas as $products):?>
                         <div class='col-lg-4 col-md-6 mb-5'>
-                        <a class="addPanier" href="/addpanier.php?productId=<?=$products->id;?>">
                           <div class='product-item'>
+                           <a class="product_detail" href="/product_detail.php?product=<?= $products->codeMenu;?>">
                             <figure onchange='click('#clic');' style='cursor:pointer;' id='img'>
                               <img   src="imageRepas/<?= $products->photoMenu;?>" alt='Image' class='img-fluid'>
                             </figure>
+                          </a>
                             <div class='px-4'>
+                              <a class="product_detail" href="/product_detail.php?product=<?= $products->codeMenu;?>">
                               <h3 class='libelleMenu' id='lb' style='cursor:pointer;' onchange='click('#clic');'><?= $products->libelleMenu?></h3>
                               <p class='mb-4'><?= $products->descriptionMenu;?></p>
-                              <p class='mb-4' style="font-weight:bold; font-size:20px"><?= $products->prix;?><strong> FCFA</strong></p>
+                              <p class='mb-4' style="font-weight:bold; font-size:20px"><?=money_format($products->prix)?></p>
+                            </a>
                               <div>
                                 <!-- <form method='get' action='commande/commande.php'>
                                   <input type='hidden' name='id' value='<?//= $products->id;?>'> -->
-                                  <a  class='btn btn-black mr-1 rounded-0 addPanier' href='/addpanier.php?productId=<?= $products->id;?>'>Ajouter au panier</a>
+                                  <a  class='btn btn-black mr-1 rounded-0 addPanier' href='/addpanier.php?productId=<?= $products->id;?>'>Ajouter au panier<i class="fas fa-shopping-cart offset-1"></i></a>
                                   <button style="display:none;" class="visited-cart" data-toggle="modal" data-target="#visited-cart" type="button"></button>
                                 <!-- </form> -->
                               </div>

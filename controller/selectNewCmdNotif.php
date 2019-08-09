@@ -1,6 +1,6 @@
 <?php
 require(dirname(__DIR__).'\bd\connexion.php');
-$query = $bdd->prepare("SELECT COUNT(*) as notifNbre FROM commande where etatCommande='En attente de traitement'");
+$query = $bdd->prepare("SELECT COUNT(*) as notifNbre FROM customer_order where order_status='on-processing'");
 $query->execute();
 $dataCmd = $query->fetch();
 $query->closeCursor();

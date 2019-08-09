@@ -58,9 +58,6 @@
         </div>
       </div>
     </div>
-
-
-
     <div class="site-section border-bottom" id="team-section">
       <div class="container">
         <div class="row mb-5">
@@ -115,9 +112,6 @@
         </div>
       </div>
     </div>
-
-
-
     <div class="site-section bg-light" id="services-section">
       <div class="container">
         <div class="row mb-5">

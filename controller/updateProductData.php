@@ -51,7 +51,7 @@
            //Requette effectuée avec succès
             session_start();
             $_SESSION['success_update'] = 'Modification effectuée avec succès !';
-            header('Location:../admin/traitementproduit/updateproduct.php');
+            header('Location:../admin/updateproduct.php');
           }else {
                echo 'La modification n\'a pas été enregistré ';
         }

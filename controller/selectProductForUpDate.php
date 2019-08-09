@@ -1,9 +1,7 @@
 <?php
-require(dirname(__DIR__).'\bd\connexion.php');
+require(dirname(__DIR__).'\bd\connexion.class.php');
+$bd = new BD();
 $date = date('Y-m-d');
-$query = $bdd->prepare("SELECT *  FROM  menu WHERE upDate_date<:dates ORDER BY id DESC");
-$query->bindValue(':dates',$date);
-$query->execute();
-$data= $query->fetchAll(\PDO::FETCH_ASSOC);
-$query->closeCursor();
- ?>
+$data = $bd->query("SELECT *  FROM  menu
+                    WHERE upDate_date<:dates ORDER BY id DESC",array("dates"=>$date)
+                  );

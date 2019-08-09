@@ -1,5 +1,6 @@
 <?php
-  require(dirname(__DIR__).'\bd\connexion.php');
+require(dirname(__DIR__).'\bd\connexion.class.php');
+  $bd = new BD();
   $selectPage = $page;
   $pageProductValue = 10;
   if ( $selectPage != 1){
@@ -10,10 +11,4 @@
     $LimitParam1=0;
     $LimitParam2=$pageProductValue;
   }
-
-  $query = $bdd->prepare("SELECT * FROM menu LIMIT $LimitParam1,$LimitParam2");
-  $query->execute();
-  //var_dump($query);
-  $data = $query->fetchAll(\PDO::FETCH_ASSOC);
-  //var_dump($query);
-  $query->closeCursor();
+  $data = $bd->query("SELECT * FROM menu LIMIT $LimitParam1,$LimitParam2");

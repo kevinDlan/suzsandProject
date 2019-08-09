@@ -1,7 +1,8 @@
 <?php
-  require(dirname(__DIR__).'\bd\connexion.php');
+  require(dirname(__DIR__).'\bd\connexion.class.php');
+  $bd = new BD();
   $selectPage = $page;
-  $pageProductValue = 10;
+  $pageProductValue =10;
   if ( $selectPage != 1){
     $LimitParam1=($selectPage-1)*$pageProductValue;
     $LimitParam2=$selectPage*$pageProductValue;
@@ -11,9 +12,16 @@
     $LimitParam2=$pageProductValue;
   }
 
-  $query = $bdd->prepare("SELECT * FROM commande WHERE etatCommande='En attente de traitement' LIMIT $LimitParam1,$LimitParam2");
-  $query->execute();
-  //var_dump($query);
-  $data = $query->fetchAll(\PDO::FETCH_ASSOC);
-  //var_dump($query);
-  $query->closeCursor();
+  $data = $bd->query("SELECT
+                            nomPrenom,
+                            contact,
+                            codecommande,
+                            order_date,
+                            delivery_place,
+                            order_total
+                            FROM customer,customer_order
+                            WHERE customer.codecommande=customer_order.code_commande
+                            AND customer_order.order_status=:param
+                            LIMIT $LimitParam1,$LimitParam2
+                        ",array("param"=>'on-processing')
+                      );

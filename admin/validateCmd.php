@@ -5,12 +5,13 @@ if(isset($_GET['page']) and !empty($_GET['page']))
        require_once('../controller/paginationCmd.php');
     }else
     {
-      require_once('../controller/selectvalidateCmd.php');
+      require '../controller/selectvalidateCmd.php';
     }
     require_once('../controller/paginateCmd.php');
     require_once('../function/convertDateToFrench.php');
  ?>
 <?php require 'header.php'; ?>
+<?php require '../moneyformatfunction.php'; ?>
 <div class="commandlist" style="margin-top:200px;">
     <h3 class="text-center"> Liste des commandes livrées</h3>
       <div class="container-fluid">
@@ -28,24 +29,20 @@ if(isset($_GET['page']) and !empty($_GET['page']))
             <th scope="col">Etat commande</th>
           </tr>
          </thead>
-         <?php
-        foreach ($data as $cmd) {
-          echo "
+         <?php foreach ($orderTraited as $cmd):?>
           <tbody>
             <tr>
-             <th scope='row'>".dateToFrench($cmd['dateCommande'],'l j F Y')."  à ".extratHour($cmd['dateCommande'])."</th>
-                <td>".$cmd['nomPrenom']."</td>
-                <td>".$cmd['contact']."</td>
-                <td>".$cmd['articleCommande']."</td>
-                <td>".$cmd['nombrePlats']."</td>
-                <td>".$cmd['lieuLivraison']."</td>
-                <td>".$cmd['totalCommande']." FCFA</td>
+             <th scope='row'><?=dateToFrench($cmd->order_date,'l j F Y')."  à ".extratHour($cmd->order_date)?></th>
+                <td><?=$cmd->nomPrenom?></td>
+                <td><?=$cmd->contact?></td>
+                <td><?=$cmd->libelleMenu?></td>
+                <td><?=$cmd->product_quantity?></td>
+                <td><?=$cmd->delivery_place?></td>
+                <td><?=money_format($cmd->order_total)?></td>
                 <td><span class='badge badge-success'>Livrée</span></td>
             </tr>
           </tbody>
-          ";
-        }
-          ?>
+        <?php endforeach; ?>
     </table>
   </table>
     </div>
@@ -92,4 +89,4 @@ if(isset($_GET['page']) and !empty($_GET['page']))
       </ul>
     </nav>
   </div>
-  <?php require ' footer.php'; ?>
+  <?php require 'footer.php'; ?>

@@ -19,13 +19,32 @@
     <link rel="stylesheet" href="../css/jquery.fancybox.min.css">
     <link rel="stylesheet" href="css/searchbar.css">
     <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
-
     <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
 
     <link rel="stylesheet" href="../css/aos.css">
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <script type="text/javascript">
+          function chooseFile(x){
+             $(x).parents('.img_viewer').children('input[type="file"]').click();
+                                      }
+        function show_apercu(x){
+          var files = jQuery(x)[0].files;
+            if(files.length > 0){
+               var file = files[0];
+               if(file.size<=4*1024*1024){
+                 var file = files[0];
+                 $(x).prevAll('.file-name').html(file.name+" "+parseInt(file.size/1024)+"  KO");
+                 $(x).prevAll('.image_apercu').attr('src', window.URL.createObjectURL(file));
+                 $(x).prevAll('.image_apercu').show();
+                 $(x).parents('.img_viewer').children('a').show();
+               }else{
+                     alert('l\'image que vous avez choisi est trop lourd. Elle doit etre inferieur a 4 MO');
+                     }
+                   }
+                 }
+  </script>
     <link rel="stylesheet" href="css/dropdown.css">
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -65,6 +84,16 @@
     </div>
     <?php
          require_once('../errorAlert.php');
+     ?>
+     <?php
+          if(isset($_SESSION['insertProductFailMsg']))
+          {
+            unset($_SESSION['insertProductFailMsg']);
+          }elseif(isset($_SESSION['insertProductSuccesMsg'])){
+            unset($_SESSION['insertProductSuccesMsg']);
+          }elseif(isset($_SESSION['success_update'])){
+            unset($_SESSION['success_update']);
+          }
      ?>
     <header class="site-navbar py-4 bg-white js-sticky-header site-navbar-target" role="banner">
       <div class="container-fluid" style="height: 80px;">
@@ -122,8 +151,8 @@
                        <i class="fa fa-caret-down"></i>
                        </a>
                          <div class="dropdown-content">
-                            <a href="addItemMenu.php" class="dropdown-item">Ajouter de produits</a>
-                            <a href="updateproduct.php">Mise a jours des données du produit</a>
+                            <a href="addItemMenu.php" class="dropdown-item">Ajout de produits au menu</a>
+                            <a href="updateproduct.php">Mise à jours des données du produit</a>
                             <a href="deleteproduct.php">Suppression d'un produit</a>
                           </div>
                     </div>
