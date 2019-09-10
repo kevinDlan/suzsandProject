@@ -1,0 +1,2 @@
+#liste des errors
+ErrorDocument 404 /erreurs.php?error=404
