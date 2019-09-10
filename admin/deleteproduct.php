@@ -35,6 +35,21 @@ if(isset($_GET['productCode']) and !empty($_GET['productCode']))
               </form>
            </div>
          </div>
+         <?php if(isset($_SESSION['deleteProduct'])):?>
+           <div class="alert alert-success mx-auto alert-dismissible fade show col-md-6" role="alert" style="text-align:center;">
+                  <?=$_SESSION['deleteProduct'];?>
+              <button type='button' class='close' data-dismiss="alert" aria-label='Close '>
+                     <span aria-hidden='true'>&times;</span>
+              </button>
+           </div>
+        <?php elseif(isset($_SESSION['deleteProductError'])):?>
+        <div class="alert alert-danger mx-auto alert-dismissible fade show col-md-6" role="alert" style="text-align:center;">
+               <?=$_SESSION['deleteProductError'];?>
+           <button type='button' class='close' data-dismiss="alert" aria-label='Close '>
+                  <span aria-hidden='true'>&times;</span>
+           </button>
+        </div>
+        <?php endif; ?>
          <div class="product_table">
            <div class="table-responsive">
              <table class="table table-hover">

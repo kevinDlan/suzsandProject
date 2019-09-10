@@ -9,6 +9,6 @@ try{
     $bdd = new PDO('mysql:host='.$server.';dbname='.$db_name.';charset=utf8',$user_name,$password);
 }catch(Exception $e)
 {
-    die("Erreur :".$e->getMessage);
+    die("Erreur :".$e->getMessage());
 }
 ?>

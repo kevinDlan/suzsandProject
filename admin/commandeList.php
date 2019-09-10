@@ -13,6 +13,14 @@ if(isset($_GET['page']) and !empty($_GET['page']))
 <?php require_once('header.php'); ?>
 <?php require '../moneyformatfunction.php'; ?>
 <div class="commandlist" style="margin-top:200px;">
+  <?php if(isset($_SESSION['updateOrderStatus'])): ?>
+    <div class="alert alert-success mx-auto alert-dismissible fade show col-md-6" role="alert" style="text-align:center;">
+           <?=$_SESSION['updateOrderStatus'];?>
+       <button type='button' class='close' data-dismiss="alert" aria-label='Close '>
+              <span aria-hidden='true'>&times;</span>
+       </button>
+    </div>
+  <?php endif; ?>
     <h3 class="text-center">Liste des commandes</h3>
       <div class="container-fluid">
       <div class="table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl">

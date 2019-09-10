@@ -30,7 +30,7 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-12 col-sm-12 col-md-12">
             <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
             <!-- Carousel indicators -->
             <ol class="carousel-indicators">
@@ -46,7 +46,7 @@
                             <div class='product-item'>
                             <a class="product_detail" href="/product_detail.php?product=<?= $product->codeMenu;?>">
                               <figure onchange='click('#clic');' style='cursor:pointer;' id='img'>
-                                <img   src="imageRepas/<?= $product->photoMenu;?>" alt='Image' class='img-fluid'>
+                                <img   src="imageRepas/<?= $product->photoMenu;?>"  alt='Image' class='img-fluid'>
                               </figure>
                             </a>
                               <div class='px-4'>

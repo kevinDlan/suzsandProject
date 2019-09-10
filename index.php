@@ -5,7 +5,7 @@
           <div class="col-md-12" data-aos="fade-up" data-aos-delay="400">
             <div class="row mb-4">
               <div class="col-md-12" style="text-align: center;">
-                <h1>Bienvenue à SUZSAND</h1>
+                <h1>Bienvenue chez SUZSAND</h1>
                 <p class="mb-5 lead">Découvrez votre nouvelle sandwicherie avec son goût esquis et raffinée à l'ivoirienne.</p>
                 <div>
                   <a href="#products-section" id="nos-produits" class="btn btn-white btn-outline-white py-3 px-5 rounded-0 mb-lg-0 mb-2 d-block d-sm-inline-block">Achetez maintenant</a>
@@ -36,16 +36,13 @@
               <input type="email" name="email" class="form-control rounded-0" placeholder="Entrer votre adresse email">
               <input type="submit" class="btn btn-white btn-outline-white rounded-0" value="SOUSCRIRE">
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat commodi veniam doloremque ducimus tempora.</p>
+            <p>Souscrire à notre newletter et vous serez informé de toute nos nouvelle recette.</p>
           </form>
         </div>
       </div>
     </div>
   </div>
-
-
-
-    <div class="site-section" id="about-section">
+    <!-- <div class="site-section" id="about-section">
       <div class="container">
         <div class="row align-items-lg-center">
           <div class="col-md-8 mb-5 mb-lg-0 position-relative">
@@ -57,7 +54,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="site-section border-bottom" id="team-section">
       <div class="container">
         <div class="row mb-5">
@@ -126,7 +123,7 @@
               <div class="unit-4-icon mr-4"><img src="https://img.icons8.com/cotton/64/000000/delivery-unpacking.png"></div>
               <div>
                 <h3>Livraison à domicile</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
+                <p>Vous Êtes Livrées Chez Dans Un Délai De 8h Maximum.</p>
               </div>
             </div>
           </div>
@@ -135,7 +132,7 @@
               <div class="unit-4-icon mr-4"><img src="https://img.icons8.com/material-two-tone/64/000000/online-order.png"></div>
               <div>
                 <h3>Commande en ligne</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
+                <p>Passez vos commande sur le site et nous vous livrons à domicile chez.Vous Ne Payez Qu\'À La Livraison De Votre Commande.</p>
               </div>
             </div>
           </div>
@@ -144,7 +141,7 @@
               <div class="unit-4-icon mr-4"><img src="https://img.icons8.com/cotton/64/000000/user-male.png"></span></div>
               <div>
                 <h3>Ecoute des utilisateurs</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
+                <p>Nous Sommes À Votre Écoute Et Disponible Pour Toute Vos Préoccupations 24/24</p>
               </div>
             </div>
           </div>
@@ -164,10 +161,10 @@
           <div>
             <div class="testimonial">
               <figure class="mb-4 d-block align-items-center justify-content-center">
-                <div><img src="images/n.jpg" alt="Image" class="w-100 img-fluid mb-3"></div>
+                <div><img src="images/temoin.jpg" alt="Image" class="w-100 img-fluid mb-3"></div>
               </figure>
               <blockquote class="mb-3">
-                <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
+                <p>&ldquo;Toujours satisfaits. Produits de qualité, les viandes savoureuses, le service très sympa. Nous y commandons notre diner  avec plaisir très régulièrement pour la famille.&rdquo;</p>
               </blockquote>
               <p class="text-black"><strong>John Smith</strong></p>
             </div>
@@ -212,7 +209,7 @@
         <div class="row mb-5">
           <div class="col-12 text-center">
             <h3 class="section-sub-title">formulaire de contact</h3>
-            <h2 class="section-title mb-3">entrer en contact</h2>
+            <h2 class="section-title mb-3">Nous contacté</h2>
           </div>
         </div>
         <div class="row justify-content-center">

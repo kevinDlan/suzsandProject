@@ -1,5 +1,5 @@
 <?php
-function money_format($val,$symbol=' XOF'){
+function money_format($val,$symbol=' FCFA'){
     $s=(int)($val/1000);
     $i = strlen($val);
     $k = strlen($s);

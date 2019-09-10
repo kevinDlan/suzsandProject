@@ -122,7 +122,7 @@
                  </li>
              </form>
             <?php for($i=1;$i<=$nbreOfPage;$i++): ?>
-                     <form class="pagevalue" action='deleteproduct.php' method='GET'>
+                     <form class="pagevalue" action='updateproduct.php' method='GET'>
                         <input class="pageValue" name='page' type='hidden' value='<?=$i?>'>
                         <li id='activeItem' class='page-item'><button id='<?=$i?>' onclick='activeFunction(this);' class='page-link' type='submit'><?=$i?></button></li>
                      </form>

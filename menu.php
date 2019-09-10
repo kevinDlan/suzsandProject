@@ -14,8 +14,23 @@
         </div>
       </div>
     </div> -->
-    <div class="container mt- 5 mb-5" style="margin-top:10%;" >
-      <div class="container mb-5">
+    <style media="screen">
+      .menu{
+        margin-top:10%;
+      }
+      @media(max-width:1276px){
+        .menu{
+              margin-top:35.35%;
+        }
+      }
+   .product-item {
+    border: 2px solid #DDD;
+    border-radius: 5px;
+    padding: 5px;
+}
+    </style>
+    <div class="container menu mb-5">
+      <div class="container mb-5 col-md-12 col-12">
         <div class=""><hr></div>
         <div class="row justify-content-center">
           <div class="col-md-6 text-center">
@@ -30,7 +45,7 @@
             <div class='product-item'>
              <a class="product_detail" href="/product_detail.php?product=<?= $product->codeMenu;?>">
               <figure onchange='click('#clic');' style='cursor:pointer;' id='img'>
-                <img   src="imageRepas/<?= $product->photoMenu;?>" alt='Image' class='img-fluid'>
+                <img src="imageRepas/<?= $product->photoMenu;?>" alt='Image' class='img-fluid'>
               </figure>
              </a>
               <div class='px-4'>

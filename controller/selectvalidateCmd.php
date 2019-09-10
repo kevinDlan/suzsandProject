@@ -8,12 +8,18 @@ $orderTraited = $bd->query('SELECT
                                   order_date,
                                   delivery_place,
                                   order_total,
-                                  product_quantity,
-                                  libelleMenu
+                                  GROUP_CONCAT(product_quantity) as product_quantity,
+                                  GROUP_CONCAT(libelleMenu) as libelleMenu
                                   FROM customer,customer_order,customer_item_order,menu
                                   WHERE customer_order.order_status=:param
                                   AND customer.codecommande=customer_order.code_commande
-                                  AND customer_order.code_commande=customer_item_order.code_commande
-                                  AND customer_item_order.id_menu=menu.id',
+                                  AND    customer_order.code_commande=customer_item_order.code_commande
+                                  AND customer_item_order.id_menu=menu.id
+                                  GROUP BY
+                                  nomPrenom,
+                                  contact,
+                                  order_date,
+                                  delivery_place,
+                                  order_total',
                                   array("param"=>$param)
                            );

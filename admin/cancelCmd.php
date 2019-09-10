@@ -13,7 +13,7 @@ if(isset($_GET['page']) and !empty($_GET['page']))
 <?php require 'header.php'; ?>
 <?php require '../moneyformatfunction.php'; ?>
 <div class="commandlist" style="margin-top:200px;">
-    <h3 class="text-center"> Liste des commandes livrées</h3>
+    <h3 class="text-center"> Liste des commandes Annulées</h3>
       <div class="container-fluid">
       <table class="table-responsive">
         <table class="table table-hover">

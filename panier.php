@@ -2,7 +2,7 @@
 <div class="container" style="margin-top:10%;margin-bottom:5%;">
 <?php if(isset($_SESSION['panier']) AND !empty($_SESSION['panier'])):?>
   <form class="form" action="panier.php" method="post">
-    <?php if(isset($_GET['delPanier'])): ?>
+    <?php if(isset($_GET['delPanier']) And !empty($_GET['delPanier'])): ?>
       <div class="alert alert-success mx-auto col-md-6" style="text-align:center;">
          le produit a été supprimé du panier avec succès !
          <button type='button' class='close' aria-label='Close'>

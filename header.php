@@ -135,9 +135,9 @@ require 'moneyformatfunction.php';
             </ul>
           </div>
           <div class="col-6">
-            <p class="mb-0 float-right">
-              <span class="mr-3"><a href="tel://#"><span class="icon-phone mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">(+225)  08 59 91 89</span></a></span>
-              <span><a href="#"><span class="icon-envelope mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">info.suz@sand.gmail.com</span></a></span>
+            <p class="float-right">
+              <span class="mr-3"><a href="tel:77298466"><span class="icon-phone mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">(+225)07970338</span></a></span>
+              <span><a href="mailto:info.suz@sand.gmail.com"><span class="icon-envelope mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">info.suz@sand.gmail.com</span></a></span>
             </p>
           </div>
         </div>
@@ -161,7 +161,7 @@ require 'moneyformatfunction.php';
               <ul  class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="#home-section" class="nav-link">Accueil</a></li>
                 <li><a href="#menu-suzsand" class="nav-link products-sect">Menu Suzsand</a></li>
-                <li><a href="#about-section" class="nav-link">A propos de nous</a></li>
+                <!-- <li><a href="#about-section" class="nav-link">A propos de nous</a></li> -->
                 <li><a href="#testimonials-section" class="nav-link">Temoignage</a></li>
                 <li><a href="#contact-section" class="nav-link">Contactez-nous</a></li>
                 <li>

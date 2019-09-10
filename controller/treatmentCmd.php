@@ -11,13 +11,11 @@ if (isset($_POST) AND !empty($_POST) AND in_array($_POST['changeOrderStatus'],$v
   if($update){
               session_start();
               $_SESSION['updateOrderStatus']="L'état de la commande a été mise a jour avec succès !";
-              header('Location:admin/commandeList.php');
               }else {
               session_start();
               $_SESSION['updateOrderStatus']="une erreur c'est produite la mise à jour n'a pas pu etre effectué ! Veuillez réessayé SVP";
-              header('Location:admin/customerOrder.php');
-
-                 }
+              }
+              header('Location:../admin/commandeList.php');
 }else{
   echo "Erreur";
 }
